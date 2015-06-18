@@ -15,6 +15,30 @@
 
 	$xmlZanox = new Zanox($xml, $url);
 
+	$page = 0;
+	$last_page = ;
+
+	// Inicia loop
+	while ($page <= $last_page) {
+		// obtem xml da pagina
+		$xml = get_content($url.$page);
+		
+		//new SimpleXMLElement($xml, LIBXML_NOEMPTYTAG, true);
+		// Inicia Loop entre os produtos
+
+			/* ## Validação ##
+			* Testa o link
+			* Remove caso não seja da categoria desejada
+			*/
+
+			/* ## Tratamento ##
+			* Obtem cor/tamanho
+			* Coloca marca/loja
+			*/
+
+
+		// Próxima página
+	}
 	
 
 
