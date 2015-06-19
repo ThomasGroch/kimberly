@@ -1,0 +1,6 @@
+logs/
+vendor/
+*.log
+/tmp
+*.sh
+composer.phar
