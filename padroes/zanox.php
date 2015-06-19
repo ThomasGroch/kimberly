@@ -1,13 +1,10 @@
 <?php
 
-	Class Zanox{
-
-		private $categorias_validas = array(
-								'Moda Feminina',
-				);
+	Class Zanox {
 
 		/* Campos Extra */
-		var $array = array();
+		public $array = array();
+		public $link_do_produto;
 
 		public function Zanox($array){
 			/*
@@ -23,32 +20,41 @@
 			return $this->array['total'];
 		}
 
+		public function getProductsList(){
+			$product_list = $this->array['productItems']['productItem'];
+			if ( empty($product_list) ) {
+				$this->logger->info('[Skip] Impossivel de obter a lista de produtos desta pagina');
+				return false;
+			}
+			return $product_list;
+		}
+
 		/*
 		* Se for um produto que interessar a tagbox, 
 		* devera retornar true
 		* Entrada: array de um produto
 		* Saida: (bool) 
 		*/
-		public function validate($produto){
+		public function validate(){
 			/* 
 			* $categorias[0] é a Categoria principal
 			* $categorias[1] e [2] são sub categorias
 			*/
-			$categorias = explode(' / ', $produto['merchantCategory']);
+			$categorias = explode(' / ', $this->produto['merchantCategory']);
 			
 			// Se a categoria principal NÃO estiver na lista de categorias válidas
 			// retorna falso
 			// if( ! in_array($categorias[0], $this->categorias_validas) ){
-			// 	$this->logger->info('categoria invalida');
+			// 	$this->logger->info('[Skip] Categoria invalida > '.$categorias[0]);
 			// 	return false;
 			// }
 			
 			// Testa resposta do cabeçalho HTTP
 			// retorna falso se o link nao estiver funcionando
 			// retorna o link se estiver funcionando
-			$this->link_do_produto = testHeader($produto['trackingLinks']['trackingLink']['ppc']);
+			$this->link_do_produto = testHeader($this->produto['trackingLinks']['trackingLink']['ppc']);
 			if ( ! $this->link_do_produto ) {
-				$this->logger->info('Link quebrado');
+				$this->logger->info('[Skip] Link quebrado');
 				return false;
 			}
 
@@ -62,25 +68,14 @@
 		*/
 		public function prepare(){
 			// Obtem html
-			$html = get_content($this->link_do_produto);
+			$html = file_get_html($this->link_do_produto);
 
-			if( empty($html->plaintext) ) {
+			// Html retornou vazio?
+			if( $html->plaintext == '' ) {
+				$this->logger->info('[Skip] Html vazio > '.$this->link_do_produto);
 				return false;
 			}
 
-			// Obtem cor/tamanho
-			$tamanhos = $html->find('div.size-option--available');
-			$this->array['tamanho'] = '';
-			foreach($tamanhos as $tamanho){
-				 $this->array['tamanho'] .= $tamanho->title.'|';
-			}
-
-			// remove o ultimo |
-			$this->array['tamanho'] = substr($this->array['tamanho'], 0, -1);
-
-			// Coloca marca
-			$this->array['marca'] = '';
-
-			// Coloca loja
+			return $html;
 		}
 	}

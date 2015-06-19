@@ -16767,3 +16767,457 @@
 [2015-06-19 09:20:11] INFO: -
 [2015-06-19 09:20:13] INFO: locato:http://amaro.com/p/bracelete-native/dourado?sku=15400088_009_U&utm_source=zanox&utm_medium=xml&zanpid=2046952940925080576
 [2015-06-19 09:20:13] INFO: -
+[2015-06-19 09:20:14] INFO: locato:http://amaro.com/p/bata-ilha/bege?sku=15310042_006_GG&utm_source=zanox&utm_medium=xml&zanpid=2046952946964849664
+[2015-06-19 09:20:14] INFO: -
+[2015-06-19 09:20:15] INFO: locato:http://amaro.com/p/calca-skinny-london/azul?sku=10000233_015_44&utm_source=zanox&utm_medium=xml&zanpid=2046952951679132672
+[2015-06-19 09:20:15] INFO: -
+[2015-06-19 09:20:16] INFO: locato:http://amaro.com/p/pulseira-chic/prata?sku=20000382_003_U&utm_source=zanox&utm_medium=xml&zanpid=2046952956670497792
+[2015-06-19 09:20:16] INFO: -
+[2015-06-19 09:20:18] INFO: locato:http://amaro.com/p/calca-flare-mirna/azul?sku=10000234_015_44&utm_source=zanox&utm_medium=xml&zanpid=2046952962081121280
+[2015-06-19 09:20:18] INFO: -
+[2015-06-19 09:20:19] INFO: locato:http://amaro.com/p/jardineira-jeans-cool/azul-escuro?sku=10000224_048_42&utm_source=zanox&utm_medium=xml&zanpid=2046952964442627072
+[2015-06-19 09:20:19] INFO: -
+[2015-06-19 09:20:20] INFO: locato:http://amaro.com/p/vestido-sueter/cinza?sku=20000359_019_G&utm_source=zanox&utm_medium=xml&zanpid=2046952972692595714
+[2015-06-19 09:20:20] INFO: -
+[2015-06-19 09:20:21] INFO: locato:http://amaro.com/p/mochila-camurca-square/preto?sku=20000765_002_U&utm_source=zanox&utm_medium=xml&zanpid=2046952978128557056
+[2015-06-19 09:20:21] INFO: -
+[2015-06-19 09:20:23] INFO: locato:http://amaro.com/p/chapeu-fedora-soft/burgundy?sku=20000771_035_U&utm_source=zanox&utm_medium=xml&zanpid=2046952983371379713
+[2015-06-19 09:20:23] INFO: -
+[2015-06-19 09:20:24] INFO: locato:http://amaro.com/p/cachecol-longo-12-malha/bege?sku=20000838_006_U&utm_source=zanox&utm_medium=xml&zanpid=2046952956695577600
+[2015-06-19 09:20:24] INFO: -
+[2015-06-19 09:20:26] INFO: locato:http://amaro.com/blusa-bordada-boho-1493.aspx/p?sku=1356001112?sku=135600111254&utm_source=zanox&utm_medium=xml&zanpid=2046952994515786752
+[2015-06-19 09:20:26] INFO: -
+[2015-06-19 09:20:27] INFO: locato:http://amaro.com/p/saia-lenco/preto?sku=14590096_002_36&utm_source=zanox&utm_medium=xml&zanpid=2046953000610026496
+[2015-06-19 09:20:27] INFO: -
+[2015-06-19 09:20:29] INFO: locato:http://amaro.com/p/vestido-drape-fuido/preto?sku=14590129_002_36&utm_source=zanox&utm_medium=xml&zanpid=2046952975754494976
+[2015-06-19 09:20:29] INFO: -
+[2015-06-19 09:20:30] INFO: locato:http://amaro.com/p/pulseira-couro-voltas/preto?sku=20000461_002_U&utm_source=zanox&utm_medium=xml&zanpid=2046953014774162432
+[2015-06-19 09:20:30] INFO: -
+[2015-06-19 09:20:32] INFO: locato:http://amaro.com/p/saia-flores-mediterraneo/laranja?sku=14450001_011_36&utm_source=zanox&utm_medium=xml&zanpid=2046953018549148672
+[2015-06-19 09:20:32] INFO: -
+[2015-06-19 09:20:34] INFO: locato:http://amaro.com/p/shorts-satin-lace/burgundy?sku=13660012_035_36&utm_source=zanox&utm_medium=xml&zanpid=2046952995174122496
+[2015-06-19 09:20:34] INFO: -
+[2015-06-19 09:20:35] INFO: locato:http://amaro.com/p/regata-cetim-beijo/branco?sku=13540010_004_GG&utm_source=zanox&utm_medium=xml&zanpid=2046953035003147264
+[2015-06-19 09:20:35] INFO: -
+[2015-06-19 09:20:37] INFO: locato:http://amaro.com/p/vestido-rede-leopardo-sport/preto?sku=14340018_002_GG&utm_source=zanox&utm_medium=xml&zanpid=2046953041336689664
+[2015-06-19 09:20:37] INFO: -
+[2015-06-19 09:20:39] INFO: locato:http://amaro.com/p/vestido-longo-rede-lateral/vermelho?sku=14340020_012_GG&utm_source=zanox&utm_medium=xml&zanpid=2046953048299119616
+[2015-06-19 09:20:39] INFO: -
+[2015-06-19 09:20:40] INFO: locato:http://amaro.com/p/vestido-malha-details/azul?sku=14590027_015_GG&utm_source=zanox&utm_medium=xml&zanpid=2046953055081395200
+[2015-06-19 09:20:40] INFO: -
+[2015-06-19 09:20:41] INFO: locato:http://amaro.com/p/vestido-estampa-geometrica/preto?sku=14710037_002_GG&utm_source=zanox&utm_medium=xml&zanpid=2046953060324332544
+[2015-06-19 09:20:41] INFO: -
+[2015-06-19 09:20:43] INFO: locato:http://amaro.com/p/top-lenco/nude?sku=15310004_023_GG&utm_source=zanox&utm_medium=xml&zanpid=2046953067190293504
+[2015-06-19 09:20:43] INFO: -
+[2015-06-19 09:20:45] INFO: locato:http://amaro.com/p/vestido-lenco-laser/bege?sku=14590095_006_GG&utm_source=zanox&utm_medium=xml&zanpid=2046953074081592320
+[2015-06-19 09:20:45] INFO: -
+[2015-06-19 09:20:46] INFO: locato:http://amaro.com/p/saia-lenco/bege?sku=14590096_006_36&utm_source=zanox&utm_medium=xml&zanpid=2046953081602036736
+[2015-06-19 09:20:46] INFO: -
+[2015-06-19 09:20:48] INFO: locato:http://amaro.com/p/vestido-curto-colonna/verde?sku=14590102_014_GG&utm_source=zanox&utm_medium=xml&zanpid=2046953056075416576
+[2015-06-19 09:20:48] INFO: -
+[2015-06-19 09:20:49] INFO: locato:http://amaro.com/p/colar-crystal-simple/marrom?sku=15400054_008_U&utm_source=zanox&utm_medium=xml&zanpid=2046953094663099392
+[2015-06-19 09:20:49] INFO: -
+[2015-06-19 09:20:51] INFO: locato:http://amaro.com/p/vestido-longo-plissado/preto?sku=10280060_002_GG&utm_source=zanox&utm_medium=xml&zanpid=2046953099834676224
+[2015-06-19 09:20:51] INFO: -
+[2015-06-19 09:20:52] INFO: locato:http://amaro.com/p/vestido-ecler/coral?sku=15570004_018_GG&utm_source=zanox&utm_medium=xml&zanpid=2046953104838423552
+[2015-06-19 09:20:52] INFO: -
+[2015-06-19 09:20:53] INFO: locato:http://amaro.com/p/pulseira-paradise-island/bege?sku=15750016_006_U&utm_source=zanox&utm_medium=xml&zanpid=2046953111272485888
+[2015-06-19 09:20:53] INFO: -
+[2015-06-19 09:20:55] INFO: locato:http://amaro.com/p/vestido-drape-fuido/bege?sku=14590129_006_36&utm_source=zanox&utm_medium=xml&zanpid=2046953116683052032
+[2015-06-19 09:20:55] INFO: -
+[2015-06-19 09:20:56] INFO: locato:http://amaro.com/p/kit-de-pulseiras-havana/rosa?sku=14060024_013_U&utm_source=zanox&utm_medium=xml&zanpid=2046953123100480512
+[2015-06-19 09:20:56] INFO: -
+[2015-06-19 09:20:58] INFO: locato:http://amaro.com/p/top-macrame-1/turquesa?sku=15840004_024_GG&utm_source=zanox&utm_medium=xml&zanpid=2046953129488290816
+[2015-06-19 09:20:58] INFO: -
+[2015-06-19 09:20:59] INFO: locato:http://amaro.com/p/flash-tattoo-gold/dourado?sku=15400158_009_U&utm_source=zanox&utm_medium=xml&zanpid=2046953135305989120
+[2015-06-19 09:20:59] INFO: -
+[2015-06-19 09:21:00] INFO: locato:http://amaro.com/p/kimono-printed-franja/taupe?sku=14590149_039_U&utm_source=zanox&utm_medium=xml&zanpid=2046953141022569472
+[2015-06-19 09:21:00] INFO: -
+[2015-06-19 09:21:02] INFO: locato:http://amaro.com/p/anel-indian/prata?sku=14880114_003_U&utm_source=zanox&utm_medium=xml&zanpid=2046953146265564160
+[2015-06-19 09:21:02] INFO: -
+[2015-06-19 09:21:03] INFO: locato:http://amaro.com/p/chapeu-voyage/bege?sku=14680032_006_U&utm_source=zanox&utm_medium=xml&zanpid=2046953152305247232
+[2015-06-19 09:21:03] INFO: -
+[2015-06-19 09:21:05] INFO: locato:http://amaro.com/p/chapeu-fedora/cinza?sku=14680035_019_U&utm_source=zanox&utm_medium=xml&zanpid=2046953158751892480
+[2015-06-19 09:21:05] INFO: -
+[2015-06-19 09:21:06] INFO: locato:http://amaro.com/p/camisa-fringe-style/oliva?sku=10000162_069_42&utm_source=zanox&utm_medium=xml&zanpid=2046953164481340416
+[2015-06-19 09:21:06] INFO: -
+[2015-06-19 09:21:07] INFO: locato:http://amaro.com/p/shorts-saia-pesca/vermelho?sku=15310030_012_36&utm_source=zanox&utm_medium=xml&zanpid=2046953170244457472
+[2015-06-19 09:21:07] INFO: -
+[2015-06-19 09:21:08] INFO: locato:http://amaro.com/p/top-torcido/preto?sku=15840002_002_GG&utm_source=zanox&utm_medium=xml&zanpid=2046953172115059712
+[2015-06-19 09:21:08] INFO: -
+[2015-06-19 09:21:10] INFO: locato:http://amaro.com/p/colete-fur-leather/preto?sku=20000826_002_G&utm_source=zanox&utm_medium=xml&zanpid=2046953179849384960
+[2015-06-19 09:21:10] INFO: -
+[2015-06-19 09:21:11] INFO: locato:http://amaro.com/p/colar-multi-gold/dourado?sku=15390051_009_U&utm_source=zanox&utm_medium=xml&zanpid=2046953185092150272
+[2015-06-19 09:21:11] INFO: -
+[2015-06-19 09:21:12] INFO: locato:http://amaro.com/p/vestido-bordado-butterfly/amarelo?sku=15260015_010_M/G&utm_source=zanox&utm_medium=xml&zanpid=2046953190335257600
+[2015-06-19 09:21:12] INFO: -
+[2015-06-19 09:21:14] INFO: locato:http://amaro.com/p/shorts-jeans-marmorizado/jeans?sku=10150047_046_36&utm_source=zanox&utm_medium=xml&zanpid=2046953196458800128
+[2015-06-19 09:21:14] INFO: -
+[2015-06-19 09:21:15] INFO: locato:http://amaro.com/p/vestido-neo-girlie/azul?sku=15590006_015_GG&utm_source=zanox&utm_medium=xml&zanpid=2046953201684960256
+[2015-06-19 09:21:15] INFO: -
+[2015-06-19 09:21:16] INFO: locato:http://amaro.com/p/vestido-doppio/azul?sku=15590009_015_GG&utm_source=zanox&utm_medium=xml&zanpid=2046953175009100800
+[2015-06-19 09:21:16] INFO: -
+[2015-06-19 09:21:17] INFO: locato:http://amaro.com/p/colar-trio-pompom/preto?sku=20000505_002_U&utm_source=zanox&utm_medium=xml&zanpid=2046953212212548608
+[2015-06-19 09:21:17] INFO: -
+[2015-06-19 09:21:19] INFO: locato:http://amaro.com/p/vestido-chemise-alexa/preto?sku=10000206_002_42&utm_source=zanox&utm_medium=xml&zanpid=2046953217539429376
+[2015-06-19 09:21:20] INFO: -
+[2015-06-19 09:21:21] INFO: locato:http://amaro.com/p/short-resinado-jacquard/preto?sku=10000217_002_42&utm_source=zanox&utm_medium=xml&zanpid=2046953227412792320
+[2015-06-19 09:21:21] INFO: -
+[2015-06-19 09:21:22] INFO: locato:http://amaro.com/p/bata-denim/azul?sku=10000174_015_G&utm_source=zanox&utm_medium=xml&zanpid=2046953233045771264
+[2015-06-19 09:21:22] INFO: -
+[2015-06-19 09:21:24] INFO: locato:http://amaro.com/p/poncho-etnico/cobre?sku=10000184_053_G&utm_source=zanox&utm_medium=xml&zanpid=2046953239001625600
+[2015-06-19 09:21:24] INFO: -
+[2015-06-19 09:21:25] INFO: locato:http://amaro.com/p/calca-alta-lapela/preto?sku=10000226_002_42&utm_source=zanox&utm_medium=xml&zanpid=2046953244567352320
+[2015-06-19 09:21:25] INFO: -
+[2015-06-19 09:21:27] INFO: locato:http://amaro.com/p/snoodle-tricot/verde?sku=10000278_014_U&utm_source=zanox&utm_medium=xml&zanpid=2046953250733093888
+[2015-06-19 09:21:27] INFO: -
+[2015-06-19 09:21:28] INFO: locato:http://amaro.com/p/colar-bolinha/marrom?sku=20000377_008_U&utm_source=zanox&utm_medium=xml&zanpid=2046953256659588096
+[2015-06-19 09:21:28] INFO: -
+[2015-06-19 09:21:29] INFO: locato:http://amaro.com/p/saia-transpassada-classic/preto?sku=15250008_002_36&utm_source=zanox&utm_medium=xml&zanpid=2046953262602888192
+[2015-06-19 09:21:29] INFO: -
+[2015-06-19 09:21:31] INFO: locato:http://amaro.com/p/calca-color/preto?sku=14590189_002_42&utm_source=zanox&utm_medium=xml&zanpid=2046953267761968128
+[2015-06-19 09:21:31] INFO: -
+[2015-06-19 09:21:32] INFO: locato:http://amaro.com/p/clutch-night-out/preto?sku=12180019_002_U&utm_source=zanox&utm_medium=xml&zanpid=2046953273898148864
+[2015-06-19 09:21:32] INFO: -
+[2015-06-19 09:21:33] INFO: locato:http://amaro.com/p/saia-midi-denim/azul?sku=10000215_015_42&utm_source=zanox&utm_medium=xml&zanpid=2046953279673848832
+[2015-06-19 09:21:33] INFO: -
+[2015-06-19 09:21:35] INFO: locato:http://amaro.com/p/bolsa-it/caramelo?sku=20000419_027_U&utm_source=zanox&utm_medium=xml&zanpid=2046953285654897664
+[2015-06-19 09:21:35] INFO: -
+[2015-06-19 09:44:36] INFO: [Pag 0/1530][Produto 0]
+[2015-06-19 09:44:47] INFO: [Pag 0/1530][Produto 1]
+[2015-06-19 09:44:48] INFO: [Pag 0/1530][Produto 2]
+[2015-06-19 09:44:50] INFO: [Pag 0/1530][Produto 3]
+[2015-06-19 09:44:51] INFO: [Pag 0/1530][Produto 4]
+[2015-06-19 09:44:53] INFO: [Pag 0/1530][Produto 5]
+[2015-06-19 09:44:54] INFO: [Pag 0/1530][Produto 6]
+[2015-06-19 09:44:56] INFO: [Pag 0/1530][Produto 7]
+[2015-06-19 09:44:57] INFO: [Pag 0/1530][Produto 8]
+[2015-06-19 09:44:59] INFO: [Pag 0/1530][Produto 9]
+[2015-06-19 09:45:00] INFO: [Pag 0/1530][Produto 10]
+[2015-06-19 09:45:01] INFO: [Pag 0/1530][Produto 11]
+[2015-06-19 09:45:04] INFO: [Pag 0/1530][Produto 12]
+[2015-06-19 09:45:05] INFO: [Pag 0/1530][Produto 13]
+[2015-06-19 09:45:07] INFO: [Pag 0/1530][Produto 14]
+[2015-06-19 09:45:09] INFO: [Pag 0/1530][Produto 15]
+[2015-06-19 09:45:11] INFO: [Pag 0/1530][Produto 16]
+[2015-06-19 09:45:13] INFO: [Pag 0/1530][Produto 17]
+[2015-06-19 09:45:15] INFO: [Pag 0/1530][Produto 18]
+[2015-06-19 09:45:17] INFO: [Pag 0/1530][Produto 19]
+[2015-06-19 09:45:19] INFO: [Pag 0/1530][Produto 20]
+[2015-06-19 09:45:20] INFO: [Pag 0/1530][Produto 21]
+[2015-06-19 09:45:22] INFO: [Pag 0/1530][Produto 22]
+[2015-06-19 09:45:23] INFO: [Pag 0/1530][Produto 23]
+[2015-06-19 09:45:25] INFO: [Pag 0/1530][Produto 24]
+[2015-06-19 09:45:26] INFO: [Pag 0/1530][Produto 25]
+[2015-06-19 09:45:28] INFO: [Pag 0/1530][Produto 26]
+[2015-06-19 09:45:30] INFO: [Pag 0/1530][Produto 27]
+[2015-06-19 09:45:31] INFO: [Pag 0/1530][Produto 28]
+[2015-06-19 09:45:33] INFO: [Pag 0/1530][Produto 29]
+[2015-06-19 09:45:34] INFO: [Pag 0/1530][Produto 30]
+[2015-06-19 09:45:36] INFO: [Pag 0/1530][Produto 31]
+[2015-06-19 09:45:37] INFO: [Pag 0/1530][Produto 32]
+[2015-06-19 09:45:39] INFO: [Pag 0/1530][Produto 33]
+[2015-06-19 09:53:54] INFO: [Pag 0/1530][Produto 0]
+[2015-06-19 09:53:59] INFO: [Pag 0/1530][Produto 1]
+[2015-06-19 09:54:08] INFO: [Pag 0/1530][Produto 2]
+[2015-06-19 09:54:14] INFO: [Pag 0/1530][Produto 3]
+[2015-06-19 09:54:23] INFO: [Pag 0/1530][Produto 4]
+[2015-06-19 09:54:28] INFO: [Pag 0/1530][Produto 5]
+[2015-06-19 09:54:38] INFO: [Pag 0/1530][Produto 6]
+[2015-06-19 09:54:39] INFO: [Pag 0/1530][Produto 7]
+[2015-06-19 10:08:44] INFO: [Pag 0/1530][Produto 0]
+[2015-06-19 10:08:46] INFO: [Pag 0/1530][Produto 1]
+[2015-06-19 10:08:47] INFO: [Pag 0/1530][Produto 2]
+[2015-06-19 10:08:49] INFO: [Pag 0/1530][Produto 3]
+[2015-06-19 10:08:50] INFO: [Pag 0/1530][Produto 4]
+[2015-06-19 10:08:52] INFO: [Pag 0/1530][Produto 5]
+[2015-06-19 10:08:53] INFO: [Pag 0/1530][Produto 6]
+[2015-06-19 10:11:28] INFO: [Pag 0/1530][Produto 0]
+[2015-06-19 10:11:49] INFO: [Skip] Pagina do produto retornou um html vazio
+[2015-06-19 10:11:49] INFO: [Pag 0/1530][Produto 1]
+[2015-06-19 10:11:59] INFO: [Skip] Pagina do produto retornou um html vazio
+[2015-06-19 10:11:59] INFO: [Pag 0/1530][Produto 2]
+[2015-06-19 10:12:22] INFO: [Skip] Pagina do produto retornou um html vazio
+[2015-06-19 10:12:22] INFO: [Pag 0/1530][Produto 3]
+[2015-06-19 10:12:28] INFO: [Skip] Pagina do produto retornou um html vazio
+[2015-06-19 10:12:28] INFO: [Pag 0/1530][Produto 4]
+[2015-06-19 10:12:41] INFO: [Pag 0/1530][Produto 0]
+[2015-06-19 10:12:49] INFO: [Skip] Html vazio > http://amaro.com/p/colar-perolas-e-renda/dourado?sku=15400161_009_U&utm_source=zanox&utm_medium=xml&zanpid=2046966154912003072
+[2015-06-19 10:12:49] INFO: [Pag 0/1530][Produto 1]
+[2015-06-19 10:13:00] INFO: [Skip] Html vazio > http://amaro.com/p/colar-perolas-e-renda/prata?sku=15400161_003_U&utm_source=zanox&utm_medium=xml&zanpid=2046966193373656064
+[2015-06-19 10:13:00] INFO: [Pag 0/1530][Produto 2]
+[2015-06-19 10:13:29] INFO: [Skip] Html vazio > http://amaro.com/p/bracelete-native/dourado?sku=15400088_009_U&utm_source=zanox&utm_medium=xml&zanpid=2046966255407555584
+[2015-06-19 10:13:29] INFO: [Pag 0/1530][Produto 3]
+[2015-06-19 10:13:45] INFO: [Skip] Html vazio > http://amaro.com/p/bata-ilha/bege?sku=15310042_006_GG&utm_source=zanox&utm_medium=xml&zanpid=2046966370079798272
+[2015-06-19 10:13:45] INFO: [Pag 0/1530][Produto 4]
+[2015-06-19 10:13:48] INFO: [Skip] Html vazio > http://amaro.com/p/calca-skinny-london/azul?sku=10000233_015_44&utm_source=zanox&utm_medium=xml&zanpid=2046966419841020928
+[2015-06-19 10:13:48] INFO: [Pag 0/1530][Produto 5]
+[2015-06-19 10:13:58] INFO: [Skip] Html vazio > http://amaro.com/p/pulseira-chic/prata?sku=20000382_003_U&utm_source=zanox&utm_medium=xml&zanpid=2046966444000211968
+[2015-06-19 10:13:58] INFO: [Pag 0/1530][Produto 6]
+[2015-06-19 10:17:25] INFO: [Pag 0/1530][Produto 0]
+[2015-06-19 10:17:27] INFO: [Skip] Html vazio > http://amaro.com/p/colar-perolas-e-renda/dourado?sku=15400161_009_U&utm_source=zanox&utm_medium=xml&zanpid=2046967342487237632
+[2015-06-19 10:17:27] INFO: [Pag 0/1530][Produto 1]
+[2015-06-19 10:17:29] INFO: [Skip] Html vazio > http://amaro.com/p/colar-perolas-e-renda/prata?sku=15400161_003_U&utm_source=zanox&utm_medium=xml&zanpid=2046967350137533440
+[2015-06-19 10:17:29] INFO: [Pag 0/1530][Produto 2]
+[2015-06-19 10:17:31] INFO: [Skip] Html vazio > http://amaro.com/p/bracelete-native/dourado?sku=15400088_009_U&utm_source=zanox&utm_medium=xml&zanpid=2046967359000126464
+[2015-06-19 10:17:31] INFO: [Pag 0/1530][Produto 3]
+[2015-06-19 10:17:33] INFO: [Skip] Html vazio > http://amaro.com/p/bata-ilha/bege?sku=15310042_006_GG&utm_source=zanox&utm_medium=xml&zanpid=2046967366705290240
+[2015-06-19 10:17:33] INFO: [Pag 0/1530][Produto 4]
+[2015-06-19 10:17:34] INFO: [Skip] Html vazio > http://amaro.com/p/calca-skinny-london/azul?sku=10000233_015_44&utm_source=zanox&utm_medium=xml&zanpid=2046967373680190464
+[2015-06-19 10:17:34] INFO: [Pag 0/1530][Produto 5]
+[2015-06-19 10:17:36] INFO: [Skip] Html vazio > http://amaro.com/p/pulseira-chic/prata?sku=20000382_003_U&utm_source=zanox&utm_medium=xml&zanpid=2046967381133696000
+[2015-06-19 10:17:36] INFO: [Pag 0/1530][Produto 6]
+[2015-06-19 10:17:38] INFO: [Skip] Html vazio > http://amaro.com/p/calca-flare-mirna/azul?sku=10000234_015_44&utm_source=zanox&utm_medium=xml&zanpid=2046967389253612544
+[2015-06-19 10:17:38] INFO: [Pag 0/1530][Produto 7]
+[2015-06-19 10:17:40] INFO: [Skip] Html vazio > http://amaro.com/p/jardineira-jeans-cool/azul-escuro?sku=10000224_048_42&utm_source=zanox&utm_medium=xml&zanpid=2046967396107133952
+[2015-06-19 10:17:40] INFO: [Pag 0/1530][Produto 8]
+[2015-06-19 10:17:42] INFO: [Skip] Html vazio > http://amaro.com/p/vestido-sueter/cinza?sku=20000359_019_G&utm_source=zanox&utm_medium=xml&zanpid=2046967404298638336
+[2015-06-19 10:17:42] INFO: [Pag 0/1530][Produto 9]
+[2015-06-19 10:18:31] INFO: [Pag 0/1530][Produto 0]
+[2015-06-19 10:18:35] INFO: [Skip] Html vazio > http://amaro.com/p/colar-perolas-e-renda/dourado?sku=15400161_009_U&utm_source=zanox&utm_medium=xml&zanpid=2046967625435042816
+[2015-06-19 10:18:35] INFO: [Pag 0/1530][Produto 1]
+[2015-06-19 10:18:42] INFO: [Skip] Html vazio > http://amaro.com/p/colar-perolas-e-renda/prata?sku=15400161_003_U&utm_source=zanox&utm_medium=xml&zanpid=2046967634133971968
+[2015-06-19 10:18:42] INFO: [Pag 0/1530][Produto 2]
+[2015-06-19 10:18:45] INFO: [Skip] Html vazio > http://amaro.com/p/bracelete-native/dourado?sku=15400088_009_U&utm_source=zanox&utm_medium=xml&zanpid=2046967667084309504
+[2015-06-19 10:18:45] INFO: [Pag 0/1530][Produto 3]
+[2015-06-19 10:18:47] INFO: [Skip] Html vazio > http://amaro.com/p/bata-ilha/bege?sku=15310042_006_GG&utm_source=zanox&utm_medium=xml&zanpid=2046967677012255744
+[2015-06-19 10:18:47] INFO: [Pag 0/1530][Produto 4]
+[2015-06-19 10:18:49] INFO: [Skip] Html vazio > http://amaro.com/p/calca-skinny-london/azul?sku=10000233_015_44&utm_source=zanox&utm_medium=xml&zanpid=2046967685765911552
+[2015-06-19 10:18:49] INFO: [Pag 0/1530][Produto 5]
+[2015-06-19 10:18:51] INFO: [Skip] Html vazio > http://amaro.com/p/pulseira-chic/prata?sku=20000382_003_U&utm_source=zanox&utm_medium=xml&zanpid=2046967693105886208
+[2015-06-19 10:18:51] INFO: [Pag 0/1530][Produto 6]
+[2015-06-19 10:18:53] INFO: [Skip] Html vazio > http://amaro.com/p/calca-flare-mirna/azul?sku=10000234_015_44&utm_source=zanox&utm_medium=xml&zanpid=2046967700949234688
+[2015-06-19 10:18:53] INFO: [Pag 0/1530][Produto 7]
+[2015-06-19 10:18:55] INFO: [Skip] Html vazio > http://amaro.com/p/jardineira-jeans-cool/azul-escuro?sku=10000224_048_42&utm_source=zanox&utm_medium=xml&zanpid=2046967709056709632
+[2015-06-19 10:18:55] INFO: [Pag 0/1530][Produto 8]
+[2015-06-19 10:18:56] INFO: [Skip] Html vazio > http://amaro.com/p/vestido-sueter/cinza?sku=20000359_019_G&utm_source=zanox&utm_medium=xml&zanpid=2046967716887647232
+[2015-06-19 10:18:56] INFO: [Pag 0/1530][Produto 9]
+[2015-06-19 10:18:58] INFO: [Skip] Html vazio > http://amaro.com/p/mochila-camurca-square/preto?sku=20000765_002_U&utm_source=zanox&utm_medium=xml&zanpid=2046967724563080192
+[2015-06-19 10:18:58] INFO: [Pag 0/1530][Produto 10]
+[2015-06-19 10:19:00] INFO: [Skip] Html vazio > http://amaro.com/p/chapeu-fedora-soft/burgundy?sku=20000771_035_U&utm_source=zanox&utm_medium=xml&zanpid=2046967732251354112
+[2015-06-19 10:19:00] INFO: [Pag 0/1530][Produto 11]
+[2015-06-19 10:19:02] INFO: [Skip] Html vazio > http://amaro.com/p/cachecol-longo-12-malha/bege?sku=20000838_006_U&utm_source=zanox&utm_medium=xml&zanpid=2046967739285115904
+[2015-06-19 10:19:02] INFO: [Pag 0/1530][Produto 12]
+[2015-06-19 10:19:03] INFO: [Skip] Html vazio > http://amaro.com/blusa-bordada-boho-1493.aspx/p?sku=1356001112?sku=135600111254&utm_source=zanox&utm_medium=xml&zanpid=2046967747266933760
+[2015-06-19 10:19:03] INFO: [Pag 0/1530][Produto 13]
+[2015-06-19 10:19:05] INFO: [Skip] Html vazio > http://amaro.com/p/saia-lenco/preto?sku=14590096_002_36&utm_source=zanox&utm_medium=xml&zanpid=2046967753545806848
+[2015-06-19 10:19:05] INFO: [Pag 0/1530][Produto 14]
+[2015-06-19 10:19:08] INFO: [Skip] Html vazio > http://amaro.com/p/vestido-drape-fuido/preto?sku=14590129_002_36&utm_source=zanox&utm_medium=xml&zanpid=2046967762324399104
+[2015-06-19 10:19:08] INFO: [Pag 0/1530][Produto 15]
+[2015-06-19 10:19:10] INFO: [Skip] Html vazio > http://amaro.com/p/pulseira-couro-voltas/preto?sku=20000461_002_U&utm_source=zanox&utm_medium=xml&zanpid=2046967772822770689
+[2015-06-19 10:19:10] INFO: [Pag 0/1530][Produto 16]
+[2015-06-19 10:19:12] INFO: [Skip] Html vazio > http://amaro.com/p/saia-flores-mediterraneo/laranja?sku=14450001_011_36&utm_source=zanox&utm_medium=xml&zanpid=2046967780892582912
+[2015-06-19 10:19:12] INFO: [Pag 0/1530][Produto 17]
+[2015-06-19 10:19:14] INFO: [Skip] Html vazio > http://amaro.com/p/shorts-satin-lace/burgundy?sku=13660012_035_36&utm_source=zanox&utm_medium=xml&zanpid=2046967790145332224
+[2015-06-19 10:19:14] INFO: [Pag 0/1530][Produto 18]
+[2015-06-19 10:19:17] INFO: [Skip] Html vazio > http://amaro.com/p/regata-cetim-beijo/branco?sku=13540010_004_GG&utm_source=zanox&utm_medium=xml&zanpid=2046967800882863104
+[2015-06-19 10:19:17] INFO: [Pag 0/1530][Produto 19]
+[2015-06-19 10:19:20] INFO: [Skip] Html vazio > http://amaro.com/p/vestido-rede-leopardo-sport/preto?sku=14340018_002_GG&utm_source=zanox&utm_medium=xml&zanpid=2046967812978979840
+[2015-06-19 10:19:20] INFO: [Pag 0/1530][Produto 20]
+[2015-06-19 10:19:23] INFO: [Skip] Html vazio > http://amaro.com/p/vestido-longo-rede-lateral/vermelho?sku=14340020_012_GG&utm_source=zanox&utm_medium=xml&zanpid=2046967822332335104
+[2015-06-19 10:19:23] INFO: [Pag 0/1530][Produto 21]
+[2015-06-19 10:19:25] INFO: [Skip] Html vazio > http://amaro.com/p/vestido-malha-details/azul?sku=14590027_015_GG&utm_source=zanox&utm_medium=xml&zanpid=2046967838589572096
+[2015-06-19 10:19:25] INFO: [Pag 0/1530][Produto 22]
+[2015-06-19 10:19:28] INFO: [Skip] Html vazio > http://amaro.com/p/vestido-estampa-geometrica/preto?sku=14710037_002_GG&utm_source=zanox&utm_medium=xml&zanpid=2046967847019979776
+[2015-06-19 10:19:28] INFO: [Pag 0/1530][Produto 23]
+[2015-06-19 10:19:31] INFO: [Skip] Html vazio > http://amaro.com/p/top-lenco/nude?sku=15310004_023_GG&utm_source=zanox&utm_medium=xml&zanpid=2046967855689833472
+[2015-06-19 10:19:31] INFO: [Pag 0/1530][Produto 24]
+[2015-06-19 10:19:33] INFO: [Skip] Html vazio > http://amaro.com/p/vestido-lenco-laser/bege?sku=14590095_006_GG&utm_source=zanox&utm_medium=xml&zanpid=2046967868553651200
+[2015-06-19 10:19:33] INFO: [Pag 0/1530][Produto 25]
+[2015-06-19 10:21:21] INFO: [Pag 0/1530][Produto 0]
+[2015-06-19 10:21:28] INFO: [Skip] 1 Html vazio > http://amaro.com/p/colar-perolas-e-renda/dourado?sku=15400161_009_U&utm_source=zanox&utm_medium=xml&zanpid=2046968332024128512
+[2015-06-19 10:21:28] INFO: [Pag 0/1530][Produto 1]
+[2015-06-19 10:21:48] INFO: [Skip] 1 Html vazio > http://amaro.com/p/colar-perolas-e-renda/prata?sku=15400161_003_U&utm_source=zanox&utm_medium=xml&zanpid=2046968363045200896
+[2015-06-19 10:21:48] INFO: [Pag 0/1530][Produto 2]
+[2015-06-19 10:22:05] INFO: [Skip] 1 Html vazio > http://amaro.com/p/bracelete-native/dourado?sku=15400088_009_U&utm_source=zanox&utm_medium=xml&zanpid=2046968454523057152
+[2015-06-19 10:22:05] INFO: [Pag 0/1530][Produto 3]
+[2015-06-19 10:28:50] INFO: [Pag 0/1530][Produto 0]
+[2015-06-19 10:28:52] INFO: [Skip] Html vazio > http://amaro.com/p/colar-perolas-e-renda/dourado?sku=15400161_009_U&utm_source=zanox&utm_medium=xml&zanpid=2046970180328129536
+[2015-06-19 10:32:04] INFO: [Pag 0/1530][Produto 0]
+[2015-06-19 10:32:06] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:32:06] INFO: [Pag 0/1530][Produto 1]
+[2015-06-19 10:32:08] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:32:08] INFO: [Pag 0/1530][Produto 2]
+[2015-06-19 10:32:10] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:32:10] INFO: [Pag 0/1530][Produto 3]
+[2015-06-19 10:32:12] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:32:12] INFO: [Pag 0/1530][Produto 4]
+[2015-06-19 10:32:14] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:32:14] INFO: [Pag 0/1530][Produto 5]
+[2015-06-19 10:32:17] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:32:17] INFO: [Pag 0/1530][Produto 6]
+[2015-06-19 10:32:18] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:32:18] INFO: [Pag 0/1530][Produto 7]
+[2015-06-19 10:32:21] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:32:21] INFO: [Pag 0/1530][Produto 8]
+[2015-06-19 10:32:23] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:32:23] INFO: [Pag 0/1530][Produto 9]
+[2015-06-19 10:32:25] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:32:25] INFO: [Pag 0/1530][Produto 10]
+[2015-06-19 10:32:27] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:32:27] INFO: [Pag 0/1530][Produto 11]
+[2015-06-19 10:32:29] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:32:29] INFO: [Pag 0/1530][Produto 12]
+[2015-06-19 10:32:31] INFO: [Skip] Html vazio > http://amaro.com/blusa-bordada-boho-1493.aspx/p?sku=1356001112?sku=135600111254&utm_source=zanox&utm_medium=xml&zanpid=2046971133454324736
+[2015-06-19 10:32:31] INFO: [Pag 0/1530][Produto 13]
+[2015-06-19 10:32:34] INFO: [Skip] Html vazio > http://amaro.com/p/saia-lenco/preto?sku=14590096_002_36&utm_source=zanox&utm_medium=xml&zanpid=2046971140194769920
+[2015-06-19 10:32:34] INFO: [Pag 0/1530][Produto 14]
+[2015-06-19 10:32:36] INFO: [Skip] Html vazio > http://amaro.com/p/vestido-drape-fuido/preto?sku=14590129_002_36&utm_source=zanox&utm_medium=xml&zanpid=2046971153322742784
+[2015-06-19 10:32:36] INFO: [Pag 0/1530][Produto 15]
+[2015-06-19 10:32:38] INFO: [Pag 0/1530][Produto 16]
+[2015-06-19 10:32:41] INFO: [Skip] Html vazio > http://amaro.com/p/saia-flores-mediterraneo/laranja?sku=14450001_011_36&utm_source=zanox&utm_medium=xml&zanpid=2046971171735737344
+[2015-06-19 10:32:41] INFO: [Pag 0/1530][Produto 17]
+[2015-06-19 10:32:43] INFO: [Skip] Html vazio > http://amaro.com/p/shorts-satin-lace/burgundy?sku=13660012_035_36&utm_source=zanox&utm_medium=xml&zanpid=2046971183630982144
+[2015-06-19 10:32:43] INFO: [Pag 0/1530][Produto 18]
+[2015-06-19 10:32:45] INFO: [Skip] Html vazio > http://amaro.com/p/regata-cetim-beijo/branco?sku=13540010_004_GG&utm_source=zanox&utm_medium=xml&zanpid=2046971160423728128
+[2015-06-19 10:32:45] INFO: [Pag 0/1530][Produto 19]
+[2015-06-19 10:32:47] INFO: [Skip] Html vazio > http://amaro.com/p/vestido-rede-leopardo-sport/preto?sku=14340018_002_GG&utm_source=zanox&utm_medium=xml&zanpid=2046971201498633216
+[2015-06-19 10:32:47] INFO: [Pag 0/1530][Produto 20]
+[2015-06-19 10:32:50] INFO: [Skip] Html vazio > http://amaro.com/p/vestido-longo-rede-lateral/vermelho?sku=14340020_012_GG&utm_source=zanox&utm_medium=xml&zanpid=2046971210210059264
+[2015-06-19 10:32:50] INFO: [Pag 0/1530][Produto 21]
+[2015-06-19 10:32:52] INFO: [Pag 0/1530][Produto 22]
+[2015-06-19 10:32:54] INFO: [Pag 0/1530][Produto 23]
+[2015-06-19 10:32:56] INFO: [Skip] Html vazio > http://amaro.com/p/top-lenco/nude?sku=15310004_023_GG&utm_source=zanox&utm_medium=xml&zanpid=2046971204967236608
+[2015-06-19 10:32:56] INFO: [Pag 0/1530][Produto 24]
+[2015-06-19 10:32:58] INFO: [Skip] Html vazio > http://amaro.com/p/vestido-lenco-laser/bege?sku=14590095_006_GG&utm_source=zanox&utm_medium=xml&zanpid=2046971247233408000
+[2015-06-19 10:32:58] INFO: [Pag 0/1530][Produto 25]
+[2015-06-19 10:33:01] INFO: [Skip] Html vazio > http://amaro.com/p/saia-lenco/bege?sku=14590096_006_36&utm_source=zanox&utm_medium=xml&zanpid=2046971257186350080
+[2015-06-19 10:33:01] INFO: [Pag 0/1530][Produto 26]
+[2015-06-19 10:33:03] INFO: [Skip] Html vazio > http://amaro.com/p/vestido-curto-colonna/verde?sku=14590102_014_GG&utm_source=zanox&utm_medium=xml&zanpid=2046971266107692032
+[2015-06-19 10:33:03] INFO: [Pag 0/1530][Produto 27]
+[2015-06-19 10:33:04] INFO: [Pag 0/1530][Produto 28]
+[2015-06-19 10:33:06] INFO: [Pag 0/1530][Produto 29]
+[2015-06-19 10:33:08] INFO: [Pag 0/1530][Produto 30]
+[2015-06-19 10:33:10] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:33:10] INFO: [Pag 0/1530][Produto 31]
+[2015-06-19 10:33:12] INFO: [Skip] Html vazio > http://amaro.com/p/vestido-drape-fuido/bege?sku=14590129_006_36&utm_source=zanox&utm_medium=xml&zanpid=2046971304359744512
+[2015-06-19 10:33:12] INFO: [Pag 0/1530][Produto 32]
+[2015-06-19 10:33:14] INFO: [Pag 0/1530][Produto 33]
+[2015-06-19 10:33:21] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:33:21] INFO: [Pag 0/1530][Produto 34]
+[2015-06-19 10:33:23] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:33:23] INFO: [Pag 0/1530][Produto 35]
+[2015-06-19 10:33:25] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:33:25] INFO: [Pag 0/1530][Produto 36]
+[2015-06-19 10:33:26] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:33:26] INFO: [Pag 0/1530][Produto 37]
+[2015-06-19 10:33:28] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:33:28] INFO: [Pag 0/1530][Produto 38]
+[2015-06-19 10:33:30] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:33:30] INFO: [Pag 0/1530][Produto 39]
+[2015-06-19 10:33:32] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:33:32] INFO: [Pag 0/1530][Produto 40]
+[2015-06-19 10:33:34] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:33:34] INFO: [Pag 0/1530][Produto 41]
+[2015-06-19 10:33:37] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:33:37] INFO: [Pag 0/1530][Produto 42]
+[2015-06-19 10:33:39] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:33:39] INFO: [Pag 0/1530][Produto 43]
+[2015-06-19 10:33:41] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:33:41] INFO: [Pag 0/1530][Produto 44]
+[2015-06-19 10:33:43] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:33:43] INFO: [Pag 0/1530][Produto 45]
+[2015-06-19 10:33:45] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:33:45] INFO: [Pag 0/1530][Produto 46]
+[2015-06-19 10:33:47] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:33:47] INFO: [Pag 0/1530][Produto 47]
+[2015-06-19 10:33:49] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:33:49] INFO: [Pag 0/1530][Produto 48]
+[2015-06-19 10:33:51] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:33:51] INFO: [Pag 0/1530][Produto 49]
+[2015-06-19 10:33:53] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:33:54] INFO: [Pag 1/1530][Produto 0]
+[2015-06-19 10:33:56] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:33:56] INFO: [Pag 1/1530][Produto 1]
+[2015-06-19 10:33:58] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:33:58] INFO: [Pag 1/1530][Produto 2]
+[2015-06-19 10:34:00] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:34:00] INFO: [Pag 1/1530][Produto 3]
+[2015-06-19 10:34:02] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:34:02] INFO: [Pag 1/1530][Produto 4]
+[2015-06-19 10:34:05] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:34:05] INFO: [Pag 1/1530][Produto 5]
+[2015-06-19 10:34:06] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:34:06] INFO: [Pag 1/1530][Produto 6]
+[2015-06-19 10:34:08] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:34:08] INFO: [Pag 1/1530][Produto 7]
+[2015-06-19 10:34:11] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:34:11] INFO: [Pag 1/1530][Produto 8]
+[2015-06-19 10:34:13] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:34:13] INFO: [Pag 1/1530][Produto 9]
+[2015-06-19 10:34:16] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:34:16] INFO: [Pag 1/1530][Produto 10]
+[2015-06-19 10:34:17] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:34:17] INFO: [Pag 1/1530][Produto 11]
+[2015-06-19 10:34:20] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:34:20] INFO: [Pag 1/1530][Produto 12]
+[2015-06-19 10:34:22] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:34:22] INFO: [Pag 1/1530][Produto 13]
+[2015-06-19 10:34:24] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:34:24] INFO: [Pag 1/1530][Produto 14]
+[2015-06-19 10:34:25] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:34:25] INFO: [Pag 1/1530][Produto 15]
+[2015-06-19 10:34:27] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:34:27] INFO: [Pag 1/1530][Produto 16]
+[2015-06-19 10:34:30] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:34:30] INFO: [Pag 1/1530][Produto 17]
+[2015-06-19 10:34:32] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:34:32] INFO: [Pag 1/1530][Produto 18]
+[2015-06-19 10:34:34] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:34:34] INFO: [Pag 1/1530][Produto 19]
+[2015-06-19 10:34:41] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:34:41] INFO: [Pag 1/1530][Produto 20]
+[2015-06-19 10:34:43] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:34:43] INFO: [Pag 1/1530][Produto 21]
+[2015-06-19 10:34:45] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:34:45] INFO: [Pag 1/1530][Produto 22]
+[2015-06-19 10:34:48] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:34:48] INFO: [Pag 1/1530][Produto 23]
+[2015-06-19 10:34:50] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:34:50] INFO: [Pag 1/1530][Produto 24]
+[2015-06-19 10:34:56] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:34:56] INFO: [Pag 1/1530][Produto 25]
+[2015-06-19 10:35:14] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:35:14] INFO: [Pag 1/1530][Produto 26]
+[2015-06-19 10:35:28] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:35:28] INFO: [Pag 1/1530][Produto 27]
+[2015-06-19 10:35:34] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:35:34] INFO: [Pag 1/1530][Produto 28]
+[2015-06-19 10:35:37] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:35:37] INFO: [Pag 1/1530][Produto 29]
+[2015-06-19 10:35:40] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:35:40] INFO: [Pag 1/1530][Produto 30]
+[2015-06-19 10:35:42] INFO: [Skip] Sem Disponibilidade de estoque
+[2015-06-19 10:35:42] INFO: [Pag 1/1530][Produto 31]
+[2015-06-19 10:35:59] INFO: [Pag 0/1530][Produto 0]
+[2015-06-19 10:36:15] INFO: [Pag 0/1530][Produto 1]
+[2015-06-19 10:36:29] INFO: [Pag 0/1530][Produto 2]
+[2015-06-19 10:37:23] INFO: [Skip] Link quebrado
+[2015-06-19 10:37:23] INFO: [Pag 0/1530][Produto 3]
+[2015-06-19 10:37:41] INFO: [Pag 0/1530][Produto 4]
+[2015-06-19 10:37:44] INFO: [Pag 0/1530][Produto 5]
+[2015-06-19 10:37:46] INFO: [Pag 0/1530][Produto 6]
+[2015-06-19 10:37:49] INFO: [Pag 0/1530][Produto 7]
+[2015-06-19 10:37:51] INFO: [Pag 0/1530][Produto 8]
+[2015-06-19 10:37:53] INFO: [Pag 0/1530][Produto 9]
+[2015-06-19 10:37:54] INFO: [Pag 0/1530][Produto 10]
+[2015-06-19 10:37:58] INFO: [Pag 0/1530][Produto 11]
+[2015-06-19 10:38:00] INFO: [Pag 0/1530][Produto 12]
+[2015-06-19 10:38:01] INFO: [Skip] Html vazio > http://amaro.com/blusa-bordada-boho-1493.aspx/p?sku=1356001112?sku=135600111254&utm_source=zanox&utm_medium=xml&zanpid=2046972519978066944
+[2015-06-19 10:38:01] INFO: [Pag 0/1530][Produto 13]
+[2015-06-19 10:38:03] INFO: [Skip] Html vazio > http://amaro.com/p/saia-lenco/preto?sku=14590096_002_36&utm_source=zanox&utm_medium=xml&zanpid=2046972526257052672
+[2015-06-19 10:38:03] INFO: [Pag 0/1530][Produto 14]
+[2015-06-19 10:38:06] INFO: [Skip] Html vazio > http://amaro.com/p/vestido-drape-fuido/preto?sku=14590129_002_36&utm_source=zanox&utm_medium=xml&zanpid=2046972535639710720
+[2015-06-19 10:38:06] INFO: [Pag 0/1530][Produto 15]
+[2015-06-19 10:38:15] INFO: [Pag 0/1530][Produto 0]
+[2015-06-19 10:39:20] INFO: [Pag 0/1530][Produto 0]
+[2015-06-19 10:43:03] INFO: [Pag 0/1530][Produto 0]
+[2015-06-19 10:45:50] INFO: [Pag 0/1530][Produto 0]
+[2015-06-19 10:52:39] INFO: [Pag 0/1530][Produto 0]
+[2015-06-19 10:58:04] INFO: [Pag 0/1530][Produto 0]
+[2015-06-19 10:59:34] INFO: [Pag 0/1530][Produto 0]
+[2015-06-19 11:04:43] INFO: [Pag 0/1530][Produto 0]
+[2015-06-19 11:07:23] INFO: [Pag 0/1530][Produto 0]
+[2015-06-19 11:15:37] INFO: [Skip] Impossivel de obter a lista de produtos desta pagina
+[2015-06-19 11:15:39] INFO: [Skip] Impossivel de obter a lista de produtos desta pagina
+[2015-06-19 11:16:09] INFO: [Pag 0/1530][Produto 0]

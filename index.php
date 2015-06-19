@@ -25,7 +25,7 @@
 	/*
 	* Carrega padrao que será usado
 	*/
-	$conf_padrao = 'Zanox';
+	$conf_padrao = 'Amaro';
 	require __DIR__ . '/padroes/'.$conf_padrao.'.php';
 
 	$url = "http://api.zanox.com/xml/2011-03-01/products/?connectid=089EAF947B7A0B3C896E&adspace=1916212&programs=13521&items=500&page=";
@@ -49,23 +49,30 @@
 		// Seta ultima pagina
 		$last_page = $padrao->getLastPage();
 
+		// Obtem a lista de produtos do XML conforme o padrao
+		$products_list = $padrao->getProductsList();
+
 		// Inicia Loop entre os produtos
-		foreach ($array['productItems']['productItem'] as $key => $produto) {
-			$logger->info('-');
-			
+		foreach ($products_list as $key => $produto) {
+			$logger->info('[Pag '.$page.'/'.$last_page.'][Produto '.$key.']');
+
+			// Informa o produto no qual sera processado
+			$padrao->produto = $produto;
+
 			// Validação
-			if( ! $padrao->validate($produto) ){
+			if( ! $padrao->validate() ){
 				continue;
 			}
-			//exit;
 
 			// Tratamento
-			if( ! $padrao->prepare($produto) ){
+			if( ! $padrao->prepare() ){
 				continue;
 			}
+			print_r($padrao->produto);
+			exit;
 
 			// Salva produto no xml
-			//$padrao->produto;
+			//if ( salva_($padrao->produto;
 		}
 
 		// Próxima página

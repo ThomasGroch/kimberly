@@ -9,6 +9,7 @@ function get_content($url) {
 	$options = array(CURLOPT_URL => $url,
 					 CURLOPT_RETURNTRANSFER => true,
 	                 CURLOPT_HEADER => false
+	                 //,CURLOPT_FOLLOWLOCATION => true
 	                );
 
 	curl_setopt_array($ch, $options);
@@ -23,6 +24,7 @@ function get_content($url) {
 
 /*
 * Retorna False se a pagina nao for encontrada
+* caso contrario retorna url do produto
 */
 function testHeader($url) {
 	global $logger;
@@ -32,7 +34,8 @@ function testHeader($url) {
 		$logger->info('Link > '.$url.' >'. $headers[0]);
 		return false;
 	}
-	$logger->info('locato:'.$headers['Location']['0']);
-	return true;
+	$link_do_produto = $headers['Location']['0'];
+	//$logger->info('locato:'.$headers['Location']['0']);
+	return $link_do_produto;
 }
 ?>
