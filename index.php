@@ -83,10 +83,10 @@
 		}
 
 		// Flag para rodar 2 paginas
-		if ( $page >= 0 ){
-			$logger->info('Script interrompido pela Flag');
-			break;
-		}
+		// if ( $page >= 0 ){
+		// 	$logger->info('Script interrompido pela Flag');
+		// 	break;
+		// }
 
 		// Próxima página
 		$page++;
