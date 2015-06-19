@@ -44,10 +44,10 @@
 			
 			// Se a categoria principal NÃO estiver na lista de categorias válidas
 			// retorna falso
-			// if( ! in_array($categorias[0], $this->categorias_validas) ){
-			// 	$this->logger->info('[Skip] Categoria invalida > '.$categorias[0]);
-			// 	return false;
-			// }
+			if( ! empty($this->categorias_validas) AND ! in_array($categorias[0], $this->categorias_validas) ){
+				$this->logger->info('[Skip] Categoria invalida > '.$categorias[0]);
+				return false;
+			}
 			
 			// Testa resposta do cabeçalho HTTP
 			// retorna falso se o link nao estiver funcionando

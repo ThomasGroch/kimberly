@@ -4,7 +4,6 @@
 	Class Amaro extends Zanox{
 
 		private $categorias_validas = array(
-								'Moda Feminina',
 				);
 
 		public function Amaro($array){

@@ -17221,3 +17221,4 @@
 [2015-06-19 11:15:37] INFO: [Skip] Impossivel de obter a lista de produtos desta pagina
 [2015-06-19 11:15:39] INFO: [Skip] Impossivel de obter a lista de produtos desta pagina
 [2015-06-19 11:16:09] INFO: [Pag 0/1530][Produto 0]
+[2015-06-19 11:27:20] INFO: [Pag 0/1530][Produto 0]
