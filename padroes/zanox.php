@@ -10,7 +10,7 @@
 				);
 
 		/* Campos Extra */
-		$this->array['tamanho'] = '';
+		$this->array = array();
 
 		function Zanox($array){
 			/*
