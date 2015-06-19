@@ -30,11 +30,12 @@ function testHeader($url) {
 	global $logger;
 	
 	$headers = get_headers($url, 1);
-	if (strpos($headers[0], '404') ){
-		$logger->info('[Skip] Respota 404 > '.$url);
+
+	if ( $headers[2] != "HTTP/1.1 200 OK" ){
+		$logger->info('[Skip] Resposta '.$headers[2].' > '.$url);
 		return false;
 	}
-	if( ! is_array($headers['Location']) {
+	if( ! is_array($headers['Location']) ) {
 		$logger->info('[Skip] Link do Zanox corrompido > '.$headers['Location']);
 		return false;
 	}
