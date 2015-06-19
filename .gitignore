@@ -1,6 +1,6 @@
-logs/
-vendor/
+logs/*
+xmls/*
+vendor/*
 *.log
 /tmp
-*.sh
 composer.phar
