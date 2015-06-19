@@ -32,6 +32,9 @@
 	$page = 0;
 	$last_page = 1;
 
+	// XML que ira salvar os produtos processados
+    $XmlConstruct = new XmlConstruct('root', '', 'xmls/'.$conf_padrao.'.xml');
+    $products_finish = array();
 
 	// Inicia loop
 	while ($page <= $last_page) {
@@ -68,16 +71,17 @@
 			if( ! $padrao->prepare() ){
 				continue;
 			}
-			print_r($padrao->produto);
-			exit;
+			$products_finish['products'][] = $padrao->produto;
 
-			// Salva produto no xml
-			//if ( salva_($padrao->produto;
 		}
 
 		// Próxima página
 		$page++;
 	}
+
+// Salva produto no xml
+$XmlConstruct->fromArray($products_finish);
+$XmlConstruct->getDocument();
 	
 
 
