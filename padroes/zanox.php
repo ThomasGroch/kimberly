@@ -10,9 +10,9 @@
 				);
 
 		/* Campos Extra */
-		$this->array = array();
+		$array['tamanho'] = '';
 
-		function Zanox($array){
+		public function Zanox($array){
 			/*
 			* Traz instancia do logger para uso na classe
 			*/
