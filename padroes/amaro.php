@@ -63,9 +63,7 @@
 
 
 			// Obtem marca
-			$this->produto['marca'] = '';
-
-			// Obtem loja
+			$this->produto['marca'] = 'Amaro';
 
 			// Produto Tratado com sucesso
 			return true;

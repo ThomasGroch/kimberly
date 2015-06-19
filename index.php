@@ -14,6 +14,7 @@
 	require __DIR__ . '/vendor/autoload.php';
 	require __DIR__ . '/util.php';
 	require __DIR__ . '/simple_html_dom.php';
+	require __DIR__ . '/xmlconstruct.php';
 	
 	/*
 	* Carrega o logger
@@ -31,6 +32,7 @@
 	$url = "http://api.zanox.com/xml/2011-03-01/products/?connectid=089EAF947B7A0B3C896E&adspace=1916212&programs=13521&items=500&page=";
 	$page = 0;
 	$last_page = 1;
+
 
 	// XML que ira salvar os produtos processados
     $XmlConstruct = new XmlConstruct('root', '', 'xmls/'.$conf_padrao.'.xml');
@@ -75,6 +77,12 @@
 
 		}
 
+		// Flag para rodar 2 paginas
+		if ( $page == 1){
+			$logger->info('Script interrompido pela Flag');
+			break;
+		}
+
 		// Próxima página
 		$page++;
 	}
@@ -82,6 +90,7 @@
 // Salva produto no xml
 $XmlConstruct->fromArray($products_finish);
 $XmlConstruct->getDocument();
+$logger->info('Produtos salvos!');
 	
 
 

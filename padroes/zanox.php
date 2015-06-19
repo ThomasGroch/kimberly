@@ -40,13 +40,15 @@
 			* $categorias[0] é a Categoria principal
 			* $categorias[1] e [2] são sub categorias
 			*/
-			$categorias = explode(' / ', $this->produto['merchantCategory']);
-			
-			// Se a categoria principal NÃO estiver na lista de categorias válidas
-			// retorna falso
-			if( ! empty($this->categorias_validas) AND ! in_array($categorias[0], $this->categorias_validas) ){
-				$this->logger->info('[Skip] Categoria invalida > '.$categorias[0]);
-				return false;
+			if( isset($this->produto['merchantCategory']) ){
+				$categorias = explode(' / ', $this->produto['merchantCategory']);
+				
+				// Se a categoria principal NÃO estiver na lista de categorias válidas
+				// retorna falso
+				if( ! empty($this->categorias_validas) AND ! in_array($categorias[0], $this->categorias_validas) ){
+					$this->logger->info('[Skip] Categoria invalida > '.$categorias[0]);
+					return false;
+				}
 			}
 			
 			// Testa resposta do cabeçalho HTTP
@@ -75,6 +77,9 @@
 				$this->logger->info('[Skip] Html vazio > '.$this->link_do_produto);
 				return false;
 			}
+
+			// Obtem loja
+			$this->produto['loja'] = get_class($this);
 
 			return $html;
 		}
