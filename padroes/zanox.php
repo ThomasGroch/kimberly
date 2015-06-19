@@ -2,15 +2,12 @@
 
 	Class Zanox{
 
-		// XML convertido em array
-		private $array;
-
 		private $categorias_validas = array(
 								'Moda Feminina',
 				);
 
 		/* Campos Extra */
-		$array['tamanho'] = '';
+		var $array = array();
 
 		public function Zanox($array){
 			/*
@@ -73,6 +70,7 @@
 
 			// Obtem cor/tamanho
 			$tamanhos = $html->find('div.size-option--available');
+			$this->array['tamanho'] = '';
 			foreach($tamanhos as $tamanho){
 				 $this->array['tamanho'] .= $tamanho->title.'|';
 			}

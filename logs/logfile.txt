@@ -16760,3 +16760,10 @@
 [2015-06-18 21:32:45] INFO: locato:http://amaro.com/p/vestido-jacquard-fit/bege?sku=10000191_006_42&utm_source=zanox&utm_medium=xml&zanpid=2046774886361629696
 [2015-06-18 21:32:45] INFO: Link quebrado
 [2015-06-18 21:32:45] INFO: -
+[2015-06-19 09:20:07] INFO: -
+[2015-06-19 09:20:10] INFO: locato:http://amaro.com/p/colar-perolas-e-renda/dourado?sku=15400161_009_U&utm_source=zanox&utm_medium=xml&zanpid=2046952919269889024
+[2015-06-19 09:20:10] INFO: -
+[2015-06-19 09:20:11] INFO: locato:http://amaro.com/p/colar-perolas-e-renda/prata?sku=15400161_003_U&utm_source=zanox&utm_medium=xml&zanpid=2046952903486637056
+[2015-06-19 09:20:11] INFO: -
+[2015-06-19 09:20:13] INFO: locato:http://amaro.com/p/bracelete-native/dourado?sku=15400088_009_U&utm_source=zanox&utm_medium=xml&zanpid=2046952940925080576
+[2015-06-19 09:20:13] INFO: -
