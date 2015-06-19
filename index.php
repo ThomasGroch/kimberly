@@ -73,12 +73,17 @@
 			if( ! $padrao->prepare() ){
 				continue;
 			}
-			$products_finish['products'][] = $padrao->produto;
+
+			// Remove a chave @attributes
+			recursive_unset($padrao->produto, '@attributes');
+
+			// Adiciona o produto processado a lista de produtos prontos
+			$products_finish['products'][]['product'] = $padrao->produto;
 
 		}
 
 		// Flag para rodar 2 paginas
-		if ( $page == 1){
+		if ( $page >= 0 ){
 			$logger->info('Script interrompido pela Flag');
 			break;
 		}
@@ -86,10 +91,15 @@
 		// Próxima página
 		$page++;
 	}
-
+//print_r($products_finish);
 // Salva produto no xml
+
 $XmlConstruct->fromArray($products_finish);
 $XmlConstruct->getDocument();
+
+//$xml = Array2XML::createXML('root_'.$conf_padrao, $products_finish);
+//$xml->saveXML('./xmls/'.$conf_padrao.'.xml');
+
 $logger->info('Produtos salvos!');
 	
 
