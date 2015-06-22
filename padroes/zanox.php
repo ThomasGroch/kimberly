@@ -17,7 +17,7 @@
 		}
 
 		public function getLastPage(){
-			return $this->array['total'];
+			return ceil($this->array['total']/50);
 		}
 
 		public function getProductsList(){

@@ -31,16 +31,22 @@ function testHeader($url) {
 	
 	$headers = get_headers($url, 1);
 
-	if ( $headers[2] != "HTTP/1.1 200 OK" ){
-		$logger->info('[Skip] Resposta '.$headers[2].' > '.$url);
+	if ( $headers[1] != "HTTP/1.1 200 OK" || $headers[2] != "HTTP/1.1 200 OK"){
+		$logger->info('[Skip] Resposta '.$headers[1].' > '.$url);
 		return false;
 	}
-	if( ! is_array($headers['Location']) ) {
+
+	if( (empty($headers['Location'])) || (! is_array($headers['Location'])) ) {
 		$logger->info('[Skip] Link do Zanox corrompido > '.$headers['Location']);
 		return false;
 	}
-	$link_do_produto = $headers['Location']['0'];
-	//$logger->info('locato:'.$headers['Location']['0']);
+	
+	if(! is_array($headers['Location'])){
+		$link_do_produto = $headers['Location'];		
+	}else{
+		$link_do_produto = $headers['Location']['0'];		
+	}
+
 	return $link_do_produto;
 }
 function recursive_unset(&$array, $unwanted_key) {
