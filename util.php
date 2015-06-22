@@ -31,7 +31,12 @@ function testHeader($url) {
 	
 	$headers = get_headers($url, 1);
 
-	if ( $headers[1] != "HTTP/1.1 200 OK" || $headers[2] != "HTTP/1.1 200 OK"){
+
+	// Se o Link do zanox estiver funcionando
+	// e o redirecionamento estiver retornando
+	// um cabecalho com respota 200 entao retorna true
+	// caso contrario falha
+	if ( (isset($headers[1]) && $headers[1] != "HTTP/1.1 200 OK")) || (isset($headers[2]) && $headers[2] != "HTTP/1.1 200 OK")){
 		$logger->info('[Skip] Resposta '.$headers[1].' > '.$url);
 		return false;
 	}

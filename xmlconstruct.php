@@ -21,7 +21,7 @@
     }
 
       //$this->startElement($prm_rootElementName); // changed
-      $this->startElementNS("p", "TagName", null);
+      //$this->startElementNS("p", "TagName", null);
       $this->writeAttribute ("version", "1.0");
       $this->writeAttribute ("xmlns:ds", "http://www.w3.org/2000/09/xmldsig#");
       $this->writeAttribute ("xmlns:p", "http://www.xxxxx.gov.it/sdi/xxxxx/v1.0");
@@ -88,6 +88,10 @@
       echo $this->getDocument();
     }
 
+    private static function isValidTagName($tag){
+        $pattern = '/^[a-z_]+[a-z0-9\:\-\.\_]*[^:]*$/i';
+        return preg_match($pattern, $tag, $matches) && $matches[0] == $tag;
+    }
 
     }
 

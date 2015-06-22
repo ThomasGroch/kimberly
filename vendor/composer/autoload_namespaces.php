@@ -8,4 +8,5 @@ $baseDir = dirname($vendorDir);
 return array(
     'Wa72\\SimpleLogger' => array($vendorDir . '/wa72/simplelogger'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log'),
+    'LSS' => array($vendorDir . '/openlss/lib-array2xml'),
 );
