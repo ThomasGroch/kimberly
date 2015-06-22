@@ -1,20 +1,15 @@
-<?php
-
+﻿<?php
 	ini_set('display_errors',1);
 	ini_set('display_startup_erros',1);
 	error_reporting(E_ALL);
-	date_default_timezone_set("America/Sao_Paulo");
-	//include_once 'bootstrap.php';
-	//$url = true;
-	//$xmlZanox = new Zanox($xml, $url);
-	//new SimpleXMLElement($xml, LIBXML_NOEMPTYTAG, true);
-	
+	setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+	date_default_timezone_set('America/Sao_Paulo');	
 	
 	// Carrega classes do composer e funcoes uteis =)
 	require __DIR__ . '/vendor/autoload.php';
 	require __DIR__ . '/util.php';
 	require __DIR__ . '/simple_html_dom.php';
-	require __DIR__ . '/xmlconstruct.php';
+	require __DIR__ . '/array2xml.php';
 	
 	/*
 	* Carrega o logger
@@ -26,30 +21,32 @@
 	/*
 	* Carrega padrao que será usado
 	*/
-	$conf_padrao = 'Amaro';
+	$conf_padrao = 'amaro';
+	$conf_padrao_uc = ucfirst($conf_padrao);
 	require __DIR__ . '/padroes/'.$conf_padrao.'.php';
 
-	$url = "http://api.zanox.com/xml/2011-03-01/products/?connectid=089EAF947B7A0B3C896E&adspace=1916212&programs=13521&items=500&page=";
+	$url = "";
 	$page = 0;
 	$last_page = 1;
 
-
-	// XML que ira salvar os produtos processados
-    $XmlConstruct = new XmlConstruct('root', '', 'xmls/'.$conf_padrao.'.xml');
+	// Array de produtos processados
     $products_finish = array();
 
 	// Inicia loop
 	while ($page <= $last_page) {
 
+		// Instancia um novo produto
+		$padrao = new $conf_padrao_uc();
+
 		// obtem xml da pagina
-		$xml = simplexml_load_string(get_content($url.$page) );
+		$xml = simplexml_load_string(get_content($padrao->getUrl().$page) );
 
 		// Converte para array
 		$json = json_encode($xml);
 		$array = json_decode($json,TRUE);
 
-		// Instancia um novo produto
-		$padrao = new $conf_padrao($array);
+		// Coloca o xml convertido para array o obj padrao
+		$padrao->init($array);
 
 		// Seta ultima pagina
 		$last_page = $padrao->getLastPage();
@@ -78,11 +75,13 @@
 			recursive_unset($padrao->produto, '@attributes');
 
 			// Adiciona o produto processado a lista de produtos prontos
-			$products_finish['products'][]['product'] = $padrao->produto;
-
+			$products_finish[] = $padrao->produto;
+			// if($key >=3){
+			// 	break;
+			// }
 		}
 
-		// Flag para rodar 2 paginas
+		//Flag para rodar 2 paginas
 		// if ( $page >= 0 ){
 		// 	$logger->info('Script interrompido pela Flag');
 		// 	break;
@@ -91,14 +90,20 @@
 		// Próxima página
 		$page++;
 	}
-//print_r($products_finish);
+
 // Salva produto no xml
+$file_path = 'xmls/'.$conf_padrao.'-'.date('Y-m-d-H-i-s').'.xml';
 
-$XmlConstruct->fromArray($products_finish);
-$XmlConstruct->getDocument();
-
-//$xml = Array2XML::createXML('root_'.$conf_padrao, $products_finish);
-//$xml->saveXML('./xmls/'.$conf_padrao.'.xml');
+try 
+{
+    $xml = new array2xml('products', 'product');
+    $xml->createNode( $products_finish );
+    $xml->save( $file_path );
+} 
+catch (Exception $e) 
+{
+    echo $e->getMessage();
+}
 
 $logger->info('Produtos salvos!');
 	

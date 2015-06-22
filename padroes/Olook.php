@@ -7,9 +7,18 @@
 
 		private $categorias_validas = array();
 
-		public function Amaro($array){
+		public function Amaro($array = array()){
 			parent::__construct($array);
 		}
+
+		/*
+		* Funcao para retornar url do sistema de afiliados
+		* sem o numero de paginacao
+		*/
+		public function getUrl() {
+			return '?';
+		}
+
 		/*
 		* Funcao para capturar dados extras
 		* Entrada: array de um produto

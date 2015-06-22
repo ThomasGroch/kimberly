@@ -57,4 +57,40 @@ function recursive_unset(&$array, $unwanted_key) {
         }
     }
 }
+
+class Util {
+   /**
+     * Create XML using string or array
+     *
+     * @param mixed $data input data
+     * @param SimpleXMLElement $xml
+     * @param string $child name of first level child
+     *
+     * @return adding Xml formated data into SimpleXmlElement
+     */
+
+	static function data2XML(array $data, SimpleXMLElement $xml, $child = "items")
+    {
+
+        foreach($data as $key => $val) {
+            if(is_array($val)) {
+
+                if(is_numeric($key)) {
+                    $node  = $xml->addChild($child);
+                    $nodes = $node->getName($child);
+                } else {
+
+                    $node  = $xml->addChild($key);
+                    $nodes = $node->getName($key);
+                }
+
+                $node->addChild($nodes, self::data2Xml($val, $node));
+            } else {
+                $xml->addChild($key, $val);
+            }
+        }
+
+    }
+
+}
 ?>

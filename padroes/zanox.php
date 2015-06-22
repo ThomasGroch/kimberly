@@ -6,13 +6,17 @@
 		public $array = array();
 		public $link_do_produto;
 
-		public function Zanox($array){
+		public function Zanox($array = array()){
 			/*
 			* Traz instancia do logger para uso na classe
 			*/
 			global $logger;
 			$this->logger = $logger;
-
+			if( !empty($array) ){
+				$this->array = $array;
+			}
+		}
+		public function init($array){
 			$this->array = $array;
 		}
 
@@ -24,7 +28,7 @@
 			$product_list = $this->array['productItems']['productItem'];
 			if ( empty($product_list) ) {
 				$this->logger->info('[Skip] Impossivel de obter a lista de produtos desta pagina');
-				return false;
+				exit;
 			}
 			return $product_list;
 		}
