@@ -26,10 +26,10 @@
 	/*
 	* Carrega padrao que será usado
 	*/
-	$conf_padrao = 'Amaro';
+	$conf_padrao = 'Olook';
 	require __DIR__ . '/padroes/'.$conf_padrao.'.php';
 
-	$url = "http://api.zanox.com/xml/2011-03-01/products/?connectid=089EAF947B7A0B3C896E&adspace=1916212&programs=13521&items=500&page=";
+	$url = "http://api.zanox.com/xml/2011-03-01/products/?connectid=089EAF947B7A0B3C896E&adspace=1916212&programs=12283&items=500&page=";
 	$page = 0;
 	$last_page = 1;
 
@@ -87,11 +87,12 @@
 		$page++;
 	}
 
-// Salva produto no xml
+// Salva produto no xml	
 $XmlConstruct->fromArray($products_finish);
 $XmlConstruct->getDocument();
+
 $logger->info('Produtos salvos!');
-	
+
 
 
 
