@@ -26,7 +26,7 @@
 	*/
 
 	$conf_padrao = ( isset($argv[1]) ) ? $argv[1] : null;
-	$conf_padrao = ( isset($_GET['padrao']) ) ? $_GET['padrao'] : null;
+	$conf_padrao = ( isset($_GET['padrao']) ) ? $_GET['padrao'] : $conf_padrao;
 	$conf_padrao_uc = ucfirst($conf_padrao);
 	require __DIR__ . '/padroes/'.$conf_padrao.'.php';
 

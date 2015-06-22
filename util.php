@@ -29,31 +29,59 @@ function get_content($url) {
 function testHeader($url) {
 	global $logger;
 	
-	$headers = get_headers($url, 1);
-
+	//$headers = get_headers($url, 1);
 
 	// Se o Link do zanox estiver funcionando
 	// e o redirecionamento estiver retornando
 	// um cabecalho com respota 200 entao retorna true
 	// caso contrario falha
-	if ( (isset($headers[1]) && $headers[1] != "HTTP/1.1 200 OK")) || (isset($headers[2]) && $headers[2] != "HTTP/1.1 200 OK")){
-		$logger->info('[Skip] Resposta '.$headers[1].' > '.$url);
-		return false;
-	}
+	// if ( isset($headers[1]) && $headers[1] != "HTTP/1.1 200 OK") || 
+	// 	isset($headers[2]) && $headers[2] != "HTTP/1.1 200 OK")  {
+	// 	$logger->info('[Skip] Resposta '.$headers[1].' > '.$url);
+	// 	return false;
+	// }
 
-	if( (empty($headers['Location'])) || (! is_array($headers['Location'])) ) {
-		$logger->info('[Skip] Link do Zanox corrompido > '.$headers['Location']);
-		return false;
-	}
+	// if( (empty($headers['Location'])) || (! is_array($headers['Location'])) ) {
+	// 	$logger->info('[Skip] Link do Zanox corrompido > '.$headers['Location']);
+	// 	return false;
+	// }
 	
-	if(! is_array($headers['Location'])){
-		$link_do_produto = $headers['Location'];		
-	}else{
-		$link_do_produto = $headers['Location']['0'];		
+	// if(! is_array($headers['Location'])){
+	// 	$link_do_produto = $headers['Location'];		
+	// }else{
+	// 	$link_do_produto = $headers['Location']['0'];		
+	// }
+
+	if( ! getRedirectUrl($url) ) {
+		$logger->info('[Skip] Link corrompido');
+		return false;
 	}
 
 	return $link_do_produto;
 }
+
+
+function getRedirectUrl($url) {
+    stream_context_set_default(array(
+        'http' => array(
+            'method' => 'HEAD'
+        )
+    ));
+    $headers = get_headers($url, 1);
+    if ($headers !== false && isset($headers['Location'])) {
+        return getRedirectUrl($headers['Location']);
+    }
+
+    // Aqui a variavel $headers corresponde a pagina
+    // do produto da loja, entao testo o retorno http
+
+    if( strpos( $headers['Status'], 'OK' ) ){
+    	return $url;;
+    }
+    return false;
+}
+
+
 function recursive_unset(&$array, $unwanted_key) {
 	if( isset($array[$unwanted_key]) ){
     	unset($array[$unwanted_key]);
