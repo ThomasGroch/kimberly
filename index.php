@@ -24,6 +24,7 @@
 	* ou passado pelo GET[padrao] usa GET[padrao]
 	* Ex.: amaro olook
 	*/
+
 	$conf_padrao = ( isset($argv[1]) ) ? $argv[1] : null;
 	$conf_padrao = ( isset($_GET['padrao']) ) ? $_GET['padrao'] : null;
 	$conf_padrao_uc = ucfirst($conf_padrao);
