@@ -1,7 +1,5 @@
 logs/*
 xmls/*
 vendor/*
-*.log
-/tmp
 composer.phar
 composer.lock

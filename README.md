@@ -1,29 +1,25 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
 
 ### What is this repository for? ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+This software was developed in order to perform validation, pre-processing to a large scale of products from multiple Affiliate links.
+
+* Kimberly
+* Version 1.0
 
 ### How do I get set up? ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+* Run: composer update
+* CHMOD 777 on /xmls and /logs
 
-### Contribution guidelines ###
+### Author and Contribution ###
 
 * Writing tests
-* Code review
-* Other guidelines
+* Thomas Letsch Groch
+* Jean Alves
+* João Flôres
 
-### Who do I talk to? ###
+### TagBox ###
 
-* Repo owner or admin
-* Other community or team contact
+* http://tagbox.com.br

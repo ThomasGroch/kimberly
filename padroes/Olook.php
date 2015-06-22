@@ -16,7 +16,7 @@
 		* sem o numero de paginacao
 		*/
 		public function getUrl() {
-			return '?';
+			return 'http://api.zanox.com/xml/2011-03-01/products/?connectid=089EAF947B7A0B3C896E&adspace=1916212&programs=12283&items=500&page=';
 		}
 
 		/*

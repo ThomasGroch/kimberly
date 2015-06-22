@@ -20,12 +20,15 @@
 	
 	/*
 	* Carrega padrao que será usado
+	* Se for passado pelo primeiro parametro no terminal usa argv[1]
+	* ou passado pelo GET[padrao] usa GET[padrao]
+	* Ex.: amaro olook
 	*/
-	$conf_padrao = 'amaro';
+	$conf_padrao = ( isset($argv[1]) ) ? $argv[1] : null;
+	$conf_padrao = ( isset($_GET['padrao']) ) ? $_GET['padrao'] : null;
 	$conf_padrao_uc = ucfirst($conf_padrao);
 	require __DIR__ . '/padroes/'.$conf_padrao.'.php';
 
-	$url = "";
 	$page = 0;
 	$last_page = 1;
 
@@ -106,7 +109,7 @@ catch (Exception $e)
 }
 
 $logger->info('Produtos salvos!');
-	
+
 
 
 
