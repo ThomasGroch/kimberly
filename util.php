@@ -40,7 +40,7 @@ function testHeader($url='') {
 }
 
 
-function getRedirectUrl($url='') {
+function getRedirectUrl($url) {
     stream_context_set_default(array(
         'http' => array(
             'method' => 'HEAD'
@@ -49,7 +49,7 @@ function getRedirectUrl($url='') {
 
     // BUG do retorno em array após o redirecionamento
     if( is_array($url)) {
-    	$url = $url[0];
+        $url = $url[0];
     }
 
     $headers = get_headers($url, 1);
@@ -60,8 +60,8 @@ function getRedirectUrl($url='') {
     // Aqui a variavel $headers corresponde a pagina
     // do produto da loja, entao testo o retorno http
 
-    if( strpos( $headers['Status'], 'OK' ) ){
-    	return $url;;
+    if( strpos( $headers[0], 'OK' ) ){
+        return $url;;
     }
     return false;
 }

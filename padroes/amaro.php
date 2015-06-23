@@ -35,7 +35,7 @@
 		*/
 		public function prepare(){
 			$html = parent::prepare();
-
+			
 			// Obtem tamanho
 			if( ! $html->find('div.size-option--available') ) {
 				$this->logger->info('[Skip] Nao foi foi possivel encontrar tamanhos');
