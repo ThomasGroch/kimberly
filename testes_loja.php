@@ -1,47 +1,39 @@
 <?php
+
+	ini_set('upload_max_filesize','3000M');
+	ini_set('max_execution_time', 0);
+	ini_set('memory_limit','4000M');
+	ini_set('post_max_size','3000M');
+
+	set_time_limit(0);
+
+	ini_set('display_errors',1);
+	ini_set('display_startup_erros',1);
+	error_reporting(E_ALL);
+	setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+	date_default_timezone_set('America/Sao_Paulo');	
+
 	include_once("simple_html_dom.php");
 
-	$link_produto = "http://www.hopelingerie.com.br/calcinha-biquini-nude-49.aspx/p";
+	$link_produto = "http://www.camisariacolombo.com.br/camisa-social-infantil-azul-listrada-40505802000017t/p";
 
 	$html = file_get_html($link_produto);
-	$label = $html->find('body',0)->find('script',37);
-
-	//remove a marcação de script.
-	$script = str_replace('<script language="javascript">', '', trim($label));
-	$script = str_replace('window.chaordic_meta =', '', trim($script));
-	$script = str_replace('</script>', '',$script);
 	
-	
-	/*	erros json php
-		
-		0 = JSON_ERROR_NONE
-		1 = JSON_ERROR_DEPTH
-		2 = JSON_ERROR_STATE_MISMATCH
-		3 = JSON_ERROR_CTRL_CHAR
-		4 = JSON_ERROR_SYNTAX
-		5 = JSON_ERROR_UTF8
-	*/
+	$categoria = "";
+	$breadCrumb = $html->find('div.bread-crumb',0);
 
-	//remove bloco com função que ocasiona o erro JSON_ERROR_SYNTAX
-	$script = substr($script,58);
-	$script = ltrim($script," ,");
-	$script = "{". $script;
-	
-	$arr = json_decode($script, true);
+//echo $breadCrumb->find('a')->plaintext;die();
+//echo '<pre>';print_r($breadCrumb)->children(1)->children(1);die();
+//echo '<pre>';var_dump($breadCrumb->find('ul',0));die();
+	//if(count($breadCrumb) > 0){
 
-	$cor = array();
-	$tamanho = array();
-	$strCor = "";
-	
-	foreach ($arr['product']['skus'] as $key => $value) {
-		
-		if($value['status'] == 'available'){
-			$strCor = rtrim($value['specs']['cor'],1);
-			$tamanho[] = $value['specs']['tamanho'];
-			$cor[]= $strCor;
-		}	
-	}
+		foreach ($breadCrumb->find('a') as $value) {
+			
 
-	echo '<pre>';print_r(array_unique($cor));
-	echo '<pre>';print_r(array_unique($tamanho));
+			if( strcmp($value->plaintext, "Camisaria Colombo") != 0)
+			$categoria .= $value->plaintext.'|';		
+		}
+		$categoria = rtrim($categoria,"|");
+	//}		
 
+	echo $categoria;
