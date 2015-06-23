@@ -31,29 +31,35 @@ function testHeader($url) {
 	
 	$headers = get_headers($url, 1);
 
-/*	echo '<pre>';print_r($headers);
-	echo '<br>pagina de ok: <pre>';print_r($headers[1]);
-	echo '<br>pagina de ok: <pre>';print_r($headers['Location']);
-
-
-
-	die();
-*/
-	//if ( $headers[2] != "HTTP/1.1 200 OK" ){
-	if ( $headers[1] != "HTTP/1.1 200 OK" ){
-		$logger->info('[Skip] Resposta '.$headers[1].' > '.$url);
+	if( ! getRedirectUrl($url) ) {
+		$logger->info('[Skip] Link corrompido');
 		return false;
 	}
-	//if( ! is_array($headers['Location']) ) {
-	if( empty($headers['Location']) ) {
-		$logger->info('[Skip] Link do Zanox corrompido > '.$headers['Location']);
-		return false;
-	}
-	//$link_do_produto = $headers['Location']['0'];
-	$link_do_produto = $headers['Location'];
-	//$logger->info('locato:'.$headers['Location']['0']);
 	return $link_do_produto;
 }
+
+
+function getRedirectUrl($url) {
+    stream_context_set_default(array(
+        'http' => array(
+            'method' => 'HEAD'
+        )
+    ));
+    $headers = get_headers($url, 1);
+    if ($headers !== false && isset($headers['Location'])) {
+        return getRedirectUrl($headers['Location']);
+    }
+
+    // Aqui a variavel $headers corresponde a pagina
+    // do produto da loja, entao testo o retorno http
+
+    if( strpos( $headers['Status'], 'OK' ) ){
+    	return $url;;
+    }
+    return false;
+}
+
+
 function recursive_unset(&$array, $unwanted_key) {
 	if( isset($array[$unwanted_key]) ){
     	unset($array[$unwanted_key]);
