@@ -80,17 +80,18 @@
 
 			// Adiciona o produto processado a lista de produtos prontos
 			$products_finish[] = $padrao->produto;
-			 if($key >=3){
+			/* if($key >=3){
 			 	break;
 			 }
+			 */
 		}
 
 		//Flag para rodar 2 paginas
-		 if ( $page >= 1 ){
+		/* if ( $page >= 1 ){
 		 	$logger->info('Script interrompido pela Flag');
 		 	break;
 		 }
-
+		*/
 		// Próxima página
 		$page++;
 	}

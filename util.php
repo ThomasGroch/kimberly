@@ -31,11 +31,14 @@ function testHeader($url) {
 	
 	$headers = get_headers($url, 1);
 
-	if( ! getRedirectUrl($url) ) {
+	$link_do_produto = getRedirectUrl($url);
+
+	if( $link_do_produto === false  ) {
 		$logger->info('[Skip] Link corrompido');
 		return false;
+	}else{
+		return $link_do_produto;	
 	}
-	return $link_do_produto;
 }
 
 
@@ -54,7 +57,7 @@ function getRedirectUrl($url) {
     // do produto da loja, entao testo o retorno http
 
     if( strpos( $headers['Status'], 'OK' ) ){
-    	return $url;;
+    	return $url;
     }
     return false;
 }
