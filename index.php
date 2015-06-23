@@ -56,24 +56,29 @@
 		/*
 		* Executa varias tentativas para obter a lista de produtos
 		*/
-		$products_list = FALSE;
-		while ( ! $products_list ) {
-			// obtem xml da pagina
-			$xml = simplexml_load_string(get_content($padrao->getUrl().$page) );
+		// obtem xml da pagina
+		$xml = simplexml_load_string(get_content($padrao->getUrl().$page) );
 
-			// Converte para array
-			$json = json_encode($xml);
-			$array = json_decode($json,TRUE);
+		// Converte para array
+		$json = json_encode($xml);
+		$array = json_decode($json,TRUE);
 
-			// Coloca o xml convertido para array o obj padrao
-			$padrao->init($array);
+		// Coloca o xml convertido para array o obj padrao
+		$padrao->init($array);
 
-			// Seta ultima pagina
-			$last_page = $padrao->getLastPage();
+		// Seta ultima pagina
+		$last_page = $padrao->getLastPage();
 
-			// Obtem a lista de produtos do XML conforme o padrao
-			$products_list = $padrao->getProductsList();			
+		// Obtem a lista de produtos do XML conforme o padrao
+		$products_list = $padrao->getProductsList();
+
+		// Se a lista de produtos retornar FALSE significa
+		// que terminou
+		if( ! $products_list ) {
+			$logger->info('Varredura terminada!');
+			break;
 		}
+		
 
 		// Inicia Loop entre os produtos
 		foreach ($products_list as $key => $produto) {
