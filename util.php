@@ -26,7 +26,7 @@ function get_content($url) {
 * Retorna False se a pagina nao for encontrada
 * caso contrario retorna url do produto
 */
-function testHeader($url) {
+function testHeader($url='') {
 	global $logger;
 	
 	//$headers = get_headers($url, 1);
@@ -52,21 +52,27 @@ function testHeader($url) {
 	// 	$link_do_produto = $headers['Location']['0'];		
 	// }
 
-	if( ! getRedirectUrl($url) ) {
-		$logger->info('[Skip] Link corrompido');
-		return false;
-	}
+    $link_do_produto = getRedirectUrl($url);
+    if( !  $link_do_produto ) {
+        return false;
+    }
 
 	return $link_do_produto;
 }
 
 
-function getRedirectUrl($url) {
+function getRedirectUrl($url='') {
     stream_context_set_default(array(
         'http' => array(
             'method' => 'HEAD'
         )
     ));
+
+    // BUG do retorno em array após o redirecionamento
+    if( is_array($url)) {
+    	$url = $url[0];
+    }
+
     $headers = get_headers($url, 1);
     if ($headers !== false && isset($headers['Location'])) {
         return getRedirectUrl($headers['Location']);

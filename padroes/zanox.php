@@ -58,6 +58,7 @@
 			// Testa resposta do cabeçalho HTTP
 			// retorna falso se o link nao estiver funcionando
 			// retorna o link se estiver funcionando
+
 			$this->link_do_produto = testHeader($this->produto['trackingLinks']['trackingLink']['ppc']);
 			if ( ! $this->link_do_produto ) {
 				$this->logger->info('[Skip] Link quebrado');
