@@ -37,43 +37,31 @@
 			$html = parent::prepare();
 			
 			// Obtem tamanho
-			if( ! $html->find('div.size-option--available') ) {
-				$this->logger->info('[Skip] Nao foi foi possivel encontrar tamanhos');
-				return false;
+			$tamanho_script = $html->find('head',0);
+			if( empty($tamanho_script)){
+			 	$this->logger->info('[Skip] Nao foi foi possivel encontrar tamanhos');
+			 	return false;
 			}
+			$json = $tamanho_script->last_child();
+			$json = get_string_between($json, '<script>var skuJson_0 = ', ';CATALOG_SDK.');
+			$json = json_decode($json, true);
 
-			$this->produto['tamanho'] = '';
-			$tamanhos = '';
-
-			// foreach($html->find('div.size-option--available') as $tamanho){
-			// 	$tamanhos .= $tamanho->title.'|';
-			// }
-			// // Remove o ultimo |
-			// $tamanhos = substr($tamanhos, 0, -1);
-			// // Remove dublicados
-			// $tamanhos = explode('|', $tamanhos);
-			// $tamanhos = array_unique($tamanhos);
-			// $this->produto['tamanho'] = implode('|', $tamanhos);
-
-			// // Obtem cor
-			// $i=0;
-			// $this->produto['cor'] = '';
-			// foreach($html->find('div.color-selection') as $selecao){
-			// 	if($i==0){
-			// 		foreach($selecao->find('img.color-option') as $cor){
-			// 			$this->produto['cor'] .= $cor->title.'|';
-			// 		}
-			// 	}
-			// 	$i++;
-			// }
-			// Remove o ultimo |
-			//$this->produto['cor'] = substr($this->produto['cor'], 0, -1);
+			foreach ($json['skus'] as $key => $sku) {
+				if( $sku['available'] ){
+					$tamanhos[] = $sku['dimensions']['Tamanho'];
+				}
+			}
+			$this->produto['tamanho'] = implode('|', $tamanhos);
 
 
 			// Obtem marca
-			$this->produto['marca'] = 'Glamour';
+			$marca = trim($html->find('p.brand', 0)->find('a',0)->plaintext);
+			if( empty($marca)){
+			 	$this->logger->info('[Skip] Nao foi foi possivel encontrar marca');
+			 	return false;
+			}
+			$this->produto['marca'] = $marca;
 
-			print_r($this->produto);
 			// Produto Tratado com sucesso
 			return true;
 		}

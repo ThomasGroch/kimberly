@@ -26,9 +26,13 @@
 		}
 
 		public function getProductsList(){
+			if( !isset($this->array['productItems']) OR !isset($this->array['productItems']['productItem']) ) {
+				$this->logger->info('[Skip] Lista de produtos nao esta no XML > '. json_encode($this->array) );
+				return false;
+			}
 			$product_list = $this->array['productItems']['productItem'];
 			if ( empty($product_list) ) {
-				$this->logger->info('[Skip] Impossivel de obter a lista de produtos desta pagina > '. json_encode($this->array) );
+				$this->logger->info('[Skip] Lista de produtos esta vazia > '. json_encode($this->array) );
 				return false;
 			}
 			return $product_list;

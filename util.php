@@ -29,6 +29,12 @@ function get_content($url) {
 function testHeader($url='') {
 	global $logger;
 	
+  // Testa se eh um link
+  // if(! filter_var($url, FILTER_VALIDATE_URL) === FALSE){
+  //   // Se for nao for link entao printa ele
+  //   $logger->info('Link estranho > '.$url);
+  // }
+
 	$headers = get_headers($url, 1);
 
     $link_do_produto = getRedirectUrl($url);
@@ -75,5 +81,14 @@ function recursive_unset(&$array, $unwanted_key) {
             recursive_unset($value, $unwanted_key);
         }
     }
+}
+
+function get_string_between($string, $start, $end){
+    $string = " ".$string;
+    $ini = strpos($string,$start);
+    if ($ini == 0) return "";
+    $ini += strlen($start);
+    $len = strpos($string,$end,$ini) - $ini;
+    return substr($string,$ini,$len);
 }
 ?>

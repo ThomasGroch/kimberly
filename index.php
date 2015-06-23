@@ -1,7 +1,7 @@
 ﻿<?php
 	ini_set('upload_max_filesize','3000M');
 	ini_set('max_execution_time', 0);
-	ini_set('memory_limit','4000M');
+	ini_set('memory_limit', -1);
 	ini_set('post_max_size','3000M');
 
 	set_time_limit(0);
@@ -103,7 +103,7 @@
 			// Adiciona o produto processado a lista de produtos prontos
 			$products_finish[] = $padrao->produto;
 			flush();
-			 // if($key >= 3){
+			 // if($key >= 5){
 			 // 	break;
 			 // }
 		}
