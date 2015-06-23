@@ -1,4 +1,11 @@
 ﻿<?php
+	ini_set('upload_max_filesize','3000M');
+	ini_set('max_execution_time', 0);
+	ini_set('memory_limit','4000M');
+	ini_set('post_max_size','3000M');
+
+	set_time_limit(0);
+
 	ini_set('display_errors',1);
 	ini_set('display_startup_erros',1);
 	error_reporting(E_ALL);
