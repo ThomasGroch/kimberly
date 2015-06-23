@@ -7,7 +7,7 @@
 
 		private $categorias_validas = array();
 
-		public function Amaro($array = array()){
+		public function Olook($array = array()){
 			parent::__construct($array);
 		}
 
