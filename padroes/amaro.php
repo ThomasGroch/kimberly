@@ -36,15 +36,15 @@
 		public function prepare(){
 			$html = parent::prepare();
 
-			// Disponibilidade de estoque
-			// if( $html->find('div.size-option--available') ){
-			// 	$this->logger->info('[Skip] Sem Disponibilidade de estoque');
-			// 	return false;
-			// }
-
 			// Obtem tamanho
+			if( ! $html->find('div.size-option--available') ) {
+				$this->logger->info('[Skip] Nao foi foi possivel encontrar tamanhos');
+				return false;
+			}
+
 			$this->produto['tamanho'] = '';
 			$tamanhos = '';
+
 			foreach($html->find('div.size-option--available') as $tamanho){
 				$tamanhos .= $tamanho->title.'|';
 			}

@@ -27,6 +27,10 @@
 
 	$conf_padrao = ( isset($argv[1]) ) ? $argv[1] : null;
 	$conf_padrao = ( isset($_GET['padrao']) ) ? $_GET['padrao'] : $conf_padrao;
+	if(empty($conf_padrao)){
+		echo 'Informe o padrao desejado';
+		$logger->info('Informe o padrao desejado');
+	}
 	$conf_padrao_uc = ucfirst($conf_padrao);
 	require __DIR__ . '/padroes/'.$conf_padrao.'.php';
 
