@@ -60,7 +60,7 @@ function getRedirectUrl($url) {
     // Aqui a variavel $headers corresponde a pagina
     // do produto da loja, entao testo o retorno http
     if( strpos( $headers[0], 'OK' ) ){
-        return $url;;
+        return $url;
     }
     return false;
 }

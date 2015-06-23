@@ -27,8 +27,8 @@
 		public function getProductsList(){
 			$product_list = $this->array['productItems']['productItem'];
 			if ( empty($product_list) ) {
-				$this->logger->info('[Skip] Impossivel de obter a lista de produtos desta pagina');
-				exit;
+				$this->logger->info('[Skip] Impossivel de obter a lista de produtos desta pagina > '. json_encode($this->array) );
+				return false;
 			}
 			return $product_list;
 		}
