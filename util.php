@@ -31,27 +31,27 @@ function testHeader($url) {
 	
 	$headers = get_headers($url, 1);
 
+/*	echo '<pre>';print_r($headers);
+	echo '<br>pagina de ok: <pre>';print_r($headers[1]);
+	echo '<br>pagina de ok: <pre>';print_r($headers['Location']);
 
-	// Se o Link do zanox estiver funcionando
-	// e o redirecionamento estiver retornando
-	// um cabecalho com respota 200 entao retorna true
-	// caso contrario falha
-	if ( (isset($headers[1]) && $headers[1] != "HTTP/1.1 200 OK")) || (isset($headers[2]) && $headers[2] != "HTTP/1.1 200 OK")){
+
+
+	die();
+*/
+	//if ( $headers[2] != "HTTP/1.1 200 OK" ){
+	if ( $headers[1] != "HTTP/1.1 200 OK" ){
 		$logger->info('[Skip] Resposta '.$headers[1].' > '.$url);
 		return false;
 	}
-
-	if( (empty($headers['Location'])) || (! is_array($headers['Location'])) ) {
+	//if( ! is_array($headers['Location']) ) {
+	if( empty($headers['Location']) ) {
 		$logger->info('[Skip] Link do Zanox corrompido > '.$headers['Location']);
 		return false;
 	}
-	
-	if(! is_array($headers['Location'])){
-		$link_do_produto = $headers['Location'];		
-	}else{
-		$link_do_produto = $headers['Location']['0'];		
-	}
-
+	//$link_do_produto = $headers['Location']['0'];
+	$link_do_produto = $headers['Location'];
+	//$logger->info('locato:'.$headers['Location']['0']);
 	return $link_do_produto;
 }
 function recursive_unset(&$array, $unwanted_key) {
@@ -63,41 +63,5 @@ function recursive_unset(&$array, $unwanted_key) {
             recursive_unset($value, $unwanted_key);
         }
     }
-}
-
-class Util {
-   /**
-     * Create XML using string or array
-     *
-     * @param mixed $data input data
-     * @param SimpleXMLElement $xml
-     * @param string $child name of first level child
-     *
-     * @return adding Xml formated data into SimpleXmlElement
-     */
-
-	static function data2XML(array $data, SimpleXMLElement $xml, $child = "items")
-    {
-
-        foreach($data as $key => $val) {
-            if(is_array($val)) {
-
-                if(is_numeric($key)) {
-                    $node  = $xml->addChild($child);
-                    $nodes = $node->getName($child);
-                } else {
-
-                    $node  = $xml->addChild($key);
-                    $nodes = $node->getName($key);
-                }
-
-                $node->addChild($nodes, self::data2Xml($val, $node));
-            } else {
-                $xml->addChild($key, $val);
-            }
-        }
-
-    }
-
 }
 ?>

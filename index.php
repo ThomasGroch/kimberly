@@ -26,7 +26,7 @@
 	*/
 
 	$conf_padrao = ( isset($argv[1]) ) ? $argv[1] : null;
-	$conf_padrao = ( isset($_GET['padrao']) ) ? $_GET['padrao'] : null;
+	$conf_padrao = ( isset($_GET['padrao']) ) ? $_GET['padrao'] : $conf_padrao;
 	$conf_padrao_uc = ucfirst($conf_padrao);
 	require __DIR__ . '/padroes/'.$conf_padrao.'.php';
 
@@ -80,16 +80,16 @@
 
 			// Adiciona o produto processado a lista de produtos prontos
 			$products_finish[] = $padrao->produto;
-			// if($key >=3){
-			// 	break;
-			// }
+			 if($key >=3){
+			 	break;
+			 }
 		}
 
 		//Flag para rodar 2 paginas
-		// if ( $page >= 0 ){
-		// 	$logger->info('Script interrompido pela Flag');
-		// 	break;
-		// }
+		 if ( $page >= 1 ){
+		 	$logger->info('Script interrompido pela Flag');
+		 	break;
+		 }
 
 		// Próxima página
 		$page++;
