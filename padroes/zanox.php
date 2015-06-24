@@ -7,6 +7,9 @@
 		public $produto = array();
 		public $link_do_produto;
 
+		public $white_list_categories = array();
+		public $black_list_categories = array();
+
 		public function Zanox($array = array()){
 			/*
 			* Traz instancia do logger para uso na classe
@@ -17,6 +20,7 @@
 				$this->array = $array;
 			}
 		}
+
 		public function init($array){
 			$this->array = $array;
 		}
@@ -42,6 +46,24 @@
 			return $product_list;
 		}
 
+		/* Forma generica de definir a lista de categorias dos XMLs */
+		public function setCategory(){
+			if( isset($this->produto['merchantCategory']) ){
+				$categorias = $this->produto['merchantCategory'];
+				// Se for dividido por barra, troca para |
+				if( strpos($categorias, ' / ') ){
+					$categorias = explode(' / ', $this->produto['merchantCategory']);
+					$categorias = implode('|', $categorias);
+				}
+				$this->produto['categorias'] = $categorias;
+			}
+		}
+
+		/* Forma generica de obter a lista de categorias dos XMLs */
+		public function getCategory(){
+			return $this->produto['categorias'];
+		}
+
 		/*
 		* Se for um produto que interessar a tagbox, 
 		* devera retornar true
@@ -49,17 +71,28 @@
 		* Saida: (bool) 
 		*/
 		public function validate(){
-			/* 
-			* $categorias[0] é a Categoria principal
-			* $categorias[1] e [2] são sub categorias
-			*/
-			if( isset($this->produto['merchantCategory']) ){
-				$categorias = explode(' / ', $this->produto['merchantCategory']);
-				
-				// Se a categoria principal NÃO estiver na lista de categorias válidas
-				// retorna falso
-				if( ! empty($this->categorias_validas) AND ! in_array($categorias[0], $this->categorias_validas) ){
-					$this->logger->info('[Skip] Categoria invalida > '.$categorias[0]);
+
+			// Seta categoria
+			$this->setCategory();
+			$categoria_principal = explode('|', $this->getCategory();
+			$categoria_principal = $categoria_principal[0];
+
+			// White List filter
+			// Se a categoria principal NÃO estiver na lista branca de categorias
+			// retorna falso
+			if( ! in_array($categoria_principal, $this->white_list_categories ) AND
+				! empty($this->white_list_categories) ){
+					$this->logger->info('[Skip] Category WhiteList Filter > '.$categoria_principal);
+					return false;
+				}
+			}
+
+			// Black List filter
+			// Se a categoria principal ESTIVER estiver na lista negra de categorias
+			// retorna falso
+			if( in_array($categoria_principal, $this->black_list_categories ) AND
+				! empty($this->black_list_categories) ){
+					$this->logger->info('[Skip] Category BlackList Filter > '.$categoria_principal);
 					return false;
 				}
 			}
