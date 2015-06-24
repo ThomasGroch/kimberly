@@ -6,6 +6,9 @@
 		public $array = array();
 		public $produto = array();
 		public $link_do_produto;
+		//código de afiliado do tagbox.
+		public $affiliate_id = '1916212';
+		public $site_name = 'Tag Box';
 
 		public function Zanox($array = array()){
 			/*
@@ -25,7 +28,7 @@
 			return ceil($this->array['total']/50);
 		}
 
-		public function set_produto($produto){
+		public function setProduto($produto){
 			$this->produto = $produto;
 		}
 

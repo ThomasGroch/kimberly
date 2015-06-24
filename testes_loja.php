@@ -19,9 +19,11 @@
 
 	$html = file_get_html($link_produto);
 	
-	$categoria = "";
+	$categoria = array();
 	$breadCrumb = $html->find('div.bread-crumb',0);
 
+	
+	
 //echo $breadCrumb->find('a')->plaintext;die();
 //echo '<pre>';print_r($breadCrumb)->children(1)->children(1);die();
 //echo '<pre>';var_dump($breadCrumb->find('ul',0));die();
@@ -31,9 +33,9 @@
 			
 
 			if( strcmp($value->plaintext, "Camisaria Colombo") != 0)
-			$categoria .= $value->plaintext.'|';		
+			$categoria[] = $value->plaintext;		
 		}
-		$categoria = rtrim($categoria,"|");
+		$categoria = implode("|", $categoria);
 	//}		
 
 	echo $categoria;
