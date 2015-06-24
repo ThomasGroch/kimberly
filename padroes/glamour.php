@@ -10,6 +10,12 @@
 			parent::__construct($array);
 		}
 
+		public function set_produto($produto){
+			$link_arrumado = str_replace('asd', replace, $this->produto['trackingLinks']['trackingLink']['ppc']);
+			$this->produto['trackingLinks']['trackingLink']['ppc'] = $link_arrumado;
+			$this->produto = $produto;
+		}
+
 		/*
 		* Se for um produto que interessar a tagbox, 
 		* devera retornar true

@@ -88,7 +88,7 @@
 			$logger->info('[Pag '.$page.'/'.$last_page.'][Produto '.$key.']');
 
 			// Informa o produto no qual sera processado
-			$padrao->produto = $produto;
+			$padrao->set_produto($produto);
 
 			// Validação
 			if( ! $padrao->validate() ){
