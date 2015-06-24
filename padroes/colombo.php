@@ -109,7 +109,7 @@
 				$bread_crumb = $this->html->find('div.bread-crumb',0);
 				if(!empty($bread_crumb)){
 					foreach ($bread_crumb->find('a') as $value) {
-						if( strcmp($value->plaintext, "Camisaria Colombo") > 0){
+						if( strcmp($value->plaintext, "Camisaria Colombo") != 0){
 								$categoria[] = $value->plaintext;		
 						}
 					}
