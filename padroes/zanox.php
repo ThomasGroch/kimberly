@@ -25,6 +25,10 @@
 			return ceil($this->array['total']/50);
 		}
 
+		public function set_produto($produto){
+			$this->produto = $produto;
+		}
+
 		public function getProductsList(){
 			if( !isset($this->array['productItems']) OR !isset($this->array['productItems']['productItem']) ) {
 				$this->logger->info('[Skip] Lista de produtos nao esta no XML > '. json_encode($this->array) );

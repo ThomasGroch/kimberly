@@ -12,6 +12,9 @@
 	setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
 	date_default_timezone_set('America/Sao_Paulo');	
 	
+	// Remove warnings
+	error_reporting(E_ERROR | E_PARSE);
+
 	// Carrega classes do composer e funcoes uteis =)
 	require __DIR__ . '/vendor/autoload.php';
 	require __DIR__ . '/util.php';
@@ -85,7 +88,7 @@
 			$logger->info('[Pag '.$page.'/'.$last_page.'][Produto '.$key.']');
 
 			// Informa o produto no qual sera processado
-			$padrao->produto = $produto;
+			$padrao->set_produto($produto);
 
 			// Validação
 			if( ! $padrao->validate() ){
