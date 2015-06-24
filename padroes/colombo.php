@@ -53,7 +53,7 @@
 		public function getCorHtml(){
 			$cor = "";
 			if ($this->html)
-				$cor = $this->html->find('td.Cor',0);	
+				$cor = $this->html->find('td.Cor',0)->plaintext;	
 			
 			return $cor;
 		}
@@ -126,12 +126,14 @@
 
 			$categoria = $this->getCategoriaHtml();
 			
-			if(is_array($categoria) && array_search("Infantil", $categoria) === false){
+			if(is_array($categoria) && array_search("Infantil", $categoria) != false){
+				$this->logger->info('[Skip] Categoria não válida > '.$this->link_do_produto);
 				return false;
 			}
 
 			//Verifica se o produto está indisponível.
-			if($this->html->find('p.unavailable-button')){ 
+			if($this->html->find('p.unavailable-button',0)->style != 'display:none'){ 
+				$this->logger->info('[Skip] Produto esgotado > '.$this->link_do_produto);
 				return false;
 			}
 
