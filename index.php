@@ -20,7 +20,8 @@
 	require __DIR__ . '/util.php';
 	require __DIR__ . '/simple_html_dom.php';
 	require __DIR__ . '/array2xml.php';
-	
+	require __DIR__ . '/contador.php';
+
 	/*
 	* Carrega o logger
 	* https://github.com/wasinger/simplelogger
@@ -92,11 +93,13 @@
 
 			// Validação
 			if( ! $padrao->validate() ){
+				Contador::add('Invalido');
 				continue;
 			}
 
 			// Tratamento
 			if( ! $padrao->prepare() ){
+				Contador::add('Incompleto');
 				continue;
 			}
 
@@ -105,6 +108,8 @@
 
 			// Adiciona o produto processado a lista de produtos prontos
 			$products_finish[] = $padrao->produto;
+			Contador::add('Completo');
+
 			flush();
 			 // if($key >= 5){
 			 // 	break;
@@ -121,6 +126,8 @@
 		$page++;
 	}
 
+// Mostra resultado da importacao
+$logger->info('Resultado: '.Contador::write('Completo').Contador::write('Invalido').Contador::write('Incompleto') );
 // Salva produto no xml
 $file_path = 'xmls/'.$conf_padrao.'-'.date('Y-m-d-H-i-s').'.xml';
 
