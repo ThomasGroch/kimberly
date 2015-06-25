@@ -38,7 +38,7 @@
 			
 			// Obtem tamanho
 			if( ! $html->find('div.size-option--available') ) {
-				$this->logger->info('[Skip] Nao foi foi possivel encontrar tamanhos');
+				$this->logger->info('['.PADRAO.'][Skip] Nao foi foi possivel encontrar tamanhos');
 				return false;
 			}
 
