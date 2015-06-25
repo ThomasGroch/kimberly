@@ -42,8 +42,10 @@
 		echo 'Informe o padrao desejado';
 		$logger->info('Informe o padrao desejado');
 	}
-	$conf_padrao_uc = ucfirst($conf_padrao);
-	require __DIR__ . '/padroes/'.$conf_padrao.'.php';
+	define('PADRAO', $conf_padrao);
+	define('PADRAO_UC', ucfirst($conf_padrao));
+
+	require __DIR__ . '/padroes/'.PADRAO.'.php';
 
 	$page = 0;
 	$last_page = 1;
@@ -55,7 +57,8 @@
 	while ($page <= $last_page) {
 
 		// Instancia um novo produto
-		$padrao = new $conf_padrao_uc();
+		$temp_var = PADRAO_UC;
+		$padrao = new $temp_var();
 
 		/*
 		* Executa varias tentativas para obter a lista de produtos
@@ -86,7 +89,7 @@
 
 		// Inicia Loop entre os produtos
 		foreach ($products_list as $key => $produto) {
-			$logger->info('[Pag '.$page.'/'.$last_page.'][Produto '.$key.']');
+			$logger->info('['.PADRAO.'][Pag '.$page.'/'.$last_page.'][Produto '.$key.']');
 
 			// Informa o produto no qual sera processado
 			$padrao->set_produto($produto);
@@ -127,10 +130,14 @@
 	}
 
 // Mostra resultado da importacao
-$logger->info('Resultado: '.Contador::write('Completo').Contador::write('Invalido').Contador::write('Incompleto') );
+$logger->info('['.PADRAO.']Resultado: '.Contador::write('Completo').Contador::write('Invalido').Contador::write('Incompleto') );
 // Salva produto no xml
-$file_path = 'xmls/'.$conf_padrao.'-'.date('Y-m-d-H-i-s').'.xml';
+$file_path = 'xmls/'.PADRAO.'-'.date('Y-m-d-H-i-s').'.xml';
 
+if(empty($products_finish)){
+	$logger->info('['.PADRAO.']Nenhum produo encontrado. Sem conexao a internet?');
+	exit;
+}
 try 
 {
     $xml = new array2xml('products', 'product');
@@ -142,7 +149,7 @@ catch (Exception $e)
     echo $e->getMessage();
 }
 
-$logger->info('Produtos salvos!');
+$logger->info('['.PADRAO.']Produtos salvos!');
 
 
 
