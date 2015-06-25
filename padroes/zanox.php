@@ -35,12 +35,12 @@
 
 		public function getProductsList(){
 			if( !isset($this->array['productItems']) OR !isset($this->array['productItems']['productItem']) ) {
-				$this->logger->info('[Skip] Lista de produtos nao esta no XML > '. json_encode($this->array) );
+				$this->logger->info('['.PADRAO.'][Skip] Lista de produtos nao esta no XML > '. json_encode($this->array) );
 				return false;
 			}
 			$product_list = $this->array['productItems']['productItem'];
 			if ( empty($product_list) ) {
-				$this->logger->info('[Skip] Lista de produtos esta vazia > '. json_encode($this->array) );
+				$this->logger->info('['.PADRAO.'][Skip] Lista de produtos esta vazia > '. json_encode($this->array) );
 				return false;
 			}
 			return $product_list;
@@ -74,7 +74,7 @@
 
 			// Seta categoria
 			$this->setCategory();
-			$categoria_principal = explode('|', $this->getCategory();
+			$categoria_principal = explode('|', $this->getCategory() );
 			$categoria_principal = $categoria_principal[0];
 
 			// White List filter
@@ -82,9 +82,10 @@
 			// retorna falso
 			if( ! in_array($categoria_principal, $this->white_list_categories ) AND
 				! empty($this->white_list_categories) ){
-					$this->logger->info('[Skip] Category WhiteList Filter > '.$categoria_principal);
-					return false;
-				}
+			
+				$this->logger->info('['.PADRAO.'][Skip] Category WhiteList Filter > '.$categoria_principal);
+				return false;
+
 			}
 
 			// Black List filter
@@ -92,18 +93,18 @@
 			// retorna falso
 			if( in_array($categoria_principal, $this->black_list_categories ) AND
 				! empty($this->black_list_categories) ){
-					$this->logger->info('[Skip] Category BlackList Filter > '.$categoria_principal);
-					return false;
-				}
+			
+				$this->logger->info('['.PADRAO.'][Skip] Category BlackList Filter > '.$categoria_principal);
+				return false;
+			
 			}
 			
 			// Testa resposta do cabeçalho HTTP
 			// retorna falso se o link nao estiver funcionando
 			// retorna o link se estiver funcionando
-
 			$this->link_do_produto = testHeader($this->produto['trackingLinks']['trackingLink']['ppc']);
 			if ( ! $this->link_do_produto ) {
-				$this->logger->info('[Skip] Link quebrado');
+				$this->logger->info('['.PADRAO.'][Skip] Link quebrado');
 				return false;
 			}
 
@@ -120,13 +121,13 @@
 			$html = str_get_html(get_content($this->link_do_produto));
 
 			if( ! $html ){
-				$this->logger->info('[Skip] HTML invalido');
+				$this->logger->info('['.PADRAO.'][Skip] HTML invalido');
 				return false;				
 			}
 
 			// Html retornou vazio?
 			if( $html->plaintext == '' ) {
-				$this->logger->info('[Skip] Html vazio > '.$this->link_do_produto);
+				$this->logger->info('['.PADRAO.'][Skip] Html vazio > '.$this->link_do_produto);
 				return false;
 			}
 
