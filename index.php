@@ -92,7 +92,7 @@
 			$logger->info('['.PADRAO.'][Pag '.$page.'/'.$last_page.'][Produto '.$key.']');
 
 			// Informa o produto no qual sera processado
-			$padrao->set_produto($produto);
+			$padrao->setProduto($produto);
 
 			// Validação
 			if( ! $padrao->validate() ){
@@ -114,16 +114,16 @@
 			Contador::add('Completo');
 
 			flush();
-			 // if($key >= 5){
-			 // 	break;
-			 // }
+			 /*if($key >= 5){
+			 	break;
+			 }*/
 		}
 
 		//Flag para rodar 2 paginas
-		 // if ( $page >= 1 ){
-		 // 	$logger->info('Script interrompido pela Flag');
-		 // 	break;
-		 // }
+		/* if ( $page >= 1 ){
+		 	$logger->info('Script interrompido pela Flag');
+		 	break;
+		 }*/
 
 		// Próxima página
 		$page++;
