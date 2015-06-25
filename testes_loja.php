@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 	ini_set('upload_max_filesize','3000M');
 	ini_set('max_execution_time', 0);
@@ -16,7 +16,65 @@
 	include_once("simple_html_dom.php");
 	include_once("util.php");
 
+		require __DIR__ . '/padroes/afilio.php';
 
+		libxml_use_internal_errors(true);
+		$afilio = new Afilio(); 
+		// obtem xml da pagina
+
+		$contentXml = utf8_encode($afilio->getUrl());
+
+
+		$xml = simplexml_load_file($contentXml);
+
+		print_r($xml->children());//die();
+
+
+		//echo utf8_encode($contentXml);die();
+		//$xml = simplexml_load_string( get_content($contentXml) );
+	
+		if(!$xml){
+
+			foreach(libxml_get_errors() as $error) {
+		        echo "\t", $error->message;
+		    }
+
+
+		}
+
+die();
+
+		// Converte para array
+		$json = json_encode($xml);
+		$arr = json_decode($json, true);
+
+		
+
+		// Coloca o xml convertido para array o obj padrao
+		$arr = $afilio->init($arr);
+
+	//	$arr = $afilio->getProductsList();
+echo '<pre>';var_dump($arr);
+
+		/*$arr = array();//array("produto"=>'');
+		if(isset($arr['produto'])){
+			echo '<pre>';print_r($arr);
+		}*/
+		//echo '<pre>';print_r($arrayZanox);
+
+
+		die();
+
+
+
+
+
+
+
+
+
+
+/* Testes Marcyn */
 
 
 	//$link_produto = "http://www.ray-ban.com/brazil/graduados/gradplp/rb5245_167065?par=zanox&skuId=805289517535";
@@ -69,7 +127,9 @@ if(count($arr) > 0){
 
 
 	
-/*
+/*     Testes Rayban
+
+
 	$script = $html->find('script[xml:space=preserve]',0);
 //	highlight_string( $script );
 

@@ -45,11 +45,11 @@
 			return $product_list;
 		}
 
-		/*
-		* Se for um produto que interessar a tagbox, 
-		* devera retornar true
-		* Entrada: array de um produto
-		* Saida: (bool) 
+		/**
+		 * @param array de um produto
+		 * Se for um produto que interessar a tagbox, 
+		 * devera retornar true
+		 * @return bool
 		*/
 		public function validate(){
 			/* 
@@ -80,10 +80,10 @@
 			return true;
 		}
 
-		/*
-		* Funcao para capturar dados extras
-		* Entrada: array de um produto
-		* Saida: array de um produto + campos extras
+		/**
+		 *@param  array() de um produto
+		 * Funcao para capturar dados extras
+		 * @return array() de um produto + campos extras
 		*/
 		public function prepare(){
 			// Obtem html
