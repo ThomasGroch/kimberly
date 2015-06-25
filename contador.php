@@ -14,6 +14,6 @@ class Contador {
 		if( ! isset( self::$contadores[$group]) ){
 			self::$contadores[$group] = 0;
 		}
-		return $group.': '.self::$contadores[$group];
+		return $group.': '.self::$contadores[$group].' ';
 	}
 }
