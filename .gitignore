@@ -3,3 +3,5 @@ xmls/*
 vendor/*
 composer.phar
 composer.lock
+testes_loja.php
+print_header.php
