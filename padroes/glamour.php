@@ -37,13 +37,17 @@
 			$html = parent::prepare();
 			
 			// Obtem marca
-			$marca = trim($html->find('p.brand', 0)->find('a',0)->plaintext);
+			$html_res = $html->find('p.brand', 0);
+			if( $html_res ){
+				$marca = $html_res->find('a',0)->plaintext;
+				$marca = trim($marca);
+			}
 			if( empty($marca)){
 			 	$this->logger->info('[Skip] Nao foi foi possivel encontrar marca');
 			 	return false;
 			}
 			$this->produto['marca'] = $marca;
-			
+
 			// Obtem tamanho
 			$tamanho_script = $html->find('head',0);
 			if( ! empty($tamanho_script)){
@@ -61,6 +65,7 @@
 			// Se nao encontrar um tamanho coloca como tamanho unico
 			$this->produto['tamanho'] = ( empty($this->produto['tamanho']) ) ? 'U' : $this->produto['tamanho'];
 
+			// Nao foi implementado as subcategorias
 
 			// Produto Tratado com sucesso
 			return true;
