@@ -42,7 +42,7 @@ class Importador {
 		$array = json_decode($json,TRUE);
 
 		// Coloca o xml convertido para array o obj padrao
-		$this->array = $array;
+		$this->xml_em_array = $array;
 
 	}
 
