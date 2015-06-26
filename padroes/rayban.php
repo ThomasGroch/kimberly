@@ -5,7 +5,7 @@
 
 	
 
-		public function setProduto($produto){
+		public function setProduct($produto){
 
 			if(!empty($produto)){
 				$this->produto = $produto;

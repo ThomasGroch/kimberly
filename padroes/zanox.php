@@ -32,8 +32,10 @@
 			return ceil($this->array['total']/50);
 		}
 
-		public function setProduto($produto){
+		public function setProduct($produto){
 			$this->produto = $produto;
+			// Seta categoria
+			$this->setCategory();
 		}
 
 		public function getProductsList(){
@@ -72,6 +74,10 @@
 			return $this->produto['categorias'];
 		}
 
+		public function getProductUrl(){
+			return $this->produto['trackingLinks']['trackingLink']['ppc'];
+		}
+
 		/*
 		* Se for um produto que interessar a tagbox, 
 		* devera retornar true
@@ -80,8 +86,6 @@
 		*/
 		public function validate(){
 
-			// Seta categoria
-			$this->setCategory();
 			$categoria_principal = explode('|', $this->getCategory() );
 			$categoria_principal = $categoria_principal[0];
 
@@ -110,7 +114,7 @@
 			// Testa resposta do cabeçalho HTTP
 			// retorna falso se o link nao estiver funcionando
 			// retorna o link se estiver funcionando
-			$this->link_do_produto = testHeader($this->produto['trackingLinks']['trackingLink']['ppc']);
+			$this->link_do_produto = testHeader( $this->getProductUrl() );
 			if ( ! $this->link_do_produto ) {
 				$this->logger->info('['.PADRAO.'][Skip] Link quebrado');
 				return false;

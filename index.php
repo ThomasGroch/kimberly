@@ -64,7 +64,7 @@
 		* Executa varias tentativas para obter a lista de produtos
 		*/
 		// obtem xml da pagina
-		$xml = simplexml_load_string(get_content($padrao->getUrl().$page) );
+		$xml = simplexml_load_string(get_content($padrao->getXmlUrl().$page) );
 
 		// Converte para array
 		$json = json_encode($xml);
@@ -79,20 +79,19 @@
 		// Obtem a lista de produtos do XML conforme o padrao
 		$products_list = $padrao->getProductsList();
 
-		// Se a lista de produtos retornar FALSE significa
-		// que terminou
+		// Obtem a lista de produtos para comecar o loop
+		// Esta funcao tambem serve para identificar quando chegou a ultima
+		// ultima pagina
 		if( ! $products_list ) {
 			$logger->info('Varredura terminada!');
 			break;
 		}
-		
 
 		// Inicia Loop entre os produtos
 		foreach ($products_list as $key => $produto) {
 			$logger->info('['.PADRAO.'][Pag '.$page.'/'.$last_page.'][Produto '.$key.']');
-
 			// Informa o produto no qual sera processado
-			$padrao->setProduto($produto);
+			$padrao->setProduct($produto);
 
 			// Validação
 			if( ! $padrao->validate() ){
