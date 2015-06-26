@@ -52,7 +52,7 @@
 			}
 
 			// Html retornou vazio?
-			if( $html->plaintext == '' ) {
+			if( $this->html->plaintext == '' ) {
 				$this->logger->info('[Skip] Html vazio > '.$this->link_do_produto);
 				return false;
 			}

@@ -23,10 +23,10 @@
 		* Saida: array de um produto + campos extras
 		*/
 		public function prepare(){
-			$html = parent::prepare();
+			parent::prepare();
 			
 			// Obtem marca
-			$html_res = $html->find('p.brand', 0);
+			$html_res = $this->html->find('p.brand', 0);
 			if( $html_res ){
 				$marca = $html_res->find('a',0)->plaintext;
 				$marca = trim($marca);
@@ -38,7 +38,7 @@
 			$this->produto['marca'] = $marca;
 
 			// Obtem tamanho
-			$tamanho_script = $html->find('head',0);
+			$tamanho_script = $this->html->find('head',0);
 			if( ! empty($tamanho_script)){
 				$json = $tamanho_script->last_child();
 				$json = get_string_between($json, '<script>var skuJson_0 = ', ';CATALOG_SDK.');

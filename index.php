@@ -51,11 +51,13 @@
 	$last_page = 1;
 
 	// Array de produtos processados
-    $products_finish = array();
+    $processed_products = array();
 
-	// Inicia loop
-	while ($page <= $last_page) {
-
+	while ($page <= $last_page ) {
+		######################
+		## Loop de Paginas  ##
+		######################
+		
 		// Instancia um novo produto
 		$temp_var = PADRAO_UC;
 		$importador = new $temp_var();
@@ -76,8 +78,11 @@
 			break;
 		}
 
-		// Inicia Loop entre os produtos
 		foreach ($products_list as $key => $produto) {
+			######################
+			## Loop de Produtos ##
+			######################
+
 			$logger->info('['.PADRAO.'][Pag '.$page.'/'.$last_page.'][Produto '.$key.']');
 			// Informa o produto no qual sera processado
 			$importador->setProduct($produto);
@@ -98,7 +103,7 @@
 			recursive_unset($importador->produto, '@attributes');
 
 			// Adiciona o produto processado a lista de produtos prontos
-			$products_finish[] = $importador->produto;
+			$processed_products[] = $importador->produto;
 			Contador::add('Completo');
 
 			flush();
@@ -119,26 +124,8 @@
 
 // Mostra resultado da importacao
 $logger->info('['.PADRAO.']Resultado: '.Contador::write('Completo').Contador::write('Invalido').Contador::write('Incompleto') );
-// Salva produto no xml
-$file_path = 'xmls/'.PADRAO.'-'.date('Y-m-d-H-i-s').'.xml';
 
-if(empty($products_finish)){
-	$logger->info('['.PADRAO.']Nenhum produo encontrado. Sem conexao a internet?');
-	exit;
-}
-try 
-{
-    $xml = new array2xml('products', 'product');
-    $xml->createNode( $products_finish );
-    $xml->save( $file_path );
-} 
-catch (Exception $e) 
-{
-    echo $e->getMessage();
-}
-
-$logger->info('['.PADRAO.']Produtos salvos!');
-
+$importador->save_xml_products( $processed_products );
 
 
 

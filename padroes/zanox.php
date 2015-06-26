@@ -17,6 +17,7 @@
 		### METODOS DE AFILIADO ###
 
 		public function getLastPage(){
+			if ( $this->single_page ){ return 999; }
 			return ceil($this->array['total']/50);
 		}
 
@@ -54,13 +55,13 @@
 					$categorias = explode(' / ', $this->produto['merchantCategory']);
 					$categorias = implode('|', $categorias);
 				}
-				$this->produto['categorias'] = $categorias;
+				$this->produto['categoria'] = $categorias;
 			}
 		}
 
 		/* Forma generica de obter a lista de categorias dos XMLs */
 		public function getCategory(){
-			return $this->produto['categorias'];
+			return $this->produto['categoria'];
 		}
 
 		/* Forma generica de obter a lista de categorias dos XMLs */

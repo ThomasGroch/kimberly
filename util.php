@@ -83,11 +83,14 @@ function recursive_unset(&$array, $unwanted_key) {
     }
 }
 
-function get_string_between($string, $start, $end){
+function get_string_between($string, $start, $end=''){
     $string = " ".$string;
     $ini = strpos($string,$start);
     if ($ini == 0) return "";
     $ini += strlen($start);
+    if (empty($end)){
+        return substr($string,$ini);
+    }
     $len = strpos($string,$end,$ini) - $ini;
     return substr($string,$ini,$len);
 }

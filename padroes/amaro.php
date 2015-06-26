@@ -23,10 +23,10 @@
 		* Saida: array de um produto + campos extras
 		*/
 		public function prepare(){
-			$html = parent::prepare();
+			parent::prepare();
 			
 			// Obtem tamanho
-			if( ! $html->find('div.size-option--available') ) {
+			if( ! $this->html->find('div.size-option--available') ) {
 				$this->logger->info('['.PADRAO.'][Skip] Nao foi foi possivel encontrar tamanhos');
 				return false;
 			}
@@ -34,7 +34,7 @@
 			$this->produto['tamanho'] = '';
 			$tamanhos = '';
 
-			foreach($html->find('div.size-option--available') as $tamanho){
+			foreach($this->html->find('div.size-option--available') as $tamanho){
 				$tamanhos .= $tamanho->title.'|';
 			}
 			// Remove o ultimo |
@@ -47,7 +47,7 @@
 			// Obtem cor
 			$i=0;
 			$this->produto['cor'] = '';
-			foreach($html->find('div.color-selection') as $selecao){
+			foreach($this->html->find('div.color-selection') as $selecao){
 				if($i==0){
 					foreach($selecao->find('img.color-option') as $cor){
 						$this->produto['cor'] .= $cor->title.'|';

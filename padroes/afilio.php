@@ -57,13 +57,13 @@
 			// 		$categorias = explode(' / ', $this->produto['merchantCategory']);
 			// 		$categorias = implode('|', $categorias);
 			// 	}
-			// 	$this->produto['categorias'] = $categorias;
+			// 	$this->produto['categoria'] = $categorias;
 			// }
 		}
 
 		/* Forma generica de obter a lista de categorias dos XMLs */
 		public function getCategory(){
-			// return $this->produto['categorias'];
+			// return $this->produto['categoria'];
 		}
 
 		/* Forma generica de obter a lista de categorias dos XMLs */

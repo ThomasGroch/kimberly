@@ -12,12 +12,12 @@
 
 		public function setCategory(){
 			parent::setCategory();
-			$categorias = explode('|', $this->produto['categorias']);
+			$categorias = explode('|', $this->produto['categoria']);
 			if( !empty($categorias) ){
 				foreach($categorias as $key => $cat){
 					$categorias[$key] = str_replace(' Brownshoes', '', $cat);
 				}
-				$this->produto['categorias'] = $categorias;
+				$this->produto['categoria'] = $categorias;
 			}
 		}
 
@@ -45,12 +45,12 @@
 		* Saida: array de um produto + campos extras
 		*/
 		public function prepare(){
-			$html = parent::prepare();
+			parent::prepare();
 			
 			// Obtem tamanho
 			// <span class="attr-name unavailable">
 			$tamanhos = '';
-			$tamanho_spans = $html->find('span.attr-name');
+			$tamanho_spans = $this->html->find('span.attr-name');
 			if( ! $tamanho_spans ) {
 				$this->logger->info('['.PADRAO.'][Warning] Nao foi foi possivel encontrar tamanhos');
 			}
@@ -62,13 +62,13 @@
 				$tamanhos .= trim($span->plaintext).'|';
 			}
 			$tamanhos = substr($tamanhos, 0, -1);
-			$this->produto['tamanhos'] = $tamanhos;
+			$this->produto['tamanho'] = $tamanhos;
 
 
 			// Obtem cor
 			// <a href="?color=138" class="attr-name unavailable"
 			$cores = '';
-			$cor_as = $html->find('a.attr-name');
+			$cor_as = $this->html->find('a.attr-name');
 			if( ! $cor_as ) {
 				$this->logger->info('['.PADRAO.'][Warning] Nao foi foi possivel encontrar cores');
 			}
@@ -80,7 +80,7 @@
 				$cores .= trim($a->plaintext).'|';
 			}
 			$cores = substr($cores, 0, -1);
-			$this->produto['cores'] = $cores;
+			$this->produto['core'] = $cores;
 
 			// Obtem marca
 			$this->produto['marca'] = 'Zattini';

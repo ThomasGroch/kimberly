@@ -25,17 +25,17 @@
 		*/
 		public function prepare(){
 
-			$html = parent::prepare();
+			parent::prepare();
 
 			//Verifica se o produto está indisponível.
-			if($html->find('p.out')){ 
+			if($this->html->find('p.out')){ 
 				return false;
 			}
 
 			// Obtem tamanho
 			$this->produto['tamanho'] = '';
 			$tamanhos = '';
-			foreach($html->find('div.size', 0)->find('label') as $tamanho){
+			foreach($this->html->find('div.size', 0)->find('label') as $tamanho){
 				$tamanhos .= $tamanho->plaintext.'|';
 			}
 
@@ -51,7 +51,7 @@
 			$i=0;
 			$this->produto['cor'] = '';
 			
-			foreach($html->find('ol.colors', 0)->find('img')  as $cor){
+			foreach($this->html->find('ol.colors', 0)->find('img')  as $cor){
 				
 				$this->produto['cor'] .= $cor->title.'|';	
 				
