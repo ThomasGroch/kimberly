@@ -3,7 +3,18 @@
 
 	Class Capitollium extends Zanox{
 
-		public $black_list_categories = array();
+		var $xml_url = 'http://api.cityads.com/api/rest/webmaster/xml/goods?remote_auth=e2f6b2dd8b899aed22134a3602d3fe27&filter=NDQ5NjM4MDM1';
+
+		var $produto = array();
+
+		var $link_produto = '';
+		
+		var $white_list_category = array();
+		
+		var $black_list_category = array();
+
+		var $single_page = TRUE;
+
 
 		public function Capitollium($array = array()){
 			parent::__construct($array);
@@ -35,24 +46,6 @@
 				return false;
 			}
 			return $product_list;
-		}
-
-		/*
-		* Se for um produto que interessar a tagbox, 
-		* devera retornar true
-		* Entrada: array de um produto
-		* Saida: (bool) 
-		*/
-		// public function validate(){
-			//parent::validate();
-		// }
-
-		/*
-		* Funcao para retornar url do sistema de afiliados
-		* sem o numero de paginacao
-		*/
-		public function getXmlUrl() {
-			return 'http://api.cityads.com/api/rest/webmaster/xml/goods?remote_auth=e2f6b2dd8b899aed22134a3602d3fe27&filter=NDQ5NjM4MDM1';
 		}
 
 		public function getProductUrl() {

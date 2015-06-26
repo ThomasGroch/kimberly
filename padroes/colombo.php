@@ -4,8 +4,18 @@
 
 	Class Colombo extends Zanox{
 
+		var $xml_url = 'http://api.zanox.com/xml/2011-03-01/products/?connectid=089EAF947B7A0B3C896E&adspace=1916212&programs=15596&items=500&page=';
+
+		var $produto = array();
+
+		var $link_produto = '';
+		
+		var $white_list_category = array();
+		
+		var $black_list_category = array();
+
+		// Codigo legado
 		private $html;
-		private $categorias_validas = array();
 
 		public function Colombo($array = array()){
 			parent::__construct($array);
@@ -39,14 +49,6 @@
 			
 		}
 
-		/*
-		* Funcao para retornar url do sistema de afiliados
-		* sem o numero de paginacao
-		*/
-		public function getXmlUrl() {
-			return 'http://api.zanox.com/xml/2011-03-01/products/?connectid=089EAF947B7A0B3C896E&adspace=1916212&programs=15596&items=500&page=';
-					
-		}
 
 		/**
 		 *	Método que retorna a cor do produto caso encontre.

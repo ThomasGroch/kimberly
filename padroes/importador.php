@@ -1,0 +1,123 @@
+<?php
+
+class Importador {
+
+	var $xml_em_array = array();
+
+	var $produto_array = array();
+
+	// Esta variavel terá o valor retornado pela funcao getProductUrl() da loja
+	var $link_do_produto = '';
+
+	var $single_page = FALSE;
+
+   function __construct() {
+		/*
+		* Traz instancia do logger para uso na classe
+		*/
+		global $logger;
+		$this->logger = $logger;
+	}
+
+	/*
+	* Funcao para retornar url do sistema de afiliados
+	* caso a pagina seja -1 retorna sem a paginacao
+	*/
+	public function getXmlUrl( $page = 0 ) {
+		return ( empty($page) OR $page < 0 OR $this->single_page ) ? $this->xml_url : $this->xml_url . $page;
+	}
+
+	/*
+	* Carrega a pagina do xml
+	* Converte em array
+	* Coloca array no $this->xml_em_array
+	*/
+	public function load_xml_page($page) {
+
+		// obtem xml da pagina
+		$xml = simplexml_load_string(get_content( $this->getXmlUrl($page) ));
+
+		// Converte para array
+		$json = json_encode($xml);
+		$array = json_decode($json,TRUE);
+
+		// Coloca o xml convertido para array o obj padrao
+		$this->array = $array;
+
+	}
+
+	public function save_xml_products( $processed_products ) {
+
+	}
+
+	/*
+	* Se for um produto que interessar a tagbox, 
+	* devera retornar true
+	* Entrada: array de um produto
+	* Saida: (bool) 
+	*/
+	public function validate(){
+
+		$categoria_principal = explode('|', $this->getCategory() );
+		$categoria_principal = $categoria_principal[0];
+
+		// White List filter
+		// Se a categoria principal NÃO estiver na lista branca de categorias
+		// retorna falso
+		if( ! in_array($categoria_principal, $this->white_list_categories ) AND
+			! empty($this->white_list_categories) ){
+		
+			$this->logger->info('['.PADRAO.'][Skip] Category WhiteList Filter > '.$categoria_principal);
+			return false;
+
+		}
+
+		// Black List filter
+		// Se a categoria principal ESTIVER estiver na lista negra de categorias
+		// retorna falso
+		if( in_array($categoria_principal, $this->black_list_categories ) AND
+			! empty($this->black_list_categories) ){
+		
+			$this->logger->info('['.PADRAO.'][Skip] Category BlackList Filter > '.$categoria_principal);
+			return false;
+		
+		}
+		
+		// Testa resposta do cabeçalho HTTP
+		// retorna falso se o link nao estiver funcionando
+		// retorna o link se estiver funcionando
+		$this->link_do_produto = testHeader( $this->getProductUrl() );
+		if ( ! $this->link_do_produto ) {
+			$this->logger->info('['.PADRAO.'][Skip] Link quebrado');
+			return false;
+		}
+
+		return true;
+	}
+
+	/**
+	 * Funcao para capturar dados extras
+	 * @return array() de um produto + campos extras
+	*/
+	public function prepare(){
+		// Obtem html
+		$html = str_get_html( get_content($this->link_do_produto) );
+
+		if( ! $html ){
+			$this->logger->info('['.PADRAO.'][Skip] HTML invalido');
+			return false;				
+		}
+
+		// Html retornou vazio?
+		if( $html->plaintext == '' ) {
+			$this->logger->info('['.PADRAO.'][Skip] Html vazio > '.$this->link_do_produto);
+			return false;
+		}
+
+		// Obtem loja
+		$this->produto['loja'] = get_class($this);
+
+		return $html;
+	}
+
+}

@@ -58,26 +58,15 @@
 
 		// Instancia um novo produto
 		$temp_var = PADRAO_UC;
-		$padrao = new $temp_var();
+		$importador = new $temp_var();
 
-		/*
-		* Executa varias tentativas para obter a lista de produtos
-		*/
-		// obtem xml da pagina
-		$xml = simplexml_load_string(get_content($padrao->getXmlUrl().$page) );
-
-		// Converte para array
-		$json = json_encode($xml);
-		$array = json_decode($json,TRUE);
-
-		// Coloca o xml convertido para array o obj padrao
-		$padrao->init($array);
+		$importador->load_xml_page($page);
 
 		// Seta ultima pagina
-		$last_page = $padrao->getLastPage();
+		$last_page = $importador->getLastPage();
 
 		// Obtem a lista de produtos do XML conforme o padrao
-		$products_list = $padrao->getProductsList();
+		$products_list = $importador->getProductsList();
 
 		// Obtem a lista de produtos para comecar o loop
 		// Esta funcao tambem serve para identificar quando chegou a ultima
@@ -91,25 +80,25 @@
 		foreach ($products_list as $key => $produto) {
 			$logger->info('['.PADRAO.'][Pag '.$page.'/'.$last_page.'][Produto '.$key.']');
 			// Informa o produto no qual sera processado
-			$padrao->setProduct($produto);
+			$importador->setProduct($produto);
 
 			// Validação
-			if( ! $padrao->validate() ){
+			if( ! $importador->validate() ){
 				Contador::add('Invalido');
 				continue;
 			}
 
 			// Tratamento
-			if( ! $padrao->prepare() ){
+			if( ! $importador->prepare() ){
 				Contador::add('Incompleto');
 				continue;
 			}
 
 			// Remove a chave @attributes
-			recursive_unset($padrao->produto, '@attributes');
+			recursive_unset($importador->produto, '@attributes');
 
 			// Adiciona o produto processado a lista de produtos prontos
-			$products_finish[] = $padrao->produto;
+			$products_finish[] = $importador->produto;
 			Contador::add('Completo');
 
 			flush();

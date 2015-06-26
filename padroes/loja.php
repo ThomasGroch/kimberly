@@ -18,10 +18,6 @@
 			}
 		}
 
-		public function init($array){
-			$this->array = $array;
-		}
-
 		public function getLastPage(){}
 
 		public function setProduto($produto){

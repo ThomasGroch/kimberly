@@ -4,16 +4,18 @@
 
 	Class Olook extends Zanox{
 
-		public function Olook($array = array()){
-			parent::__construct($array);
-		}
+		var $xml_url = 'http://api.zanox.com/xml/2011-03-01/products/?connectid=089EAF947B7A0B3C896E&adspace=1916212&programs=12283&items=500&page=';
 
-		/*
-		* Funcao para retornar url do sistema de afiliados
-		* sem o numero de paginacao
-		*/
-		public function getXmlUrl() {
-			return 'http://api.zanox.com/xml/2011-03-01/products/?connectid=089EAF947B7A0B3C896E&adspace=1916212&programs=12283&items=500&page=';
+		var $produto = array();
+
+		var $link_produto = '';
+		
+		var $white_list_category = array();
+		
+		var $black_list_category = array();
+
+	   	function __construct() {
+	       parent::__construct();
 		}
 
 		/*
