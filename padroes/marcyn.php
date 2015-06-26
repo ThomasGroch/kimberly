@@ -14,5 +14,9 @@
 
 		public function prepare(){
 			parent::prepare();
+
+			print_r($this->produto);die();
 		}
+
+
 	}
