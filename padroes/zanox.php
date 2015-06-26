@@ -7,7 +7,6 @@
 		/* Campos Extra */
 		public $array = array();
 		public $produto = array();
-		public $link_do_produto;
 
 	   function __construct() {
 	       parent::__construct();

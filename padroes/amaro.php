@@ -7,8 +7,6 @@
 
 		var $produto = array();
 
-		var $link_produto = '';
-		
 		var $white_list_category = array();
 		
 		var $black_list_category = array();

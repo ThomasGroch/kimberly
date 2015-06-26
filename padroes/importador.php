@@ -47,29 +47,6 @@ class Importador {
 	}
 
 	public function save_xml_products( $processed_products ) {
-		
-		// Salva produto no xml
-		$file_path = 'xmls/'.PADRAO.'-'.date('Y-m-d-H-i-s').'.xml';
-
-		if( empty($processed_products) ){
-			$logger->info('['.PADRAO.']Nenhum produo encontrado. Sem conexao a internet?');
-			exit;
-		}
-
-		try 
-		{
-		    $xml = new array2xml('products', 'product');
-		    $xml->createNode( $processed_products );
-		    $xml->save( $file_path );
-			$logger->info('['.PADRAO.']Produtos salvos!');
-			return true;
-		} 
-		catch (Exception $e) 
-		{
-		    echo $e->getMessage();
-			$logger->info('['.PADRAO.']'.$e->getMessage());
-			return false;
-		}
 
 	}
 
@@ -124,15 +101,15 @@ class Importador {
 	*/
 	public function prepare(){
 		// Obtem html
-		$this->html = str_get_html( get_content($this->link_do_produto) );
+		$html = str_get_html( get_content($this->link_do_produto) );
 
-		if( ! $this->html ){
+		if( ! $html ){
 			$this->logger->info('['.PADRAO.'][Skip] HTML invalido');
 			return false;				
 		}
 
 		// Html retornou vazio?
-		if( $this->html->plaintext == '' ) {
+		if( $html->plaintext == '' ) {
 			$this->logger->info('['.PADRAO.'][Skip] Html vazio > '.$this->link_do_produto);
 			return false;
 		}
@@ -140,7 +117,7 @@ class Importador {
 		// Obtem loja
 		$this->produto['loja'] = get_class($this);
 
-		return $this->html;
+		return $html;
 	}
 
 }

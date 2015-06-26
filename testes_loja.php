@@ -17,9 +17,18 @@
 	include_once("simple_html_dom.php");
 	include_once("util.php");
 
-		require __DIR__ . '/padroes/afilio.php';
+		require __DIR__ . '/padroes/marcyn.php';
+		
 
 		libxml_use_internal_errors(true);
+
+		$imp = new Marcyn();
+		$arrXml = $imp->load_xml_page("http://v2.afilio.com.br/aff/aff_get_boutique.php?boutiqueid=39281-895842&token=53e355b5e465b0.28149070&progid=1180&format=XML");
+
+
+		echo '<pre>hgvhjvjhb';print_r($arrXml);	die();
+		/*
+
 		$afilio = new Afilio(); 
 		// obtem xml da pagina
 
@@ -27,9 +36,9 @@
 
 		$contentXml = get_content($contentXml);
 
-
+		
 		//echo utf8_encode($contentXml);die();
-		$xml = simplexml_load_string( $contentXml );
+		$xml = simplexml_load_string( $arqXml );*/
 	
 	//echo get_content($contentXml) ;die();
 
@@ -37,17 +46,17 @@
 
 
 
-		if(!$xml){
+		/*if(!$xml){
 
 			foreach(libxml_get_errors() as $error) {
 		        echo "\t", $error->message;
 		    }
 
 
-		}
+		}*/
 // Converte para array
-		$json = json_encode($xml);
-		$arr = json_decode($json, true);
+		//$json = json_encode($xml);
+		$arr = json_decode($arqXml, true);
 
 echo '<pre>';var_dump($arr);
 die();
