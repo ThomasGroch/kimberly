@@ -12,6 +12,7 @@
 	error_reporting(E_ALL);
 	setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
 	date_default_timezone_set('America/Sao_Paulo');	
+	header('Content-Type: text/html; charset=UTF-8');
 
 	include_once("simple_html_dom.php");
 	include_once("util.php");
@@ -24,15 +25,18 @@
 
 		$contentXml = utf8_encode($afilio->getUrl());
 
-
-		$xml = simplexml_load_file($contentXml);
-
-		print_r($xml->children());//die();
+		$contentXml = get_content($contentXml);
 
 
 		//echo utf8_encode($contentXml);die();
-		//$xml = simplexml_load_string( get_content($contentXml) );
+		$xml = simplexml_load_string( $contentXml );
 	
+	//echo get_content($contentXml) ;die();
+
+		
+
+
+
 		if(!$xml){
 
 			foreach(libxml_get_errors() as $error) {
@@ -41,20 +45,21 @@
 
 
 		}
-
-die();
-
-		// Converte para array
+// Converte para array
 		$json = json_encode($xml);
 		$arr = json_decode($json, true);
 
+echo '<pre>';var_dump($arr);
+die();
+
+		
 		
 
 		// Coloca o xml convertido para array o obj padrao
 		$arr = $afilio->init($arr);
 
 	//	$arr = $afilio->getProductsList();
-echo '<pre>';var_dump($arr);
+
 
 		/*$arr = array();//array("produto"=>'');
 		if(isset($arr['produto'])){

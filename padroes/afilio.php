@@ -31,11 +31,11 @@
 
 		/**
 		 * Funcao para retornar url do sistema de afiliados
-		 * sem o numero de paginacao
+		 * 
 		*/
 		public function getUrl() {
 			return 'http://v2.afilio.com.br/aff/aff_get_boutique.php?boutiqueid=39281-895842&token=53e355b5e465b0.28149070&progid=1180&format=XML';
-			//return "http://v2.afilio.com.br/aff/aff_get_boutique.php?boutiqueid=39281-895737&token=53e355b5e465b0.28149070&progid=1260&format=XML";
+			
 		}
 
 	}
