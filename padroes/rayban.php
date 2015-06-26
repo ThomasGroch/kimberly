@@ -3,7 +3,19 @@
 
 	class Rayban extends Zanox{
 
-	
+		var $xml_url = '';
+
+		var $produto = array();
+
+		var $link_produto = '';
+		
+		var $white_list_category = array();
+		
+		var $black_list_category = array();		
+
+		// código de afiliado do tagbox
+		public $affiliate_id = '1916212';
+		public $site_name = 'Tag Box';
 
 		public function setProduct($produto){
 
