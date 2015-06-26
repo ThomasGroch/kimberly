@@ -14,7 +14,7 @@
 			$this->logger = $logger;
 
 			if( !empty($array) ){
-				$this->array = $array;
+				$this->xml_em_array = $array;
 			}
 		}
 

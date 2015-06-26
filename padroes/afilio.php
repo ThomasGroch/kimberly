@@ -10,29 +10,29 @@
 		### METODOS DE AFILIADO ###
 
 		public function getLastPage(){
-			//return ceil($this->array['total']/50); <-- programar
+			//return ceil($this->xml_em_array['total']/50); <-- programar
 		}
 
 		public function getProductsList(){
 
-			if(isset($this->array)){
-				if(array_key_exists ('produto' ,$this->array)){
+			if(isset($this->xml_em_array)){
+				if(array_key_exists ('produto' ,$this->xml_em_array)){
 
-					if ( count($this->array['produto']) > 0 && ! empty($this->array['produto'] )  ) {
-						return $this->array;
+					if ( count($this->xml_em_array['produto']) > 0 && ! empty($this->xml_em_array['produto'] )  ) {
+						return $this->xml_em_array;
 
 					}else{
-						$this->logger->info('[Skip] Lista de produtos vazia > '. json_encode($this->array) );
+						$this->logger->info('[Skip] Lista de produtos vazia > '. json_encode($this->xml_em_array) );
 						return false;
 					}
 				
 				}else{
-					$this->logger->info('[Skip] Foi informado um XML vazio > '. json_encode($this->array) );
+					$this->logger->info('[Skip] Foi informado um XML vazio > '. json_encode($this->xml_em_array) );
 					return false;
 				}
 
 			}else{
-				$this->logger->info('[Skip] Não foi recebido o XML > '. json_encode($this->array) );
+				$this->logger->info('[Skip] Não foi recebido o XML > '. json_encode($this->xml_em_array) );
 				return false;
 			}
 		}

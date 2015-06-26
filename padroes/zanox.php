@@ -17,7 +17,7 @@
 
 		public function getLastPage(){
 			if ( $this->single_page ){ return 999; }
-			return ceil($this->array['total']/50);
+			return ceil($this->xml_em_array['total']/50);
 		}
 
 		public function setProduct($produto){
@@ -27,13 +27,13 @@
 		}
 
 		public function getProductsList(){
-			if( !isset($this->array['productItems']) OR !isset($this->array['productItems']['productItem']) ) {
-				$this->logger->info('['.PADRAO.'][Skip] Lista de produtos nao esta no XML > '. json_encode($this->array) );
+			if( !isset($this->xml_em_array['productItems']) OR !isset($this->xml_em_array['productItems']['productItem']) ) {
+				$this->logger->info('['.PADRAO.'][Skip] Lista de produtos nao esta no XML > '. json_encode($this->xml_em_array) );
 				return false;
 			}
-			$product_list = $this->array['productItems']['productItem'];
+			$product_list = $this->xml_em_array['productItems']['productItem'];
 			if ( empty($product_list) ) {
-				$this->logger->info('['.PADRAO.'][Skip] Lista de produtos esta vazia > '. json_encode($this->array) );
+				$this->logger->info('['.PADRAO.'][Skip] Lista de produtos esta vazia > '. json_encode($this->xml_em_array) );
 				return false;
 			}
 			return $product_list;
