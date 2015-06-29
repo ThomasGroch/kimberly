@@ -13,8 +13,8 @@
 		
 		var $black_list_categories = array('Infantil');
 
-		public function Zattini($array = array()){
-			parent::__construct($array);
+		public function Zattini(){
+			parent::__construct();
 			$this->loja = 'zattini';
 		}
 

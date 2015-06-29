@@ -24,7 +24,7 @@ class Importador {
 	* caso a pagina seja -1 retorna sem a paginacao
 	*/
 	public function getXmlUrl( $page = 0 ) {
-		return ( empty($page) OR $page < 0 OR $this->single_page ) ? $this->xml_url : $this->xml_url . $page;
+		return ( $page < 0 OR $this->single_page ) ? $this->xml_url : $this->xml_url . $page;
 	}
 
 	/*
@@ -33,7 +33,6 @@ class Importador {
 	* Coloca array no $this->xml_em_array
 	*/
 	public function load_xml_page($page) {
-
 		// obtem xml da pagina
 		$xml = simplexml_load_string(get_content( $this->getXmlUrl($page) ));
 
