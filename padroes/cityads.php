@@ -11,7 +11,7 @@
 
 		public function getLastPage(){
 			if ( $this->single_page == TRUE ){ return 999; }
-			return ceil($this->xml_em_array['total'] / 1000);
+			return ceil($this->xml_em_array['data']['total'] / 1000);
 		}
 
 		public function setProduct($produto){
