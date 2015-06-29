@@ -36,7 +36,7 @@
 			$url = $this->produto['url'];
 			$html = str_get_html(get_content($url));
 			if( ! $html ){
-				return false
+				return false;
 			}
 
 			$a = $html->find('a',0);
