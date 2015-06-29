@@ -22,12 +22,6 @@
 	require __DIR__ . '/array2xml.php';
 	require __DIR__ . '/contador.php';
 
-	/*
-	* Carrega o logger
-	* https://github.com/wasinger/simplelogger
-	* Ex: $logger->info('Mensagem Exemplo');
-	*/
-	$logger = new \Wa72\SimpleLogger\FileLogger('./logs/log-'.PADRAO.'.txt');
 	
 	/*
 	* Carrega padrao que será usado
@@ -44,6 +38,13 @@
 	}
 	define('PADRAO', $conf_padrao);
 	define('PADRAO_UC', ucfirst($conf_padrao));
+
+	/*
+	* Carrega o logger
+	* https://github.com/wasinger/simplelogger
+	* Ex: $logger->info('Mensagem Exemplo');
+	*/
+	$logger = new \Wa72\SimpleLogger\FileLogger('./logs/log-'.PADRAO.'.txt');
 
 	require __DIR__ . '/padroes/'.PADRAO.'.php';
 
