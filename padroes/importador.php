@@ -53,7 +53,7 @@ class Importador {
 			$this->logger->info('['.PADRAO.']Nenhum produo encontrado. Sem conexao a internet?');
 			exit;
 		}
-		
+
 		try 
 		{
 		    $xml = new array2xml('products', 'product');
@@ -64,6 +64,7 @@ class Importador {
 		catch (Exception $e) 
 		{
 		    echo $e->getMessage();
+			$this->logger->info('['.PADRAO.']Save XML catch '.$e->getMessage());
 		}
 
 	}

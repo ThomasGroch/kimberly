@@ -30,16 +30,6 @@
 		}
 
 		/*
-		* Se for um produto que interessar a tagbox, 
-		* devera retornar true
-		* Entrada: array de um produto
-		* Saida: (bool) 
-		*/
-		// public function validate(){
-			//parent::validate();
-		// }
-
-		/*
 		* Funcao para capturar dados extras
 		* Entrada: array de um produto
 		* Saida: array de um produto + campos extras

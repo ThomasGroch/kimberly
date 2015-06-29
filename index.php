@@ -54,10 +54,11 @@
     $processed_products = array();
 
 	while ($page <= $last_page ) {
+		//if($page > 0) {break;}
 		######################
 		## Loop de Paginas  ##
 		######################
-		
+
 		// Instancia um novo produto
 		$temp_var = PADRAO_UC;
 		$importador = new $temp_var();
@@ -79,6 +80,7 @@
 		}
 
 		foreach ($products_list as $key => $produto) {
+			//if($key > 10) {break;}
 			######################
 			## Loop de Produtos ##
 			######################
