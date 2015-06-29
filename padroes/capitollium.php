@@ -23,6 +23,13 @@
 
 		public function setProduct($produto){
 			$produto['url'] = 'http:'.$produto['url'];
+
+			// Trata o nome
+			$nome = explode('-', $this->produto['name'] );
+			$nome = array_slice($nome, 0,-1);
+			$nome = implode('-', $nome);
+			$this->produto['name'] = $nome;
+
 			$this->produto = $produto;
 		}
 
@@ -66,41 +73,37 @@
 		// entao, caso nao encontre algum dado do produto ele sera descartado
 		public function prepare(){
 			parent::prepare();
-
+			
 			// Checar disponibilidade
-			$div = $this->html->find('div.avisoIndisponivel', 0);
-			if( $div->style != 'display:none;') {
+			$div_estoque = $this->html->find('div.avisoIndisponivel',0)->style;
+			if( ! isset($div_estoque) OR $div_estoque != 'display:none;') {
 				//echo "aviso Indisponivel";
 				$this->logger->info('['.PADRAO.'][Skip] Produto nao disponivel');
 				return false;
 			}
 
+
 			// Obtem cor
-			if( $this->getColor() ) {
+			$this->getColor();
+
+			// Obtem marca
+			if( ! $this->getBrand() ) {
+				echo 'b';
 				return false;
 			}
 
 			// Obtem tamanho
-			if( $this->getSize() ) {
+			if( ! $this->getSize() ) {
+				echo 'd';
 				return false;
 			}
 
-			// Obtem marca
-			if( $this->getSize() ) {
-				return false;
-			}
-
-			// Trata o nome
-			$nome = explode('-', $this->produto['name'] );
-			$nome = array_slice($nome, 0,-1);
-			$nome = implode('-', $nome);
-			$this->produto['name'] = $nome;
-
-			print_r($this->produto['marca']);
+			print_r($this->produto);
 			exit;
 			// Produto Tratado com sucesso
 			return true;
 		}
+
 
 		public function getColor() {
 			$cor = '';
@@ -119,17 +122,20 @@
 
 		public function getSize() {
 			$tamanho = '';
-			if ($this->html->find('div[data-codigoatributo="157"]')) {
-				foreach ($this->html->find('div[data-codigoatributo="157"]',0)->find('div') as $value) {
-					if( strpos($value->class, 'disabled') !== false ) {
-						continue;
-					}
-					// Tamanho encontrado
-					$tamanho .= trim($value->plaintext).'|';
+			$div_tamanho = $this->html->find('div[data-codigoatributo="157"]');
+			if ( ! $div_tamanho ) {
+				$this->logger->info('['.PADRAO.'][Warning] Nao foi possivel encontrar tamanho'.' '.$this->link_do_produto);
+			}
+			foreach ($this->html->find('div[data-codigoatributo="157"]',0)->find('div') as $value) {
+				if( strpos($value->class, 'disabled') !== false ) {
+					continue;
 				}
+				// Tamanho encontrado
+				$tamanho .= trim($value->plaintext).'|';
 			}
 			$this->produto['tamanho'] = $tamanho;
 			$this->produto['tamanho'] = substr($this->produto['tamanho'], 0, -1);
+			var_dump($this->produto['tamanho']);
 		}
 
 		public function getBrand() {
@@ -137,18 +143,12 @@
 			// <div class="produtoInfo half right">
 			// <div onclick="javascript:window.open('http://www.capitollium.com.br/fabricante/amissima')" class="fabricante"
 			$div = $this->html->find('div.fabricante', 0);
-			var_dump($div->onclick);
-			exit;
-			$this->logger->info('['.PADRAO.']'.$div->onclick);
-
-			// if ( $div ) {
-			// 	//$marca = get_string_between('.com.br/fabricante/', $div->onclick, "')");
-				
-			// 	if( empty($marca) ) {
-			// 		$this->logger->info('['.PADRAO.'][Skip] Nao foi foi possivel encontrar marca'.' '.$this->link_do_produto);
-			// 		return false;
-			// 	}
-			// }
+			$marca = get_string_between($div->onclick, '.com.br/fabricante/', "')");
+	
+			if ( !isset($div->onclick) ) {
+				$this->logger->info('['.PADRAO.'][Skip] Nao foi possivel encontrar marca'.' '.$this->link_do_produto);
+				return false;
+			}
 			$this->produto['marca'] = $marca;
 		}
 
