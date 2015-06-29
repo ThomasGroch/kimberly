@@ -22,25 +22,23 @@
 		public function setCategory(){
 			$categoria = array();
 			$categ = "";
-			if( !$this->html->find('ul.[itemprop="breadcrumb"]')) {
-				continue;
-			}
-
-			foreach($this->html->find('ul.[itemprop="breadcrumb"]',0)->find('a') as $value) {
-				$categ = trim($value->title);
-				if($categ != "Por Categoria"){
-					$categoria[] = trim($categ);
+			$bread_crumb = $this->html->find('ul.[itemprop="breadcrumb"]');
+			if(!empty($bread_crumb)) {
+				foreach($this->html->find('ul.[itemprop="breadcrumb"]',0)->find('a') as $value) {
+					$categ = trim($value->title);
+					if($categ != "Por Categoria"){
+						$categoria[] = trim($categ);
+					}
 				}
-			}
-			$categoria = implode("|", $categoria);
-			$categoria = $categoria;
-			$categoria = ltrim($categoria,"|");
-			$this->produto['categoria'] = $categoria;
+				$categoria = implode("|", $categoria);
+				$categoria = $categoria;
+				$categoria = ltrim($categoria,"|");
+				$this->produto['categoria'] = $categoria;
 
-			//echo '<pre>';print_r($categoria);
-			/*$this->produto['categoria'] = $categoria;
-			$this->produto['categoria'] = substr($this->produto['categoria'], 0, -1);
-			$this->produto['categoria'] = trim($this->produto['categoria']);*/
+			}else{
+
+				$this->produto['categoria'] = "";
+			}
 		}
 
 		public function getBrand(){
