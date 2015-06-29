@@ -17,8 +17,6 @@
 		public function setProduct($produto){
 			$produto['url'] = 'http:'.$produto['url'];
 			$this->produto = $produto;
-
-			echo "<pre>"; $this->produto['name'];die();
 		}
 
 		public function getProductsList(){

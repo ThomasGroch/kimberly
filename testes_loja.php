@@ -36,7 +36,7 @@
 		//	echo $html->find('div[data-codigoAtributo=157]',0)->last_child ()->plaintext;
 	
 
-		$tamanho = array();
+		/*$tamanho = array();
 
 		foreach($html->find('div[data-codigoAtributo=157]',0)->find('div') as $value){
 
@@ -57,7 +57,29 @@
 			}
 		}		
 		$cor = implode("|", $cor);
-			echo $cor;	
+			echo $cor;	*/
+
+
+		$categoria = array();
+
+	//	echo '<pre>';print_r($html->find('ul.[itemprop="breadcrumb"]'));die();
+		//echo $html->find('ul.[itemprop="breadcrumb"]',0)->find('a',0);die();
+		echo $html->find('div.avisoIndisponivel',0)->style;die();
+
+
+		if( !$html->find('ul.[itemprop="breadcrumb"]')) {
+			continue;
+		}
+
+		foreach($html->find('ul.[itemprop="breadcrumb"]',0)->find('a') as $value) {
+			if($value->title != "Por Categoria"){
+				$categoria[] = $value->title;
+			}
+		}
+		$categoria = implode("|", $categoria);
+		echo $categoria;die();
+
+
 
 
 
