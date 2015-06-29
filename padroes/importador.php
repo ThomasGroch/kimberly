@@ -50,7 +50,7 @@ class Importador {
 		$file_path = 'xmls/'.PADRAO.'-'.date('Y-m-d-H-i-s').'.xml';
 
 		if(empty($products_finish)){
-			$logger->info('['.PADRAO.']Nenhum produo encontrado. Sem conexao a internet?');
+			$this->logger->info('['.PADRAO.']Nenhum produo encontrado. Sem conexao a internet?');
 			exit;
 		}
 		
@@ -59,7 +59,7 @@ class Importador {
 		    $xml = new array2xml('products', 'product');
 		    $xml->createNode( $processed_products );
 		    $xml->save( $file_path );
-			$logger->info('['.PADRAO.']Produtos salvos!');
+			$this->logger->info('['.PADRAO.']Produtos salvos!');
 		} 
 		catch (Exception $e) 
 		{
