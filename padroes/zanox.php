@@ -16,7 +16,6 @@
 		### METODOS DE AFILIADO ###
 
 		public function getLastPage(){
-			if ( $this->single_page ){ return 999; }
 			return ceil($this->xml_em_array['total']/50);
 		}
 

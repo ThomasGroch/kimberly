@@ -50,16 +50,14 @@ class Importador {
 
 	}
 
-	/*
-	* Se for um produto que interessar a tagbox, 
-	* devera retornar true
-	* Entrada: array de um produto
-	* Saida: (bool) 
-	*/
-	public function validate(){
 
-		$categoria_principal = explode('|', $this->getCategory() );
-		$categoria_principal = $categoria_principal[0];
+	public function filter_category_lists() {
+
+		$categoria_principal = $this->getCategory();
+		if( empty($categoria_principal) ) {
+			$this->setCategory();
+			$categoria_principal = $this->getCategory();
+		}
 
 		// White List filter
 		// Se a categoria principal NÃO estiver na lista branca de categorias
@@ -82,7 +80,18 @@ class Importador {
 			return false;
 		
 		}
-		
+
+		return true;
+	}
+
+	/*
+	* Se for um produto que interessar a tagbox, 
+	* devera retornar true
+	* Entrada: array de um produto
+	* Saida: (bool) 
+	*/
+	public function validate(){
+
 		// Testa resposta do cabeçalho HTTP
 		// retorna falso se o link nao estiver funcionando
 		// retorna o link se estiver funcionando
@@ -114,10 +123,14 @@ class Importador {
 			return false;
 		}
 
+		// Filtra White/Black List
+		if( ! $this->filter_category_lists() ) {
+			return false;
+		}
+
 		// Obtem loja
 		$this->produto['loja'] = get_class($this);
 
-		return $this->html;
 	}
 
 }
