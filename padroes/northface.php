@@ -1,9 +1,9 @@
 <?php
-	require __DIR__ . '/zanox.php';	
+	require __DIR__ . '/cityads.php';	
 
-	class NorthFace extends Importador{
+	class NorthFace extends Cityads{
 
-		var $xml_url = 'http://api.cityads.com/api/rest/webmaster/xml/goods?remote_auth=e2f6b2dd8b899aed22134a3602d3fe27&filter=NDQ5NjM4Nzk1';
+		var $xml_url = 'http://api.cityads.com/api/rest/webmaster/xml/goods?remote_auth=e2f6b2dd8b899aed22134a3602d3fe27&filter=NDQ5NjM4Nzk1&limit=1000&start=';
 
 		var $produto = array();
 
@@ -12,8 +12,6 @@
 		var $white_list_category = array();
 		
 		var $black_list_category = array();
-
-		var $single_page = TRUE;
 
 
 		public function NorthFace($array = array()){
