@@ -53,15 +53,14 @@
 
 			// Obtem marca
 			if( ! $this->getBrand() ) {
-				echo 'b';
 				return false;
 			}
 
 			// Obtem tamanho
 			$this->getSize();
 
-			print_r($this->produto);
-			exit;
+			// print_r($this->produto);
+			// exit;
 			// Produto Tratado com sucesso
 			return true;
 		}
@@ -75,7 +74,7 @@
 						continue;
 					}
 					// Cor encontrada
-					$cor .= $value->getAttribute('data-valoratributo').'|';
+					$cor .= trim($value->getAttribute('data-valoratributo')).'|';
 				}
 			}
 			$this->produto['cor'] = $cor;
@@ -120,7 +119,7 @@
 				continue;
 			}
 			foreach($this->html->find('ul.[itemprop="breadcrumb"]',0)->find('span') as $value) {
-				$categoria .= $value->plaintext.'|';
+				$categoria .= trim($value->plaintext).'|';
 			}
 			$this->produto['categoria'] = $categoria;
 			$this->produto['categoria'] = substr($this->produto['categoria'], 0, -1);
