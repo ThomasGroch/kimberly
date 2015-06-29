@@ -42,23 +42,4 @@
 
 		public function validate(){}
 
-		public function prepare(){
-			// Obtem html
-			$html = str_get_html(get_content($this->link_do_produto));
-
-			if( ! $html ){
-				$this->logger->info('[Skip] HTML invalido');
-				return false;				
-			}
-
-			// Html retornou vazio?
-			if( $this->html->plaintext == '' ) {
-				$this->logger->info('[Skip] Html vazio > '.$this->link_do_produto);
-				return false;
-			}
-
-			$this->getLoja();
-
-			return $html;
-		}
 	}
