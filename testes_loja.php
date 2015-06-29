@@ -23,10 +23,10 @@
 		libxml_use_internal_errors(true);
 
 		$imp = new Marcyn();
-		$imp->load_xml_page("http://v2.afilio.com.br/aff/aff_get_boutique.php?boutiqueid=39281-895842&token=53e355b5e465b0.28149070&progid=1180&format=XML");
+		$imp->load_xml_page(utf8_encode("http://v2.afilio.com.br/aff/aff_get_boutique.php?boutiqueid=39281-895842&token=53e355b5e465b0.28149070&progid=1180&format=XML"));
 
 
-		echo '<pre>hgvhjvjhb';print_r($arrXml->xml_em_array);	die();
+		echo '<pre>hgvhjvjhb';print_r($imp->xml_em_array);	die();
 		/*
 
 		$afilio = new Afilio(); 

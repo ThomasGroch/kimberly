@@ -11,11 +11,19 @@
 		
 		var $black_list_category = array();
 
+		var $single_page = TRUE;
+
 
 		public function prepare(){
 			parent::prepare();
 
 			print_r($this->produto);die();
+		}
+
+		public function setProduct($produto){
+
+			$this->produto = $produto;
+
 		}
 
 

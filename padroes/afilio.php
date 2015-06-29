@@ -9,6 +9,30 @@
 		
 		### METODOS DE AFILIADO ###
 
+
+		/*
+		* Carrega a pagina do xml
+		* Converte em array
+		* Coloca array no $this->xml_em_array
+		*/
+		public function load_xml_page($page) {
+
+			// obtem xml da pagina
+			$teste = file_get_contents( 'xmls/boutique.xml' );
+			echo $teste;die();
+			$xml =  simplexml_load_string(file_get_contents( 'xmls/boutique.xml' ));
+
+			// Converte para array
+			$json = json_encode($xml);
+			$array = json_decode($json,TRUE);
+
+			//echo '<pre>';print_r($array);die();
+			// Coloca o xml convertido para array o obj padrao
+			$this->xml_em_array = $array;
+
+		}
+
+
 		public function getLastPage(){
 			//return ceil($this->xml_em_array['total']/50); <-- programar
 		}
@@ -62,6 +86,8 @@
 
 		/* Forma generica de obter a lista de categorias dos XMLs */
 		public function getProductUrl(){
+			
+			echo '<pre>';var_dump($this->produto);die();
 			// return $this->produto['trackingLinks']['trackingLink']['ppc'];
 		}
 
