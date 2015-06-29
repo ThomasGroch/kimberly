@@ -82,7 +82,6 @@
 			######################
 			## Loop de Produtos ##
 			######################
-
 			$logger->info('['.PADRAO.'][Pag '.$page.'/'.$last_page.'][Produto '.$key.']');
 			// Informa o produto no qual sera processado
 			$importador->setProduct($produto);
