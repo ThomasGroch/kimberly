@@ -3,7 +3,15 @@
 
 	Class Zattini extends Zanox{
 
-		public $black_list_categories = array('Infantil');
+		var $xml_url = 'http://api.zanox.com/xml/2011-03-01/products/?connectid=089EAF947B7A0B3C896E&adspace=1916212&programs=15900&items=500&page=';
+
+		var $produto = array();
+
+		var $link_produto = '';
+		
+		var $white_list_category = array();
+		
+		var $black_list_categories = array('Infantil');
 
 		public function Zattini($array = array()){
 			parent::__construct($array);
@@ -30,14 +38,6 @@
 		// public function validate(){
 			//parent::validate();
 		// }
-
-		/*
-		* Funcao para retornar url do sistema de afiliados
-		* sem o numero de paginacao
-		*/
-		public function getXmlUrl() {
-			return 'http://api.zanox.com/xml/2011-03-01/products/?connectid=089EAF947B7A0B3C896E&adspace=1916212&programs=15900&items=500&page=';
-		}
 
 		/*
 		* Funcao para capturar dados extras
