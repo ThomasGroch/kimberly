@@ -101,15 +101,15 @@ class Importador {
 	*/
 	public function prepare(){
 		// Obtem html
-		$html = str_get_html( get_content($this->link_do_produto) );
+		$this->html = str_get_html( get_content($this->link_do_produto) );
 
-		if( ! $html ){
+		if( ! $this->html ){
 			$this->logger->info('['.PADRAO.'][Skip] HTML invalido');
 			return false;				
 		}
 
 		// Html retornou vazio?
-		if( $html->plaintext == '' ) {
+		if( $this->html->plaintext == '' ) {
 			$this->logger->info('['.PADRAO.'][Skip] Html vazio > '.$this->link_do_produto);
 			return false;
 		}
@@ -117,7 +117,7 @@ class Importador {
 		// Obtem loja
 		$this->produto['loja'] = get_class($this);
 
-		return $html;
+		return $this->html;
 	}
 
 }
