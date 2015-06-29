@@ -14,28 +14,29 @@
 		var $black_list_category = array();
 
 
-		public function NorthFace($array = array()){
-			parent::__construct($array);
-			$this->loja = 'North Face';
-		}
-
 		public function setProduct($produto){
 			parent::setProduct($produto);
+			$this->produto['loja'] = "North Face";
 		}
 
 		public function setCategory(){
 			$categoria = array();
+			$categ = "";
 			if( !$this->html->find('ul.[itemprop="breadcrumb"]')) {
 				continue;
 			}
 
 			foreach($this->html->find('ul.[itemprop="breadcrumb"]',0)->find('a') as $value) {
-				if($value->title != "Por Categoria"){
-					$categoria[] = $value->title;
+				$categ = trim($value->title);
+				if($categ != "Por Categoria"){
+					$categoria[] = trim($categ);
 				}
 			}
 			$categoria = implode("|", $categoria);
+			$categoria = $categoria;
+			$categoria = ltrim($categoria,"|");
 			$this->produto['categoria'] = $categoria;
+
 			//echo '<pre>';print_r($categoria);
 			/*$this->produto['categoria'] = $categoria;
 			$this->produto['categoria'] = substr($this->produto['categoria'], 0, -1);
@@ -58,10 +59,10 @@
 						continue;
 					}
 					// Cor encontrada
-					$cor[]= $value->getAttribute("data-valoratributo");
-				}
+					$cor[]= trim($value->getAttribute("data-valoratributo"));				}
 			}
 			$cor = implode("|", $cor);
+			ltrim($cor,"|");
 			$this->produto['cor'] = $cor;
 			
 		}
@@ -75,10 +76,11 @@
 			foreach ($this->html->find('div[data-codigoatributo="157"]',0)->find('div') as $value) {
 				
 				if(strpos($value->class, 'disabled') === FALSE){
-					$tamanho[]= $value->plaintext;
+					$tamanho[]= trim($value->plaintext);
 				}
 			}
 			$tamanho = implode("|", $tamanho);
+			ltrim($tamanho,"|");
 			$this->produto['tamanho'] = $tamanho;
 		}
 
@@ -94,20 +96,19 @@
 			
 			// Checar disponibilidade
 			$div_estoque = $this->html->find('div.avisoIndisponivel',0)->style;
-			if( ! isset($div_estoque) OR $div_estoque != 'display:none;') {
-				//echo "aviso Indisponivel";
+
+			if( $div_estoque == "display:none;"){
+				// Obtem cor
+				$this->getColor();
+
+				// Obtem tamanho
+				$this->getSize();
+
+				// Produto Tratado com sucesso
+				return true;
+			}else{
 				$this->logger->info('['.PADRAO.'][Skip] Produto nao disponivel');
 				return false;
-			}
-
-
-			// Obtem cor
-			$this->getColor();
-
-			// Obtem tamanho
-			$this->getSize();
-
-			// Produto Tratado com sucesso
-			return true;
+			}			
 		}
 	}

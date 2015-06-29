@@ -23,7 +23,7 @@
 		libxml_use_internal_errors(true);
 
 		//$linkProduto = "http://www.thenorthface.com.br/produto/camiseta-eye-chart-70350?utm_source=cityads&prx=1826488478&aip=3zaF&click_id=2JMZ1GFEO6Z4Kkf";
-		$linkProduto = "http://www.thenorthface.com.br/produto/TENIS-ULTRA-KILOWATT-FEMININO-73880?atributo=156";
+		$linkProduto = "http://www.thenorthface.com.br/produto/CALCA-FREEDOM-INSULATED-MASCULINA-72457?utm_source=cityads&prx=1827830147&aip=3zaF&click_id=2JMZ1GFKmuZvcNx";
 		$html = file_get_html($linkProduto);
 		
 		//print_r($html->find('data-codigoAtributo',0));
@@ -64,7 +64,7 @@
 
 	//	echo '<pre>';print_r($html->find('ul.[itemprop="breadcrumb"]'));die();
 		//echo $html->find('ul.[itemprop="breadcrumb"]',0)->find('a',0);die();
-		echo $html->find('div.avisoIndisponivel',0)->style;die();
+		//echo $html->find('div.avisoIndisponivel',0)->style;die();
 
 
 		if( !$html->find('ul.[itemprop="breadcrumb"]')) {
@@ -77,10 +77,27 @@
 			}
 		}
 		$categoria = implode("|", $categoria);
-		echo $categoria;die();
+		echo ltrim($categoria,"|");die();
 
 
+		$div_estoque = $html->find('div.avisoIndisponivel',0)->style;
 
+		echo strcmp($div_estoque, "display:none;"); die();
+		//echo isset($div_estoque) ;die();
+		if(!isset($div_estoque)){
+			echo 'nao existe<br>';
+		}
+		if (trim($div_estoque) !== 'display:none;'){
+			echo 'diferente';
+		}
+die();
+		echo '<br>';
+		 echo (trim($div_estoque) !== 'display:none;')? 'true': 'falso';die();
+			if( !isset($div_estoque) OR $div_estoque != 'display:none;') {
+				echo "aviso Indisponivel";
+				
+				return false;
+			}
 
 
 		die();
