@@ -49,7 +49,7 @@ class Importador {
 		// Salva produto no xml
 		$file_path = 'xmls/'.PADRAO.'-'.date('Y-m-d-H-i-s').'.xml';
 
-		if(empty($products_finish)){
+		if(empty($processed_products)){
 			$this->logger->info('['.PADRAO.']Nenhum produo encontrado. Sem conexao a internet?');
 			exit;
 		}
