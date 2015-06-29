@@ -27,7 +27,7 @@
 	* https://github.com/wasinger/simplelogger
 	* Ex: $logger->info('Mensagem Exemplo');
 	*/
-	$logger = new \Wa72\SimpleLogger\FileLogger('./logs/logfile.txt');
+	$logger = new \Wa72\SimpleLogger\FileLogger('./logs/log-'.PADRAO.'.txt');
 	
 	/*
 	* Carrega padrao que será usado

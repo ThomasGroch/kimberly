@@ -1,1 +1,1 @@
-tail -f logs/logfile.txt | grep $1
+tail -f logs/log-$1.txt
