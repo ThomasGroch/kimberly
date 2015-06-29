@@ -83,15 +83,32 @@ function recursive_unset(&$array, $unwanted_key) {
     }
 }
 
-function get_string_between($string, $start, $end=''){
-    $string = " ".$string;
-    $ini = strpos($string,$start);
-    if ($ini == 0) return "";
-    $ini += strlen($start);
-    if (empty($end)){
-        return substr($string,$ini);
+function get_string_between($string, $start, $end='', $numero = 1){
+    // $string = " ".$string;
+    // $ini = strpos($string,$start);
+    // if ($ini == 0) return "";
+    // $ini += strlen($start);
+    // if (empty($end)){
+    //     return substr($string,$ini);
+    // }
+    // $len = strpos($string,$end,$ini) - $ini;
+    // return substr($string,$ini,$len);
+    
+    // Se não encontrar $start retorna FALSE  || $string == ''
+    if(strpos($string, $start) === FALSE){
+        return FALSE;
     }
-    $len = strpos($string,$end,$ini) - $ini;
-    return substr($string,$ini,$len);
+    for($vez=0; $vez<$numero; $vez++){
+        $pos = strpos($string, $start)+strlen($start);
+        $string = substr($string,$pos);
+    }
+    // Procurar/recortar o $end caso ele exista
+    $pos = strpos($string, $end);
+    if($pos !== FALSE){
+        $rec_numero = substr($string,0,$pos);
+    }else{
+        $rec_numero = $string;
+    }
+    return $rec_numero;
 }
 ?>
