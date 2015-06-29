@@ -16,7 +16,7 @@
 
 		public function Capitollium(){
 			parent::__construct();
-			$this->loja = 'capitollium';
+			$this->loja = 'Capitollium';
 		}
 
 		public function setProduct($produto){
