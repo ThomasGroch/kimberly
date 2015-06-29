@@ -114,7 +114,12 @@ class Importador {
 		// Testa resposta do cabeçalho HTTP
 		// retorna falso se o link nao estiver funcionando
 		// retorna o link se estiver funcionando
-		$this->link_do_produto = testHeader( $this->getProductUrl() );
+		$url_verdadeira = $this->getProductUrl();
+		if( ! $url_verdadeira ) {
+			// Nao foi possivel obter link verdadeiro
+			return false;
+		}
+		$this->link_do_produto = testHeader( $url_verdadeira );
 		if ( ! $this->link_do_produto ) {
 			$this->logger->info('['.PADRAO.'][Skip] Link quebrado');
 			return false;

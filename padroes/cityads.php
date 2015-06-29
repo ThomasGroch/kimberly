@@ -35,6 +35,9 @@
 		public function getProductUrl() {
 			$url = $this->produto['url'];
 			$html = str_get_html(get_content($url));
+			if( ! $html ){
+				return false
+			}
 
 			$a = $html->find('a',0);
 			$link_verdadeiro = $a->href;
