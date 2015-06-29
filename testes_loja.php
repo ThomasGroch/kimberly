@@ -22,50 +22,66 @@
 
 		libxml_use_internal_errors(true);
 
-		$imp = new Marcyn();
-		$imp->load_xml_page();
-
-
-		echo '<pre>hgvhjvjhb';print_r($imp->xml_em_array);	die();
-		/*
-
-		$afilio = new Afilio(); 
-		// obtem xml da pagina
-
-		$contentXml = utf8_encode($afilio->getUrl());
-
-		$contentXml = get_content($contentXml);
-
+		//$linkProduto = "http://www.thenorthface.com.br/produto/camiseta-eye-chart-70350?utm_source=cityads&prx=1826488478&aip=3zaF&click_id=2JMZ1GFEO6Z4Kkf";
+		$linkProduto = "http://www.thenorthface.com.br/produto/TENIS-ULTRA-KILOWATT-FEMININO-73880?atributo=156";
+		$html = file_get_html($linkProduto);
 		
-		//echo utf8_encode($contentXml);die();
-		$xml = simplexml_load_string( $arqXml );*/
+		//print_r($html->find('data-codigoAtributo',0));
+		//echo '<pre>';print_r($html->find('div[data-codigoAtributo=157]',0)->children(0)->plaintext);
 	
-	//echo get_content($contentXml) ;die();
+		//echo '<pre>';print_r($html->find('div[data-codigoAtributo=157]',0)->find('div[data-valorAtributo]')->plaintext);
+		
+		//echo '<pre>';print_r($html->find('div[data-codigoAtributo=157]',0)->find('div[data-valorAtributo]')) ;die();
 
+		//	echo $html->find('div[data-codigoAtributo=157]',0)->last_child ()->plaintext;
+	
+
+		$tamanho = array();
+
+		foreach($html->find('div[data-codigoAtributo=157]',0)->find('div') as $value){
+
+			if(strpos($value->class, 'disabled') === FALSE){
+				$tamanho[]= $value->plaintext;
+			}
+		}		
+		$tamanho = implode("|", $tamanho);
+			echo $tamanho;
+
+
+		$cor = array();
+		
+		foreach($html->find('div[data-codigoAtributo=156]',0)->find('div[data-valoratributo]') as $value){
+
+			if(!empty($value->getAttribute("data-valoratributo"))){	
+				$cor[]= $value->getAttribute("data-valoratributo");
+			}
+		}		
+		$cor = implode("|", $cor);
+			echo $cor;	
+
+
+
+		die();
 		
 
 
 
-		/*if(!$xml){
+		if(!$xml){
 
 			foreach(libxml_get_errors() as $error) {
 		        echo "\t", $error->message;
 		    }
 
 
-		}*/
-// Converte para array
-		//$json = json_encode($xml);
-		$arr = json_decode($arqXml, true);
+		}
 
-echo '<pre>';var_dump($arr);
 die();
 
 		
 		
 
 		// Coloca o xml convertido para array o obj padrao
-		$arr = $afilio->init($arr);
+	//	$arr = $afilio->init($arr);
 
 	//	$arr = $afilio->getProductsList();
 
