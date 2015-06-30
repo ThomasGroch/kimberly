@@ -34,9 +34,10 @@
 			parent::prepare();
 			
 			// Checar disponibilidade
-			$json = get_string_between($this->html, 'photos:[', '], ');
+			$json = get_string_between($this->html, 'photos:', '], ').']';
 			//$json = json_decode($json, true);
 			var_dump($json);
+
 			exit;
 			if( ! isset($div_estoque) OR $div_estoque != 'display:none;') {
 				//echo "aviso Indisponivel";
