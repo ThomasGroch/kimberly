@@ -67,6 +67,7 @@
 
 		public function getSize() {
 			$tamanho = array();
+			$replaced = "";
 			$div_tamanho = $this->html->find('div[data-codigoatributo="157"]');
 			if ( ! $div_tamanho ) {
 				$this->logger->info('['.PADRAO.'][Warning] Nao foi possivel encontrar tamanho'.' '.$this->link_do_produto);
@@ -74,12 +75,19 @@
 			foreach ($this->html->find('div[data-codigoatributo="157"]',0)->find('div') as $value) {
 				
 				if(strpos($value->class, 'disabled') === FALSE){
+
 					$tamanho[]= trim($value->plaintext);
 				}
 			}
+			
+			//corrigido função para remover o caracteres adicionais no tamanho mas precisa melhorar pois é preciso remover os 
+			//valores repetidos. Melhor usar preg_replace usando regex.
 			$tamanho = implode("|", $tamanho);
 			ltrim($tamanho,"|");
+			$tamanho = str_replace("REG", '', $tamanho);
+			$tamanho = str_replace("SH", '', $tamanho);
 			$this->produto['tamanho'] = $tamanho;
+			
 		}
 
 			/*
