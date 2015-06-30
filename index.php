@@ -55,7 +55,11 @@
     $processed_products = array();
 
 	while ($page <= $last_page ) {
-		//if($page > 0) {break;}
+
+		if( PADRAO == 'zattini'){
+			if($page < 10) { $page = 210}
+			if($page > 211) {break;}
+		}
 		######################
 		## Loop de Paginas  ##
 		######################
@@ -81,7 +85,9 @@
 		}
 
 		foreach ($products_list as $key => $produto) {
-			//if($key > 10) {break;}
+			if( PADRAO == 'zattini'){
+				if($key > 15) {break;}
+			}
 			######################
 			## Loop de Produtos ##
 			######################

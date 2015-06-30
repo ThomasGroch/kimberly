@@ -137,7 +137,7 @@ class Importador {
 		$this->html = str_get_html( get_content($this->link_do_produto) );
 
 		if( ! $this->html ){
-			$this->logger->info('['.PADRAO.'][Skip] HTML invalido');
+			$this->logger->info('['.PADRAO.'][Skip] HTML invalido > '.$this->link_do_produto);
 			return false;				
 		}
 
