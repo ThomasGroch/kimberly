@@ -73,7 +73,7 @@ class Importador {
 	public function filter_category_lists() {
 
 		$categoria_principal = $this->getCategory();
-		if( empty($categoria_principal) ) {
+		if( empty($categoria_principal) AND method_exists($this, 'setCategory') ) {
 			$this->setCategory();
 			$categoria_principal = $this->getCategory();
 		}
