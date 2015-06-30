@@ -86,13 +86,14 @@
 			$div_tamanho = $this->html->find('div[data-codigoatributo="157"]');
 			if ( ! $div_tamanho ) {
 				$this->logger->info('['.PADRAO.'][Warning] Nao foi possivel encontrar tamanho'.' '.$this->link_do_produto);
-			}
-			foreach ($this->html->find('div[data-codigoatributo="157"]',0)->find('div') as $value) {
-				if( strpos($value->class, 'disabled') !== false ) {
-					continue;
+			}else{
+				foreach ($this->html->find('div[data-codigoatributo="157"]',0)->find('div') as $value) {
+					if( strpos($value->class, 'disabled') !== false ) {
+						continue;
+					}
+					// Tamanho encontrado
+					$tamanho .= trim($value->plaintext).'|';
 				}
-				// Tamanho encontrado
-				$tamanho .= trim($value->plaintext).'|';
 			}
 			$this->produto['tamanho'] = $tamanho;
 			$this->produto['tamanho'] = substr($this->produto['tamanho'], 0, -1);

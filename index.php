@@ -57,7 +57,7 @@
 	while ($page <= $last_page ) {
 
 		if( PADRAO == 'zattini'){
-			if($page < 10) { $page = 210}
+			if($page < 10) { $page = 210;}
 			if($page > 211) {break;}
 		}
 		######################
