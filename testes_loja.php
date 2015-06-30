@@ -21,10 +21,77 @@
 
 		libxml_use_internal_errors(true);
 
-		$linkProduto = "http://www.uselets.com.br/40000--shorts-recortes-mix?utm_source=city&utm_medium=TextLink&prx=1827898688&aip=3zaF&click_id=2CfZ1GG3lAZmnvU";
+		//$linkProduto = "http://www.uselets.com.br/40000--shorts-recortes-mix?utm_source=city&utm_medium=TextLink&prx=1827898688&aip=3zaF&click_id=2CfZ1GG3lAZmnvU";
+		$linkProduto = "http://www.uselets.com.br/48118--vestido-com-paete?utm_source=city&utm_medium=TextLink&prx=1828223404&aip=3zaF&click_id=2CfZ1GGahwZqHaA";
 		$html = file_get_html($linkProduto);
 		
+
+	$bread_crumb = $html->find('div#breadcrumb',0)->find('a',1)->title;
+	echo $bread_crumb; die();//'<pre>';print_r($bread_crumb);die();
+
+
+	/*if(!empty($bread_crumb)) {
+		foreach($this->html->find('ul',0)->find('a',1) as $value) {
+			
+			$categoria[] = trim($value->title);
+			
+		}
+		$categoria = implode("|", $categoria);
+		$categoria = ltrim($categoria,"|");
+		$this->produto['categoria'] = $categoria;
+		die();*/
+
 		//echo highlight_string($html->find('script',28));die();		
+
+		/*$script_g = get_string_between($html->find('script',28), "=[{", "}]", 2);
+		echo  $script_g; die();
+*/
+		$script = array();
+		$script_p = '[{';
+		$script_p .= get_string_between($html->find('script',28), "=[{", "}]", 1);
+		$script_p .= '}]';
+		$script_p = json_decode($script_p, true);
+
+		$script_m = '[{';
+		$script_m .= get_string_between($html->find('script',28), "=[{", "}]", 2);
+		$script_m .= '}]';
+		
+		$script_m = json_decode($script_m, true);
+
+		$script_g = '[{';
+		$script_g .= get_string_between($html->find('script',28), "=[{", "}]", 3);
+		$script_g .= '}]';
+		$script_g = json_decode($script_g, true);
+		
+		$scripts []= $script_p;
+		$scripts []= $script_m;
+		$scripts []= $script_g;
+
+		echo '<pre>';print_r($scripts); die();
+
+
+		foreach ($scripts as  $script) {
+			foreach ($script as $value) {
+
+				if ($value['stock']) {
+					echo "id: ". $value['id']."<br>";
+					echo "Cor: " . $value['color']."<br>";
+					echo "Tamanho: " . $value['size']."<br>";
+					echo "stock: " . $value['stock']."<br>";
+				}
+			}
+			//echo '<pre>';print_r($value);die();
+		}
+//	die();
+
+
+
+		echo '<pre>';print_r($scripts); die();
+
+
+
+
+
 		//echo $html->find('nav#listItemSizes',0)->find('a',0);
 		/*$i = 1;
 		$script = "";
@@ -35,13 +102,25 @@
 			$i++;
 		}*/
 
+
+
 		$script = get_string_between($html->find('script',28), "sP=", "sM=");
 		$script = substr(trim($script), 0, -1);
 
 		$arrScript = json_decode($script, true);
 
+		foreach ($arrScript as  $value) {
+			if ($value['stock']) {
+				echo "id: ". $value['id']."<br>";
+				echo "Cor: " . $value['color']."<br>";
+				echo "Tamanho: " . $value['size']."<br>";
+			}
+		}
 
 
+
+
+		die();
 		echo '<pre>'; print_r($arrScript);
 		die();
 		$script = get_string_between($html->find('script',28), "sM=", "sG=");
