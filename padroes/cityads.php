@@ -35,19 +35,22 @@
 		public function getProductUrl() {
 			$url = $this->produto['url'];
 			$html = str_get_html(get_content($url));
-			if( ! $html ){
+			if(!is_object($html)){
 				return false;
 			}
 
 			$a = $html->find('a',0);
 			$link_verdadeiro = $a->href;
-			if( ! $link_verdadeiro ) {
+			if( !$link_verdadeiro ) {
 				$this->logger->info('['.PADRAO.'][DEBUG] Nao achei o link verdadeiro: '.$url);
 			}
 			$url2 = 'http://cityadspix.com'.$link_verdadeiro;
 			
 			$html2 = str_get_html(get_content($url2));
 
+			if(!is_object($html2))
+				return false;	
+			
 			$url3 = $html2->find('a',0)->href;
 
 			return $url3;
