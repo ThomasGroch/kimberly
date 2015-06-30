@@ -115,16 +115,16 @@
 			Contador::add('Completo');
 
 			flush();
-			 /*if($key >= 5){
+			 if($key >= 5){
 			 	break;
-			 }*/
+			 }
 		}
 
 		//Flag para rodar 2 paginas
-		/* if ( $page >= 1 ){
+		 if ( $page >= 1 ){
 		 	$logger->info('Script interrompido pela Flag');
 		 	break;
-		 }*/
+		 }
 
 		// Próxima página
 		$page++;

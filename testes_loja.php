@@ -18,127 +18,38 @@
 	include_once("util.php");
 
 		require __DIR__ . '/padroes/marcyn.php';
-		
 
 		libxml_use_internal_errors(true);
 
-		//$linkProduto = "http://www.thenorthface.com.br/produto/camiseta-eye-chart-70350?utm_source=cityads&prx=1826488478&aip=3zaF&click_id=2JMZ1GFEO6Z4Kkf";
-		$linkProduto = "http://www.thenorthface.com.br/produto/CALCA-FREEDOM-INSULATED-MASCULINA-72457?utm_source=cityads&prx=1827830147&aip=3zaF&click_id=2JMZ1GFKmuZvcNx";
+		$linkProduto = "http://www.uselets.com.br/40000--shorts-recortes-mix?utm_source=city&utm_medium=TextLink&prx=1827898688&aip=3zaF&click_id=2CfZ1GG3lAZmnvU";
 		$html = file_get_html($linkProduto);
 		
-		//print_r($html->find('data-codigoAtributo',0));
-		//echo '<pre>';print_r($html->find('div[data-codigoAtributo=157]',0)->children(0)->plaintext);
-	
-		//echo '<pre>';print_r($html->find('div[data-codigoAtributo=157]',0)->find('div[data-valorAtributo]')->plaintext);
-		
-		//echo '<pre>';print_r($html->find('div[data-codigoAtributo=157]',0)->find('div[data-valorAtributo]')) ;die();
-
-		//	echo $html->find('div[data-codigoAtributo=157]',0)->last_child ()->plaintext;
-	
-
-		/*$tamanho = array();
-
-		foreach($html->find('div[data-codigoAtributo=157]',0)->find('div') as $value){
-
-			if(strpos($value->class, 'disabled') === FALSE){
-				$tamanho[]= $value->plaintext;
-			}
-		}		
-		$tamanho = implode("|", $tamanho);
-			echo $tamanho;
-
-
-		$cor = array();
-		
-		foreach($html->find('div[data-codigoAtributo=156]',0)->find('div[data-valoratributo]') as $value){
-
-			if(!empty($value->getAttribute("data-valoratributo"))){	
-				$cor[]= $value->getAttribute("data-valoratributo");
-			}
-		}		
-		$cor = implode("|", $cor);
-			echo $cor;	*/
-
-
-		$categoria = array();
-
-	//	echo '<pre>';print_r($html->find('ul.[itemprop="breadcrumb"]'));die();
-		//echo $html->find('ul.[itemprop="breadcrumb"]',0)->find('a',0);die();
-		//echo $html->find('div.avisoIndisponivel',0)->style;die();
-
-
-		if( !$html->find('ul.[itemprop="breadcrumb"]')) {
-			continue;
-		}
-
-		foreach($html->find('ul.[itemprop="breadcrumb"]',0)->find('a') as $value) {
-			if($value->title != "Por Categoria"){
-				$categoria[] = $value->title;
-			}
-		}
-		$categoria = implode("|", $categoria);
-		echo ltrim($categoria,"|");die();
-
-
-		$div_estoque = $html->find('div.avisoIndisponivel',0)->style;
-
-		echo strcmp($div_estoque, "display:none;"); die();
-		//echo isset($div_estoque) ;die();
-		if(!isset($div_estoque)){
-			echo 'nao existe<br>';
-		}
-		if (trim($div_estoque) !== 'display:none;'){
-			echo 'diferente';
-		}
-die();
-		echo '<br>';
-		 echo (trim($div_estoque) !== 'display:none;')? 'true': 'falso';die();
-			if( !isset($div_estoque) OR $div_estoque != 'display:none;') {
-				echo "aviso Indisponivel";
-				
-				return false;
-			}
-
-
-		die();
-		
-
-
-
-		if(!$xml){
-
-			foreach(libxml_get_errors() as $error) {
-		        echo "\t", $error->message;
-		    }
-
-
-		}
-
-die();
-
-		
-		
-
-		// Coloca o xml convertido para array o obj padrao
-	//	$arr = $afilio->init($arr);
-
-	//	$arr = $afilio->getProductsList();
-
-
-		/*$arr = array();//array("produto"=>'');
-		if(isset($arr['produto'])){
-			echo '<pre>';print_r($arr);
+		//echo highlight_string($html->find('script',28));die();		
+		//echo $html->find('nav#listItemSizes',0)->find('a',0);
+		/*$i = 1;
+		$script = "";
+		foreach ($html->find('script') as  $value) {
+			
+			echo "script ". $i."<br>";
+			print( highlight_string($value));	
+			$i++;
 		}*/
-		//echo '<pre>';print_r($arrayZanox);
+
+		$script = get_string_between($html->find('script',28), "sP=", "sM=");
+		$script = substr(trim($script), 0, -1);
+
+		$arrScript = json_decode($script, true);
 
 
+
+		echo '<pre>'; print_r($arrScript);
 		die();
+		$script = get_string_between($html->find('script',28), "sM=", "sG=");
+		$script = substr(trim($script), 0, -2);
 
-
-
-
-
-
+		$script = get_string_between($html->find('script',28), "sG=", "$(document)");
+		$script = substr(trim($script), 0, -2);
+		
 
 
 
