@@ -36,15 +36,12 @@
 			if( ! parent::prepare() ){ return false; }
 			
 			// Checar disponibilidade
-			$div_estoque = $this->html->find('p[id="quantity_wanted_p"', 0)->style;
-			if( $div_estoque == 'display: none;' ) {
+			$p_estoque = $this->html->find('p#quantity_wanted_p', 0)->style;
+			if( $p_estoque == 'display: none;' ) {
 				// Indisponivel
 				$this->logger->info('['.PADRAO.'][Skip] Produto nao disponivel');
 				return false;
-			}else{
-				$this->logger->info('['.PADRAO.'][Skip] Produto OK');
 			}
-			return false;
 
 			// Obtem descricao
 			$descricao = $this->html->find('div[id="maisinfo"]',0)->plaintext;

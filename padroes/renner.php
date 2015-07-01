@@ -52,7 +52,7 @@
 			// Obtem Marca
 			$marca = get_string_between($this->html, 'pageProductBrand":"', '","');
 			$this->produto['marca'] = $marca;
-
+			
 			// Produto Tratado com sucesso
 			return true;
 		}
@@ -62,7 +62,7 @@
 			$cor = '';
 			$color_div = $this->html->find('div.skuColorsList', 0);
 			if ( $color_div ) {
-				foreach( $div_sizes->find('label[class="inptRadio"]') as $label ){
+				foreach( $color_div->find('label[class="inptRadio"]') as $label ){
 					// Cor encontrada
 					$cor .= trim($label->name).'|';
 				}
