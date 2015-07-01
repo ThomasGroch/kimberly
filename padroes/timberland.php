@@ -78,10 +78,6 @@
 
 			$this->produto['descricao'] = html_entity_decode($descricao);
 
-
-			print_r($this->produto);
-			exit;
-
 			// Produto Tratado com sucesso
 			return true;
 		}
