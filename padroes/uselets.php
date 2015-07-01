@@ -13,6 +13,7 @@
 		
 		var $black_list_category = array();
 
+		var $palavra_restrita = array('infantil', 'inf', 'infanto');
 
 		public function setProduct($produto){
 			parent::setProduct($produto);
@@ -115,8 +116,19 @@
 		// Nessa loja todos dados extras sempre estao disponiveis
 		// entao, caso nao encontre algum dado do produto ele sera descartado
 		public function prepare(){
+
+			if (procpalavras($this->produto['name'], $this->palavra_restrita)) {
+				$this->logger->info('['.PADRAO.'][Skip] Produto sem interesse');
+				return false;
+			}
+
 			if( ! parent::prepare() ){ return false; }
 			
+			if(!$this->html){
+				$this->logger->info('['.PADRAO.'][Skip] HTML do produto nao disponivel');
+				return false;
+			}
+
 			// Checar disponibilidade
 			$div_estoque = $this->html->find('div#noStock',0);
 

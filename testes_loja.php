@@ -21,10 +21,30 @@
 
 		libxml_use_internal_errors(true);
 
+	// Função para procura várias palavras em uma string
+	function procpalavras ($frase, $palavras, $resultado = 0) {
+		foreach ( $palavras as $key => $value ) {
+		 	$pos = stripos($frase, $value);
+		  	if ($pos !== false) {
+		  	 	$resultado = 1;
+		  	 	break;
+		  	}
+		} 
+		return $resultado;
+	}	
+
+	$arrPalavra = array('infantil','inf');
+
 		//$linkProduto = "http://www.uselets.com.br/40000--shorts-recortes-mix?utm_source=city&utm_medium=TextLink&prx=1827898688&aip=3zaF&click_id=2CfZ1GG3lAZmnvU";
 		$linkProduto = "http://www.uselets.com.br/48118--vestido-com-paete?utm_source=city&utm_medium=TextLink&prx=1828223404&aip=3zaF&click_id=2CfZ1GGahwZqHaA";
 		$html = file_get_html($linkProduto);
 		
+
+		$teste = procpalavras('Cueca Boxer Infantil', $arrPalavra);
+
+
+		echo $teste;
+die();
 
 	$bread_crumb = $html->find('div#breadcrumb',0)->find('a',1)->title;
 	echo $bread_crumb; die();//'<pre>';print_r($bread_crumb);die();

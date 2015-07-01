@@ -111,4 +111,17 @@ function get_string_between($string, $start, $end='', $numero = 1){
     }
     return $rec_numero;
 }
+
+    // Função para procura várias palavras em uma string
+    function procpalavras ($frase, $palavras, $resultado = 0) {
+        foreach ( $palavras as $key => $value ) {
+            $pos = stripos($frase, $value);
+            if ($pos !== false) {
+                $resultado = 1;
+                break;
+            }
+        } 
+        return $resultado;
+    }   
+
 ?>
