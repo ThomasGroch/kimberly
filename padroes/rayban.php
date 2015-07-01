@@ -18,7 +18,7 @@
 		public $site_name = 'Tag Box';
 
 		public function setProduct($produto){
-
+			parent::setProduct($produto);
 			if(!empty($produto)){
 				$this->produto = $produto;
 				$link_produto = str_replace("[AFFILIATE_ID]", $this->affiliate_id, $produto['trackingLinks']['trackingLink']['ppc']);	

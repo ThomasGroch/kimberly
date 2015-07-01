@@ -15,6 +15,7 @@
 		}
 
 		public function setProduct($produto){
+			parent::setProduct($produto);
 			$produto['url'] = 'http:'.$produto['url'];
 			$this->produto = $produto;
 		}

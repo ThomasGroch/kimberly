@@ -1,9 +1,9 @@
 <?php
 	require __DIR__ . '/cityads.php';
 
-	Class Timberland extends Cityads {
+	Class Mizuno extends Cityads {
 
-		var $xml_url = 'http://api.cityads.com/api/rest/webmaster/xml/goods?remote_auth=e2f6b2dd8b899aed22134a3602d3fe27&filter=NDQ5NjM3Njc1&limit=1000&start=';
+		var $xml_url = 'http://api.cityads.com/api/rest/webmaster/xml/goods?remote_auth=e2f6b2dd8b899aed22134a3602d3fe27&filter=NDQ5NjQwMjQ1&limit=1000&start=';
 
 		var $produto = array();
 
@@ -14,9 +14,9 @@
 		var $black_list_category = array();
 
 
-		public function Timberland(){
+		public function Mizuno(){
 			parent::__construct();
-			$this['loja'] = 'Timberland';
+			$this['loja'] = 'Mizuno';
 		}
 
 		public function setProduct($produto){

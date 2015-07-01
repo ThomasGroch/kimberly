@@ -19,6 +19,10 @@ class Importador {
 		$this->logger = $logger;
 	}
 
+	public function setProduct($produto){
+		unset( $this->produto['properties'] );
+	}
+
 	/*
 	* Funcao para retornar url do sistema de afiliados
 	* caso a pagina seja -1 retorna sem a paginacao
