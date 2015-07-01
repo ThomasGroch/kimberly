@@ -47,7 +47,7 @@
 			$this->getSize();
 
 			// Obtem cor
-			//$this->getColor();
+			$this->getColor();
 
 			// Obtem Marca
 			$marca = get_string_between($this->html, 'pageProductBrand":"', '","');
@@ -60,13 +60,11 @@
 
 		public function getColor() {
 			$cor = '';
-			if ($this->html->find('div[data-codigoatributo="158"]')) {
-				foreach ($this->html->find('div[data-codigoatributo="158"]',0)->find('div') as $value) {
-					if( strpos($value->class, 'disabled') ){
-						continue;
-					}
+			$color_div = $this->html->find('div.skuColorsList', 0);
+			if ( $color_div ) {
+				foreach( $div_sizes->find('label[class="inptRadio"]') as $label ){
 					// Cor encontrada
-					$cor .= trim($value->getAttribute('data-valoratributo')).'|';
+					$cor .= trim($label->name).'|';
 				}
 			}
 			$this->produto['cor'] = $cor;
