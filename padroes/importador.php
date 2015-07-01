@@ -81,8 +81,8 @@ class Importador {
 		// White List filter
 		// Se a categoria principal NÃO estiver na lista branca de categorias
 		// retorna falso
-		if( ! in_array($categoria_principal, $this->white_list_categories ) AND
-			! empty($this->white_list_categories) ){
+		if( ! in_array($categoria_principal, $this->white_list_category ) AND
+			! empty($this->white_list_category) ){
 		
 			$this->logger->info('['.PADRAO.'][Skip] Category WhiteList Filter > '.$categoria_principal);
 			return false;
