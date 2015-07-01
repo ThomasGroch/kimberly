@@ -16,7 +16,7 @@
 
 		public function Timberland(){
 			parent::__construct();
-			$this['loja'] = 'Timberland';
+			$this->produto['loja'] = 'Timberland';
 		}
 
 		public function setProduct($produto){

@@ -11,12 +11,12 @@
 		
 		var $white_list_category = array();
 		
-		var $black_list_category = array();
+		var $black_list_category = array('0');
 
 
 		public function Mizuno(){
 			parent::__construct();
-			$this['loja'] = 'Mizuno';
+			$this->produto['loja'] = 'Mizuno';
 		}
 
 		public function setProduct($produto){
@@ -47,36 +47,40 @@
 			if( ! parent::prepare() ){ return false; }
 			
 			// Checar disponibilidade
-			var_dump($this->link_do_produto);
-			$json = get_string_between($this->html, 'photos:', '], ').']';
-			$json = my_json_decode($json);
+			//var_dump($this->link_do_produto);
+			$json = get_string_between($this->html, '// product data, lists of "color", "flavor", "size", "voltage"', '$("#notifyMe").click(function(){');
+//			$json = get_string_between($json, 'items: ', ']         }       });');
 
-			$cores = array();
-			$tamanhos = array();
-			foreach ($json as $cor) {
-				foreach ($cor['sizes'] as $size) {
-					if( $size['quant'] > 0 ){
-						$color_txt = $this->getColorByCode( $cor['colorId'] );
-						if( $color_txt ) {
-							$cores[] = trim($color_txt);
-						}
-						$tamanhos[] = trim($size['val']);
-					}
-				}
-			}
-			$cores = array_unique($cores);
-			$tamanhos = array_unique($tamanhos);
+			// Tenta tirar comentarios
+			//$json = preg_replace('~"(?:[^\\\"]+|\\\.)*+"(*SKIP)(*FAIL)|/\*(?:[^*]+|\*+(?!/))*+\*/~s', '',$json);
+			//$json = preg_replace("#(/\*([^*]|[\r\n]|(\*+([^*/]|[\r\n])))*\*+/)|([\s\t]//.*)|(^//.*)#", '', $json);
 
-			$this->produto['cor'] = implode('|', $cores);
-			$this->produto['tamanho'] = implode('|', $tamanhos);
+			//$json = my_json_decode($json);
+			var_dump($json);
+			exit;
+
+			// $cores = array();
+			// $tamanhos = array();
+			// foreach ($json as $cor) {
+			// 	foreach ($cor['sizes'] as $size) {
+			// 		if( $size['quant'] > 0 ){
+			// 			$color_txt = $this->getColorByCode( $cor['colorId'] );
+			// 			if( $color_txt ) {
+			// 				$cores[] = trim($color_txt);
+			// 			}
+			// 			$tamanhos[] = trim($size['val']);
+			// 		}
+			// 	}
+			// }
+			// $cores = array_unique($cores);
+			// $tamanhos = array_unique($tamanhos);
+
+			// $this->produto['cor'] = implode('|', $cores);
+			// $this->produto['tamanho'] = implode('|', $tamanhos);
 
 
-			// Obtem descricao
-			$descricao = $this->html->find('div#descricao',0)->plaintext;
-			$descricao = trim($descricao);
-			$descricao = str_replace('  ', '', $descricao);
-
-			$this->produto['descricao'] = html_entity_decode($descricao);
+			// limpa descricao
+			$this->produto['descricao'] = html_entity_decode($this->produto['text']);
 
 			// Produto Tratado com sucesso
 			return true;
