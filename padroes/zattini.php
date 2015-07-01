@@ -35,7 +35,7 @@
 		* Saida: array de um produto + campos extras
 		*/
 		public function prepare(){
-			parent::prepare();
+			if( ! parent::prepare() ){ return false; }
 			
 			// Obtem tamanho
 			// <span class="attr-name unavailable">

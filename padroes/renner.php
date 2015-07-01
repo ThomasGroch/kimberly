@@ -31,7 +31,7 @@
 		// Nessa loja todos dados extras sempre estao disponiveis
 		// entao, caso nao encontre algum dado do produto ele sera descartado
 		public function prepare(){
-			parent::prepare();
+			if( ! parent::prepare() ){ return false; }
 			
 			$titulo = $this->produto['name'];
 			if( stripos($titulo, 'Anos') OR

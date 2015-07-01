@@ -37,7 +37,7 @@
 		// Nessa loja todos dados extras sempre estao disponiveis
 		// entao, caso nao encontre algum dado do produto ele sera descartado
 		public function prepare(){
-			parent::prepare();
+			if( ! parent::prepare() ){ return false; }
 			
 			// Checar disponibilidade
 			$div_estoque = $this->html->find('div.avisoIndisponivel',0)->style;

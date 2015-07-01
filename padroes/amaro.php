@@ -21,7 +21,7 @@
 		* Saida: array de um produto + campos extras
 		*/
 		public function prepare(){
-			parent::prepare();
+			if( ! parent::prepare() ){ return false; }
 			
 			// Obtem tamanho
 			if( ! $this->html->find('div.size-option--available') ) {

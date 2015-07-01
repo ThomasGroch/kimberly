@@ -21,11 +21,6 @@
 			parent::__construct($array);
 		}
 
-		public function setHtml(){
-
-			$this->html = parent::prepare();
-		}
-
 		public function setCor(){
 			$this->produto['cor'] = $this->getCorHtml();
 		}
@@ -125,8 +120,7 @@
 		* Saida: array de um produto + campos extras
 		*/
 		public function prepare(){
-
-			$this->setHtml();
+			if( ! parent::prepare() ){ return false; }
 
 			$categoria = $this->getCategoriaHtml();
 			
