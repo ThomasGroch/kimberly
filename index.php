@@ -83,10 +83,9 @@
 			$logger->info('Varredura terminada!');
 			break;
 		}
-
 		foreach ($products_list as $key => $produto) {
 			// if( PADRAO == 'zattini'){
-			// 	if($key > 15) {break;}
+			//	if($key > 15) {break;}
 			// }
 			######################
 			## Loop de Produtos ##
@@ -119,6 +118,7 @@
 			 // 	break;
 			 // }
 		}
+		break;
 
 		//Flag para rodar 2 paginas
 		 // if ( $page >= 1 ){
