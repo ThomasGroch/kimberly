@@ -50,8 +50,8 @@
 			$this->getColor();
 
 			// Obtem Marca
-			$marca = get_string_between($this->html, 'pageProductBrand":"', '","');
-			$this->produto['marca'] = $marca;
+			//$marca = get_string_between($this->html, 'pageProductBrand":"', '","');
+			//$this->produto['marca'] = $marca;
 			
 			// Produto Tratado com sucesso
 			return true;
