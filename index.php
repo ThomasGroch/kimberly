@@ -118,7 +118,6 @@
 			 // 	break;
 			 // }
 		}
-		break;
 
 		//Flag para rodar 2 paginas
 		 // if ( $page >= 1 ){
