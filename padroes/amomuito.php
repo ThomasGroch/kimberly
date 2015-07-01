@@ -41,7 +41,10 @@
 				// Indisponivel
 				$this->logger->info('['.PADRAO.'][Skip] Produto nao disponivel');
 				return false;
+			}else{
+				$this->logger->info('['.PADRAO.'][Skip] Produto OK');
 			}
+			return false;
 
 			// Obtem descricao
 			$descricao = $this->html->find('div[id="maisinfo"]',0)->plaintext;

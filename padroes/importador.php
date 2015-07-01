@@ -153,9 +153,10 @@ class Importador {
 		}
 
 		// Obtem loja
-		if(empty($this->produto['loja']))
+		if( empty($this->produto['loja']) ){
 			$this->produto['loja'] = get_class($this);
-
+		}
+		return true;
 	}
 
 }
