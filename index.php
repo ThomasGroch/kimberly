@@ -15,6 +15,9 @@
 	// Remove warnings
 	error_reporting(E_ERROR | E_PARSE);
 
+	//Habilitar os erros do xml
+	libxml_use_internal_errors(true);
+
 	// Carrega classes do composer e funcoes uteis =)
 	require __DIR__ . '/vendor/autoload.php';
 	require __DIR__ . '/util.php';
@@ -120,11 +123,21 @@
 		}
 		break;
 
-		//Flag para rodar 2 paginas
-		 // if ( $page >= 1 ){
-		 // 	$logger->info('Script interrompido pela Flag');
-		 // 	break;
-		 // }
+		if($importador->xml_esparso){
+		 	
+			// Mostra resultado da importacao
+			$logger->info('['.PADRAO.']Resultado: '.Contador::write('Completo').Contador::write('Invalido').Contador::write('Incompleto') );
+			$importador->save_xml_products( $processed_products );
+
+		}else{
+
+			//Flag para rodar 2 paginas
+			 if ( $page > 50 ){
+			 	$logger->info('Script interrompido pela Flag');
+			 	break;
+			 }
+		}
+
 
 		// Próxima página
 		$page++;

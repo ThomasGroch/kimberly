@@ -3,7 +3,7 @@
 
 	Class Zattini extends Zanox{
 
-		var $xml_url = 'http://api.zanox.com/xml/2011-03-01/products/?connectid=089EAF947B7A0B3C896E&adspace=1916212&programs=15900&items=500&page=';
+		var $xml_url; //'http://api.zanox.com/xml/2011-03-01/products/?connectid=089EAF947B7A0B3C896E&adspace=1916212&programs=15900&items=500&page=';
 
 		var $produto = array();
 
@@ -13,9 +13,54 @@
 		
 		var $black_list_categories = array('Infantil');
 
+		var $xml_esparso = true;
+
 		public function Zattini(){
 			parent::__construct();
 			$this->loja = 'zattini';
+
+		}
+
+		/*
+		* Funcao para retornar url do sistema de afiliados
+		* caso a pagina seja -1 retorna sem a paginacao
+		*/
+		public function getXmlUrl( $page = 0 ) {
+
+			if( $page < 0 OR $this->single_page ){
+				return $this->xml_url;
+			}else{
+				$this->xml_url = 'xmls/xml_part/'.$this->loja. '/'.$this->loja.'-'.$page.'.xml';	
+				return $this->xml_url;
+			}	
+			
+		}
+
+		public function load_xml_page($page) {
+			// obtem xml da pagina
+			$str = file_get_contents( $this->getXmlUrl($page) );
+			$xml = simplexml_load_string($str);
+			$str = explode("\n", $str);
+
+			if (!$xml) {
+			    $errors = libxml_get_errors();
+
+			    foreach ($errors as $error) {
+			        echo display_xml_error($error, $str);
+			    }
+
+			    libxml_clear_errors();
+			    return false;
+
+			}else{
+
+				// Converte para array
+				$json = json_encode($xml);
+				$array = json_decode($json,TRUE);
+
+				// Coloca o xml convertido para array o obj padrao
+				$this->xml_em_array = $array;
+			}
 		}
 
 		public function setCategory(){

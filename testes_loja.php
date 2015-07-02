@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 	ini_set('upload_max_filesize','3000M');
 	ini_set('max_execution_time', 0);
@@ -21,143 +21,69 @@
 
 		libxml_use_internal_errors(true);
 
-	// Função para procura várias palavras em uma string
-	function procpalavras ($frase, $palavras, $resultado = 0) {
-		foreach ( $palavras as $key => $value ) {
-		 	$pos = stripos($frase, $value);
-		  	if ($pos !== false) {
-		  	 	$resultado = 1;
-		  	 	break;
-		  	}
-		} 
-		return $resultado;
-	}	
-
-	$arrPalavra = array('infantil','inf');
-
-		//$linkProduto = "http://www.uselets.com.br/40000--shorts-recortes-mix?utm_source=city&utm_medium=TextLink&prx=1827898688&aip=3zaF&click_id=2CfZ1GG3lAZmnvU";
-		$linkProduto = "http://www.uselets.com.br/48118--vestido-com-paete?utm_source=city&utm_medium=TextLink&prx=1828223404&aip=3zaF&click_id=2CfZ1GGahwZqHaA";
-		$html = file_get_html($linkProduto);
+		/*$loja = 'zattini';	
+		$i = 0;
+		$url = 'xmls/xml_part/'.$loja. '/'.$loja.'-'.$i.'.xml';
 		
+		$str = file_get_contents($url);
 
-		$teste = procpalavras('Cueca Boxer Infantil', $arrPalavra);
-
-
-		echo $teste;
-die();
-
-	$bread_crumb = $html->find('div#breadcrumb',0)->find('a',1)->title;
-	echo $bread_crumb; die();//'<pre>';print_r($bread_crumb);die();
-
-
-	/*if(!empty($bread_crumb)) {
-		foreach($this->html->find('ul',0)->find('a',1) as $value) {
-			
-			$categoria[] = trim($value->title);
-			
-		}
-		$categoria = implode("|", $categoria);
-		$categoria = ltrim($categoria,"|");
-		$this->produto['categoria'] = $categoria;
+		$zt_xml =  simplexml_load_string($str);
+		$total = ceil($zt_xml->total/$xml->items);
+		
 		die();*/
 
-		//echo highlight_string($html->find('script',28));die();		
+		$urlXml = 'http://api.zanox.com/xml/2011-03-01/products/?connectid=089EAF947B7A0B3C896E&adspace=1916212&programs=15900&items=500&page=0';		
 
-		/*$script_g = get_string_between($html->find('script',28), "=[{", "}]", 2);
-		echo  $script_g; die();
-*/
-		$script = array();
-		$script_p = '[{';
-		$script_p .= get_string_between($html->find('script',28), "=[{", "}]", 1);
-		$script_p .= '}]';
-		$script_p = json_decode($script_p, true);
+		$loja = 'zattini';		
 
-		$script_m = '[{';
-		$script_m .= get_string_between($html->find('script',28), "=[{", "}]", 2);
-		$script_m .= '}]';
-		
-		$script_m = json_decode($script_m, true);
+		$xml = simplexml_load_string(get_content($urlXml));
 
-		$script_g = '[{';
-		$script_g .= get_string_between($html->find('script',28), "=[{", "}]", 3);
-		$script_g .= '}]';
-		$script_g = json_decode($script_g, true);
-		
-		$scripts []= $script_p;
-		$scripts []= $script_m;
-		$scripts []= $script_g;
+		$total = ceil($xml->total/$xml->items);
 
-		echo '<pre>';print_r($scripts); die();
-
-
-		foreach ($scripts as  $script) {
-			foreach ($script as $value) {
-
-				if ($value['stock']) {
-					echo "id: ". $value['id']."<br>";
-					echo "Cor: " . $value['color']."<br>";
-					echo "Tamanho: " . $value['size']."<br>";
-					echo "stock: " . $value['stock']."<br>";
-				}
-			}
-			//echo '<pre>';print_r($value);die();
-		}
-//	die();
-
-
-
-		echo '<pre>';print_r($scripts); die();
-
-
-
-
-
-		//echo $html->find('nav#listItemSizes',0)->find('a',0);
-		/*$i = 1;
-		$script = "";
-		foreach ($html->find('script') as  $value) {
+		$i = 209;
+		while ( $i < $total ) {
 			
-			echo "script ". $i."<br>";
-			print( highlight_string($value));	
-			$i++;
-		}*/
+			$url = 'http://api.zanox.com/xml/2011-03-01/products/?connectid=089EAF947B7A0B3C896E&adspace=1916212&programs=15900&items=500&page='.$i;
+			$page_xml = simplexml_load_string(get_content($url));			
 
-
-
-		$script = get_string_between($html->find('script',28), "sP=", "sM=");
-		$script = substr(trim($script), 0, -1);
-
-		$arrScript = json_decode($script, true);
-
-		foreach ($arrScript as  $value) {
-			if ($value['stock']) {
-				echo "id: ". $value['id']."<br>";
-				echo "Cor: " . $value['color']."<br>";
-				echo "Tamanho: " . $value['size']."<br>";
-			}
+			 if($page_xml->asXML('xmls/xml_part/'.$loja. '/'.$loja.'-'.$i.'.xml')){
+			 	echo 'importado<br>';
+			 }
+			 $i++;
+			 echo 'página: '.$i."<br>";
 		}
+		echo 'terminou.';
 
 
 
 
-		die();
-		echo '<pre>'; print_r($arrScript);
-		die();
-		$script = get_string_between($html->find('script',28), "sM=", "sG=");
-		$script = substr(trim($script), 0, -2);
 
-		$script = get_string_between($html->find('script',28), "sG=", "$(document)");
-		$script = substr(trim($script), 0, -2);
+
+
+		/*$new_xml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?<productItems></productItems>');
+		*/
+	 	 
+
+	
+die();
+
 		
-
-
-
+		
+	/*	
+		foreach ($xml->children() as $value) {
+			
+			echo $value->getName()."<br>";
+		
+			
+		}
+		die();
+*/
 
 /* Testes Marcyn */
 
 
 	//$link_produto = "http://www.ray-ban.com/brazil/graduados/gradplp/rb5245_167065?par=zanox&skuId=805289517535";
-	$link_produto = "http://www.marcyn.com.br/biquini-basico-band/p?idsku=511564&utm_source=Afilio&utm_campaign=xml1&utm_medium=cpa";
+	/*$link_produto = "http://www.marcyn.com.br/biquini-basico-band/p?idsku=511564&utm_source=Afilio&utm_campaign=xml1&utm_medium=cpa";
 
 	$html = file_get_html($link_produto);
 
@@ -199,7 +125,7 @@ if(count($arr) > 0){
 	echo "cor: ".$cores;
 
 
-
+*/
 
 
 
