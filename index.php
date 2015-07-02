@@ -88,7 +88,10 @@
 		}
 		foreach ($products_list as $key => $produto) {
 			// if( PADRAO == 'zattini'){
-			if( $conf_flag !== NULL AND $key >= $conf_flag) {break;}
+			if( $conf_flag !== NULL AND $key >= $conf_flag) {
+				$logger->info('['.PADRAO.'] Importacao interrompida pela flag');
+				break;
+			}
 			// }
 			######################
 			## Loop de Produtos ##
