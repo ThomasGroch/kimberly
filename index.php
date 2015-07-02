@@ -30,8 +30,8 @@
 	* Ex.: amaro olook
 	*/
 
-	$conf_padrao = ( isset($argv[1]) ) ? $argv[1] : null;
-	$conf_flag = ( isset($argv[2]) ) ? $argv[2] : null;
+	$conf_padrao = ( isset($argv[0]) ) ? $argv[0] : null;
+	$conf_flag = ( isset($argv[1]) ) ? $argv[1] : null;
 	$conf_padrao = ( isset($_GET['padrao']) ) ? $_GET['padrao'] : $conf_padrao;
 	$conf_padrao = ( isset($_GET['flag']) ) ? $_GET['flag'] : $conf_flag;
 	if(empty($conf_padrao)){
