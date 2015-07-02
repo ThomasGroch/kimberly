@@ -36,7 +36,6 @@
 	$conf_padrao = ( isset($_GET['flag']) ) ? $_GET['flag'] : $conf_flag;
 	if(empty($conf_padrao)){
 		echo 'Informe o padrao desejado';
-		$logger->info('Informe o padrao desejado');
 		exit;
 	}
 	define('PADRAO', $conf_padrao);
