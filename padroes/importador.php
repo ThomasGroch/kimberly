@@ -121,6 +121,7 @@ class Importador {
 		$url_verdadeira = $this->getProductUrl();
 		if( ! $url_verdadeira ) {
 			// Nao foi possivel obter link verdadeiro
+			$this->logger->info('['.PADRAO.'][Skip] Link verdadeiro quebrado');
 			return false;
 		}
 		$this->link_do_produto = testHeader( $url_verdadeira );

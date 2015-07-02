@@ -61,15 +61,16 @@
 			$cor_as = $this->html->find('a.attr-name');
 			if( ! $cor_as ) {
 				$this->logger->info('['.PADRAO.'][Warning] Nao foi foi possivel encontrar cores');
+			}else{
+				foreach( $cor_as as $a){
+					if( strpos($a->class, 'unavailable') ){
+						continue;
+					}
+					$cores .= trim($a->plaintext).'|';
+				}
+				$cores = substr($cores, 0, -1);
 			}
 
-			foreach( $cor_as as $a){
-				if( strpos($a->class, 'unavailable') ){
-					continue;
-				}
-				$cores .= trim($a->plaintext).'|';
-			}
-			$cores = substr($cores, 0, -1);
 			$this->produto['core'] = $cores;
 
 			// Obtem marca
