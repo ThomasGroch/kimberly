@@ -20,6 +20,7 @@
 		}
 
 		public function setProduct($produto){
+			parent::setProduct($produto);
 			$this->produto = $produto;
 			// Seta categoria
 			$this->setCategory();

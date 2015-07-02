@@ -155,4 +155,16 @@ function get_string_between($string, $start, $end='', $numero = 1){
         return "$return\n\n--------------------------------------------\n\n";
     }
 
+function my_json_decode($s) {
+    $s = str_replace(
+        array('"',  "'"),
+        array('\"', '"'),
+        $s
+    );
+    $s = preg_replace('/(\w+):/i', '"\1":', $s);
+    //echo sprintf('{%s}', $s);exit;
+    $res = preg_replace('/(\w+):/i', '"\1":', $s);
+    return json_decode($res, true);
+}
+
 ?>

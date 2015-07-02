@@ -19,6 +19,10 @@ class Importador {
 		$this->logger = $logger;
 	}
 
+	public function setProduct($produto){
+		unset( $this->produto['properties'] );
+	}
+
 	/*
 	* Funcao para retornar url do sistema de afiliados
 	* caso a pagina seja -1 retorna sem a paginacao
@@ -81,8 +85,8 @@ class Importador {
 		// White List filter
 		// Se a categoria principal NÃO estiver na lista branca de categorias
 		// retorna falso
-		if( ! in_array($categoria_principal, $this->white_list_categories ) AND
-			! empty($this->white_list_categories) ){
+		if( ! in_array($categoria_principal, $this->white_list_category ) AND
+			! empty($this->white_list_category) ){
 		
 			$this->logger->info('['.PADRAO.'][Skip] Category WhiteList Filter > '.$categoria_principal);
 			return false;
@@ -153,9 +157,10 @@ class Importador {
 		}
 
 		// Obtem loja
-		if(empty($this->produto['loja']))
+		if( empty($this->produto['loja']) ){
 			$this->produto['loja'] = get_class($this);
-
+		}
+		return true;
 	}
 
 }

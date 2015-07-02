@@ -1,9 +1,9 @@
 <?php
 	require __DIR__ . '/cityads.php';
 
-	Class Amomuito extends Cityads {
+	Class Wqsurf extends Cityads {
 
-		var $xml_url = 'http://api.cityads.com/api/rest/webmaster/xml/goods?remote_auth=e2f6b2dd8b899aed22134a3602d3fe27&filter=NDQ5NjM5OTA1&limit=1000&start=';
+		var $xml_url = 'http://api.cityads.com/api/rest/webmaster/xml/goods?remote_auth=e2f6b2dd8b899aed22134a3602d3fe27&filter=NDQ5NjM5NzQ1&limit=1000&start=';
 
 		var $produto = array();
 
@@ -14,10 +14,10 @@
 		var $black_list_category = array();
 
 
-		public function Amomuito(){
+		public function Wqsurf(){
 			parent::__construct();
-			$this->loja = 'Amo Muito';
-			$this->marca = 'Amo Muito';
+			$this->loja = 'WQ Surf';
+			$this->marca = 'WQ Surf';
 		}
 
 		public function setProduct($produto){
@@ -36,25 +36,43 @@
 			if( ! parent::prepare() ){ return false; }
 			
 			// Checar disponibilidade
-			$p_estoque = $this->html->find('p#quantity_wanted_p', 0)->style;
-			if( $p_estoque == 'display: none;' ) {
+			$link_estoque = $this->html->find('link[itemprop="availability"]', 0);
+			if( ! $link_estoque OR 
+				! $link_estoque->find('span')->plaintext != 'Em estoque' ) {
 				// Indisponivel
 				$this->logger->info('['.PADRAO.'][Skip] Produto nao disponivel');
 				return false;
 			}
 
+			// Obtem tamanhos
+			$this->getSize();
+
 			// Obtem descricao
-			$descricao = $this->html->find('div[id="maisinfo"]',0)->plaintext;
-			$descricao = trim($descricao);
-			$descricao = str_replace('DETALHES DO PRODUTO', '', $descricao);
+			$descricao = $this->html->find('span[itemprop="description"]',0)->plaintext;
 			$descricao = trim($descricao);
 			$descricao = str_replace('  ', '', $descricao);
 			
-			$this->produto['descricao'] = $descricao;
+			$this->produto['descricao'] = html_entity_decode($descricao);
 
 			// Produto Tratado com sucesso
 			return true;
 		}
+
+		public function getSize() {
+			$tamanho = '';
+			$json_size = get_string_between($this->html, '"options":', '}]}');
+			if( $json_size ){
+				// Produto tem tamanho
+				$json_size = $json_size.'}]';
+				$size_arr = json_decode($json_size);
+				foreach( $size_arr as $size_obj) {
+					$tamanho .= trim($size_obj->label) . '|';
+				}
+				$tamanho = substr($tamanho, 0, -1);
+			}
+			$this->produto['tamanho'] = $tamanho;
+		}
+
 
 		public function getCategory(){
 			return $this->produto['category'];

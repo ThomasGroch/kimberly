@@ -15,13 +15,13 @@
 
 
 		public function prepare(){
-			parent::prepare();
+			if( ! parent::prepare() ){ return false; }
 
 			print_r($this->produto);die();
 		}
 
 		public function setProduct($produto){
-
+			parent::setProduct($produto);
 			$this->produto = $produto;
 
 		}

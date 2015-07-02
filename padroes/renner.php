@@ -31,7 +31,7 @@
 		// Nessa loja todos dados extras sempre estao disponiveis
 		// entao, caso nao encontre algum dado do produto ele sera descartado
 		public function prepare(){
-			parent::prepare();
+			if( ! parent::prepare() ){ return false; }
 			
 			$titulo = $this->produto['name'];
 			if( stripos($titulo, 'Anos') OR
@@ -47,12 +47,12 @@
 			$this->getSize();
 
 			// Obtem cor
-			//$this->getColor();
+			$this->getColor();
 
 			// Obtem Marca
-			$marca = get_string_between($this->html, 'pageProductBrand":"', '","');
-			$this->produto['marca'] = $marca;
-
+			//$marca = get_string_between($this->html, 'pageProductBrand":"', '","');
+			//$this->produto['marca'] = $marca;
+			
 			// Produto Tratado com sucesso
 			return true;
 		}
@@ -60,13 +60,11 @@
 
 		public function getColor() {
 			$cor = '';
-			if ($this->html->find('div[data-codigoatributo="158"]')) {
-				foreach ($this->html->find('div[data-codigoatributo="158"]',0)->find('div') as $value) {
-					if( strpos($value->class, 'disabled') ){
-						continue;
-					}
+			$color_div = $this->html->find('div.skuColorsList', 0);
+			if ( $color_div ) {
+				foreach( $color_div->find('label[class="inptRadio"]') as $label ){
 					// Cor encontrada
-					$cor .= trim($value->getAttribute('data-valoratributo')).'|';
+					$cor .= trim($label->name).'|';
 				}
 			}
 			$this->produto['cor'] = $cor;

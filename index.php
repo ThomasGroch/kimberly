@@ -88,12 +88,14 @@
 		}
 		foreach ($products_list as $key => $produto) {
 			// if( PADRAO == 'zattini'){
-			//	if($key > 15) {break;}
+			//if($key > 15) {break;}
 			// }
 			######################
 			## Loop de Produtos ##
 			######################
 			$logger->info('['.PADRAO.'][Pag '.$page.'/'.$last_page.'][Produto '.$key.']');
+			// $cats[] = $produto['category'];
+			// continue;
 			// Informa o produto no qual sera processado
 			$importador->setProduct($produto);
 
@@ -121,7 +123,7 @@
 			 // 	break;
 			 // }
 		}
-		break;
+		//break;
 
 		if($importador->xml_esparso){
 		 	
@@ -142,7 +144,7 @@
 		// Próxima página
 		$page++;
 	}
-
+// print_r(array_unique($cats) );
 // Mostra resultado da importacao
 $logger->info('['.PADRAO.']Resultado: '.Contador::write('Completo').Contador::write('Invalido').Contador::write('Incompleto') );
 

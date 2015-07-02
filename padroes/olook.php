@@ -25,7 +25,7 @@
 		*/
 		public function prepare(){
 
-			parent::prepare();
+			if( ! parent::prepare() ){ return false; }
 
 			//Verifica se o produto está indisponível.
 			if($this->html->find('p.out')){ 

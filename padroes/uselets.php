@@ -117,13 +117,12 @@
 		// entao, caso nao encontre algum dado do produto ele sera descartado
 		public function prepare(){
 
-
 			if (procpalavras($this->produto['name'], $this->palavra_restrita)) {
 				$this->logger->info('['.PADRAO.'][Skip] Produto sem interesse');
 				return false;
 			}
 
-			parent::prepare();
+			if( ! parent::prepare() ){ return false; }
 			
 			if(!$this->html){
 				$this->logger->info('['.PADRAO.'][Skip] HTML do produto nao disponivel');
