@@ -21,6 +21,44 @@
 
 		libxml_use_internal_errors(true);
 
+
+
+		$doc1 = new DOMDocument();
+		$doc1->load('xmls/zattini-2015-07-02-11-00-39.xml');
+
+		$doc2 = new DOMDocument();
+		$doc2->load('xmls/zattini-2015-07-02-11-04-13.xml');
+
+		// get 'res' element of document 1
+		$res1 = $doc1->getElementsByTagName('products')->item(0); //edited res - items
+
+		
+		// iterate over 'item' elements of document 2
+		$items2 = $doc2->getElementsByTagName('item');
+		for ($i = 0; $i < $items2->length; $i ++) {
+		    $item2 = $items2->item($i);
+
+		    // import/copy item from document 2 to document 1
+		    $item1 = $doc1->importNode($item2, true);
+
+		    // append imported item to document 1 'res' element
+		    $res1->appendChild($item1);
+
+		}
+		//$errors = libxml_get_errors();
+
+		$doc1->save('./xmls/merged.xml'); //edited -added saving into xml file
+
+
+		die();
+
+
+
+
+
+
+
+
 		/*$loja = 'zattini';	
 		$i = 0;
 		$url = 'xmls/xml_part/'.$loja. '/'.$loja.'-'.$i.'.xml';
@@ -32,7 +70,12 @@
 		
 		die();*/
 
-		$urlXml = 'http://api.zanox.com/xml/2011-03-01/products/?connectid=089EAF947B7A0B3C896E&adspace=1916212&programs=15900&items=500&page=0';		
+
+
+
+		/* particionar xml */
+
+		/*$urlXml = 'http://api.zanox.com/xml/2011-03-01/products/?connectid=089EAF947B7A0B3C896E&adspace=1916212&programs=15900&items=500&page=0';		
 
 		$loja = 'zattini';		
 
@@ -55,6 +98,9 @@
 		echo 'terminou.';
 
 
+		*/
+
+
 
 
 
@@ -69,15 +115,7 @@ die();
 
 		
 		
-	/*	
-		foreach ($xml->children() as $value) {
-			
-			echo $value->getName()."<br>";
-		
-			
-		}
-		die();
-*/
+	
 
 /* Testes Marcyn */
 

@@ -128,7 +128,7 @@
 		if($importador->xml_esparso){
 		 	
 			// Mostra resultado da importacao
-			$logger->info('['.PADRAO.']Resultado: '.Contador::write('Completo').Contador::write('Invalido').Contador::write('Incompleto') );
+			$logger->info('['.PADRAO.']Resultado Página : '.$page.' '.Contador::write('Completo').Contador::write('Invalido').Contador::write('Incompleto') );
 			$importador->save_xml_products( $processed_products );
 
 		}else{
