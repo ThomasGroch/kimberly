@@ -36,6 +36,7 @@
 			// <a href="?color=COR_1000">Marrom-Claro</a>
 			//return $this->html->find('a[href="?color=' . $color_id . '"]', 0)->plaintext;
 		}
+		
 		/*
 		* Funcao para capturar dados extras
 		* Entrada: array de um produto
@@ -48,7 +49,14 @@
 			
 			// Checar disponibilidade
 			//var_dump($this->link_do_produto);
-			$json = get_string_between($this->html, '// product data, lists of "color", "flavor", "size", "voltage"', '$("#notifyMe").click(function(){');
+			$json = get_string_between($json, '// product data, lists of "color", "flavor", "size", "voltage"', '$("#notifyMe").click(function(){');
+
+			// $json = preg_replace(
+			// 	    '@(/\*([^*]|[\r\n]|(\*+([^*/]|[\r\n])))*\*+/)|((?<!:)//.*)|[\t\r\n]@i',
+			// 	    '', $json);
+
+
+
 //			$json = get_string_between($json, 'items: ', ']         }       });');
 
 			// Tenta tirar comentarios

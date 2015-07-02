@@ -27,4 +27,17 @@
 				$this->produto['trackingLinks']['trackingLink']['ppc'] = $link_produto;
 			}
 		}
+
+		/*
+		* Funcao para capturar dados extras
+		* Entrada: array de um produto
+		* Saida: array de um produto + campos extras
+		*/
+		// Nessa loja todos dados extras sempre estao disponiveis
+		// entao, caso nao encontre algum dado do produto ele sera descartado
+		public function prepare(){
+			if( ! parent::prepare() ){ return false; }
+			return false;
+		}
+
 	}
