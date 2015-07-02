@@ -31,10 +31,13 @@
 	*/
 
 	$conf_padrao = ( isset($argv[1]) ) ? $argv[1] : null;
+	$conf_flag = ( isset($argv[2]) ) ? $argv[2] : null;
 	$conf_padrao = ( isset($_GET['padrao']) ) ? $_GET['padrao'] : $conf_padrao;
+	$conf_padrao = ( isset($_GET['flag']) ) ? $_GET['flag'] : $conf_flag;
 	if(empty($conf_padrao)){
 		echo 'Informe o padrao desejado';
 		$logger->info('Informe o padrao desejado');
+		exit;
 	}
 	define('PADRAO', $conf_padrao);
 	define('PADRAO_UC', ucfirst($conf_padrao));
@@ -85,16 +88,17 @@
 		}
 		foreach ($products_list as $key => $produto) {
 			// if( PADRAO == 'zattini'){
-			//if($key > 15) {break;}
+			if( $conf_flag !== NULL AND $key >= $conf_flag) {break;}
 			// }
 			######################
 			## Loop de Produtos ##
 			######################
 			$logger->info('['.PADRAO.'][Pag '.$page.'/'.$last_page.'][Produto '.$key.']');
-			// $cats[] = $produto['category'];
-			// continue;
 			// Informa o produto no qual sera processado
 			$importador->setProduct($produto);
+			
+			// $cats[] = $importador->getCategory();
+			// continue;
 
 			// Validação
 			if( ! $importador->validate() ){
@@ -120,7 +124,7 @@
 			 // 	break;
 			 // }
 		}
-		//break;
+		if( $conf_flag !== NULL AND $key >= $conf_flag) {break;}
 
 		//Flag para rodar 2 paginas
 		 // if ( $page >= 1 ){
