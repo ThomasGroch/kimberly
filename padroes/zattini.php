@@ -15,7 +15,11 @@
 
 		public function Zattini(){
 			parent::__construct();
-			$this->loja = 'zattini';
+		}
+
+		public function setProduct() {
+			parent::setProduct();
+			$this->produto['loja'] = 'Zattini';
 		}
 
 		public function setCategory(){

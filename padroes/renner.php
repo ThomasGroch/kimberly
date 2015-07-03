@@ -16,11 +16,11 @@
 
 		public function Renner(){
 			parent::__construct();
-			$this->loja = 'Renner';
 		}
 
 		public function setProduct($produto){
 			parent::setProduct($produto);
+			$this->produto['loja'] = 'Renner';
 		}
 
 		/*

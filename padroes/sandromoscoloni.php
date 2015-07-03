@@ -16,11 +16,11 @@
 
 		public function Sandromoscoloni(){
 			parent::__construct();
-			$this->loja = 'Sandro Moscoloni';
 		}
 
 		public function setProduct($produto){
 			parent::setProduct($produto);
+			$this->produto['loja'] = 'Sandro Moscoloni';
 
 			// Trata o nome
 			// $nome = explode('-', $this->produto['name'] );

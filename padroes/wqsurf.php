@@ -16,12 +16,12 @@
 
 		public function Wqsurf(){
 			parent::__construct();
-			$this->loja = 'WQ Surf';
-			$this->marca = 'WQ Surf';
 		}
 
 		public function setProduct($produto){
 			parent::setProduct($produto);
+			$this->produto['loja'] = 'WQ Surf';
+			$this->produto['marca'] = 'WQ Surf';
 			unset( $this->produto['text'] );
 		}
 

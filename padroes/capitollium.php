@@ -16,7 +16,6 @@
 
 		public function Capitollium(){
 			parent::__construct();
-			$this->loja = 'Capitollium';
 		}
 
 		public function setProduct($produto){
@@ -27,6 +26,7 @@
 			$nome = array_slice($nome, 0,-1);
 			$nome = implode('-', $nome);
 			$this->produto['name'] = $nome;
+			$this->produto['loja'] = 'Capitollium';
 		}
 
 		/*

@@ -16,13 +16,13 @@
 
 		public function Amomuito(){
 			parent::__construct();
-			$this->loja = 'Amo Muito';
-			$this->marca = 'Amo Muito';
 		}
 
 		public function setProduct($produto){
 			parent::setProduct($produto);
 			unset( $this->produto['text'] );
+			$this->produto['loja'] = 'Amo Muito';
+			$this->produto['marca'] = 'Amo Muito';
 		}
 
 		/*
