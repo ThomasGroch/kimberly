@@ -133,7 +133,18 @@ function my_json_decode($s) {
     $s = preg_replace('/(\w+):/i', '"\1":', $s);
     //echo sprintf('{%s}', $s);exit;
     $res = preg_replace('/(\w+):/i', '"\1":', $s);
+    var_dump($res);
     return json_decode($res, true);
+}
+
+function a_or_b_is_null($a = NULL, $b = NULL, $default = NULL) {
+    if( ! is_null($a) ){
+        return $a;
+    }
+    if( ! is_null($b) ){
+        return $b;
+    }
+    return $default;
 }
 
 ?>

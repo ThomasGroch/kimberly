@@ -24,16 +24,26 @@
 
 	
 	/*
-	* Carrega padrao que será usado
-	* Se for passado pelo primeiro parametro no terminal usa argv[1]
-	* ou passado pelo GET[padrao] usa GET[padrao]
-	* Ex.: amaro olook
+	* Parametros de configuracao do Indexador Kimberly
+	* 1. nomedaloja
+	* 2. start_page 	( numero da pagina que ira iniciar )
+	* 3. start_step		( numero do produto no qual ira comecar )
+	* 4. end_page 		( numero da pagina que ira iniciar )
+	* 5. end_step		( numero do produto no qual ira comecar )
+	*
+	* Ex.: php index.php amaro 2 3 4 5
+	* Nesse exemplo ira indexar da pagina 2 a partir do terceiro produto 
+	* e ira parar na pagina 4 no quinto produto
 	*/
 
 	$conf_padrao = ( isset($argv[1]) ) ? $argv[1] : null;
-	$conf_flag = ( isset($argv[2]) ) ? $argv[2] : null;
 	$conf_padrao = ( isset($_GET['padrao']) ) ? $_GET['padrao'] : $conf_padrao;
-	$conf_flag = ( isset($_GET['flag']) ) ? $_GET['flag'] : $conf_flag;
+
+	$conf_start_page = a_or_b_is_null( $argv[2], $_GET['start_page'], 0 );
+	$conf_start_step = a_or_b_is_null( $argv[3], $_GET['start_step'] );
+	$conf_end_page   = a_or_b_is_null( $argv[4], $_GET['end_page'] );
+	$conf_end_step   = a_or_b_is_null( $argv[5], $_GET['end_step'] );
+
 	if(empty($conf_padrao)){
 		echo 'Informe o padrao desejado';
 		exit;
@@ -41,6 +51,10 @@
 	define('PADRAO', $conf_padrao);
 	define('PADRAO_UC', ucfirst($conf_padrao));
 
+	echo '======================================'.PHP_EOL;
+	echo 'Inicio: '.$conf_start_step.'/'.$conf_start_page.PHP_EOL;
+	echo 'Fim: '.$conf_end_step.'/'.$conf_end_page.PHP_EOL;
+	echo '======================================'.PHP_EOL;
 	/*
 	* Carrega o logger
 	* https://github.com/wasinger/simplelogger
@@ -50,7 +64,7 @@
 
 	require __DIR__ . '/padroes/'.PADRAO.'.php';
 
-	$page = 0;
+	$page = $conf_start_page;
 	$last_page = 1;
 
 	// Array de produtos processados
@@ -58,13 +72,14 @@
 
 	while ($page <= $last_page ) {
 
-		// if( PADRAO == 'zattini'){
-		// 	if($page < 10) { $page = 210;}
-		// 	if($page > 211) {break;}
-		// }
 		######################
 		## Loop de Paginas  ##
 		######################
+
+		if( $conf_start_page !== NULL AND $page < $conf_start_page ) {
+			$page = $conf_start_page;
+			$logger->info('['.PADRAO.']Pulando para pagina #'. $page .' pela flag');
+		}
 
 		// Instancia um novo produto
 		$temp_var = PADRAO_UC;
@@ -85,22 +100,35 @@
 			$logger->info('Varredura terminada!');
 			break;
 		}
+
 		foreach ($products_list as $key => $produto) {
-			// if( PADRAO == 'zattini'){
-			if( $conf_flag !== NULL AND $key >= $conf_flag) {
-				$logger->info('['.PADRAO.']Importacao interrompida pela flag');
-				break;
-			}
-			// }
+			
 			######################
 			## Loop de Produtos ##
 			######################
+
+			// Comecar pelo produto especifico
+			if( $conf_start_page !== NULL AND $conf_start_step !== NULL AND
+				$page == $conf_start_page AND $key < $conf_start_step ){
+				$logger->info('['.PADRAO.']Pulando para produto #'. $key .' pela flag');
+				continue;
+			}
+			// Verifica se esta no ultimo produto
+			if( $conf_end_page !== NULL AND $conf_end_page == $page AND
+				$conf_end_step !== NULL AND
+				$key >= $conf_end_step ) {
+
+				$logger->info('Script interrompido pela Flag');
+				break;
+			}
+
 			$logger->info('['.PADRAO.'][Pag '.$page.'/'.$last_page.'][Produto '.$key.']');
 			// Informa o produto no qual sera processado
 			$importador->setProduct($produto);
 			
 			// $cats[] = $importador->getCategory();
 			// continue;
+
 
 			// Validação
 			if( ! $importador->validate() ){
@@ -122,17 +150,17 @@
 			Contador::add('Completo');
 
 			flush();
-			 // if($key >= 5){
-			 // 	break;
-			 // }
+			
+			
 		}
-		if( $conf_flag !== NULL AND $key >= $conf_flag) {break;}
 
-		//Flag para rodar 2 paginas
-		 // if ( $page >= 1 ){
-		 // 	$logger->info('Script interrompido pela Flag');
-		 // 	break;
-		 // }
+		// Verifica se esta na ultima pagina
+		if( $conf_end_page !== NULL AND
+			$page >= $conf_end_page ) {
+			
+			$logger->info('Script interrompido pela Flag');
+			break;
+		}
 
 		// Próxima página
 		$page++;
