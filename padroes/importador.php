@@ -139,7 +139,8 @@ class Importador {
 	*/
 	public function prepare(){
 		// Obtem html
-		$this->html = str_get_html( get_content($this->link_do_produto) );
+		$this->html_raw = get_content($this->link_do_produto);
+		$this->html = str_get_html( $this->html_raw );
 
 		if( ! $this->html ){
 			$this->logger->info('['.PADRAO.'][Skip] HTML invalido > '.$this->link_do_produto);
