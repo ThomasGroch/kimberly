@@ -47,7 +47,6 @@
 			if( ! parent::prepare() ){ return false; }
 			
 			// Checar disponibilidade
-			var_dump($this->link_do_produto);
 			$json = get_string_between($this->html, 'photos:', '], ').']';
 			$json = my_json_decode($json);
 
